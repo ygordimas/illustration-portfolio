@@ -23,6 +23,7 @@ export default function Home() {
   const isOpen = currentImage != null;
 
   function handleClickOpenImage(index) {
+    console.log("clicked");
     setCurrentImage(illustrations[index]);
   }
 
@@ -46,7 +47,7 @@ export default function Home() {
   }
   return (
     <>
-      <div className="flex flex-col px-10 bg-amber-300">
+      <div className="h-full w-full flex flex-col align-center overflow-hidden bg-amber-300">
         <Head>
           <title>Ygor Dimas Portfolio</title>
           <meta
@@ -56,21 +57,35 @@ export default function Home() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <header className="flex justify-between items-center bg-purple-300 p-8">
+        <header className="w-full z-10 flex justify-between items-center bg-purple-300 p-8">
           <div>
             <h1>YGOR DIMAS</h1>
-            <h2>ILLUSTRATION & 3D ART PORTFOLIO</h2>
+            <h2>ILLUSTRATOR & 3D ARTIST</h2>
           </div>
 
-          <Link
-            href="#"
-            className="rounded-3xl bg-white text-stone-900 px-3 py-2 hover:bg-opacity-90"
-          >
-            Get In Touch
-          </Link>
+          <div>
+            <Link href="#" className="rounded-3xl text-stone-900 px-1 py-2">
+              Illustrations
+            </Link>
+            <Link href="#" className="rounded-3xl text-stone-900 px-1 py-2">
+              Game Art
+            </Link>
+            <Link
+              href="/about"
+              className="rounded-3xl text-stone-900 px-1 py-2"
+            >
+              About
+            </Link>
+            <Link
+              href="/contact"
+              className="rounded-3xl bg-white text-stone-900 ml-3 px-3 py-2 hover:bg-opacity-90"
+            >
+              Get In Touch
+            </Link>
+          </div>
         </header>
 
-        <main className="grow bg-violet-200">
+        <main className="flex flex-col overflow-auto bg-violet-100">
           {/* <div className="text-center p-10">
           <h2 className="text-5xl py-2 text-purple-600 font-medium">
             Ygor Dimas
@@ -86,13 +101,12 @@ export default function Home() {
             illustrations={illustrations}
             handleClickOpenImage={handleClickOpenImage}
           />
+          <footer className="h-[60px] bg-purple-300 text-5xl flex justify-center gap-16 py-3 text-gray-600">
+            <AiFillTwitterCircle />
+            <AiFillLinkedin />
+            <AiFillInstagram />
+          </footer>
         </main>
-
-        <footer className="h-[60px] bg-purple-300 text-5xl flex justify-center gap-16 py-3 text-gray-600">
-          <AiFillTwitterCircle />
-          <AiFillLinkedin />
-          <AiFillInstagram />
-        </footer>
       </div>
 
       {isOpen && (
