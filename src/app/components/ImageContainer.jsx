@@ -10,6 +10,7 @@ export default function ImageContainer({ image, onClick }) {
     <button
       className="group rounded-sm overflow-hidden"
       onClick={() => onClick()}
+      key={image.id}
     >
       <Image
         src={image.src}
