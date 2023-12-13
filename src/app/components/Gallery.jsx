@@ -13,8 +13,8 @@ export default function Gallery({ illustrations, handleClickOpenImage }) {
   ));
 
   return (
-    <div className="p-2">
-      <Masonry breakpointCols={3} className="flex gap-2" columnClassName="">
+    <div className="px-10">
+      <Masonry breakpointCols={3} className="flex gap-10" columnClassName="">
         {items}
       </Masonry>
     </div>

@@ -1,4 +1,4 @@
-import { Inter, Poppins } from "next/font/google";
+import { Poppins, Lora } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
 import Link from "next/link";
@@ -15,6 +15,12 @@ const mainfont = Poppins({
   variable: "--font-mainfont",
 });
 
+const secondaryfont = Lora({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-secondaryfont",
+});
+
 export const metadata = {
   title: "Ygor Dimas Portfolio",
   description: "Illustration and 3D art Portfolio by Ygor Dimas",
@@ -23,8 +29,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${mainfont.variable} font-mainfont`}>
-        <div className="h-full w-full flex flex-col align-center overflow-hidden bg-amber-300">
+      <body
+        className={`${mainfont.variable} ${secondaryfont.variable} font-secondaryfont`}
+      >
+        <div className="h-full w-full flex flex-col align-center overflow-hidden bg-secondary-50">
           <Head>
             <title>Ygor Dimas Portfolio</title>
             <meta
@@ -36,10 +44,10 @@ export default function RootLayout({ children }) {
 
           <Navbar />
 
-          <main className="flex flex-col grow overflow-auto bg-violet-100">
+          <main className="flex flex-col items-center grow overflow-auto">
             <div className="grow">{children}</div>
 
-            <footer className="h-[60px] bg-purple-300 text-5xl flex justify-center gap-16 py-3 text-gray-600">
+            <footer className="h-[60px] w-full bg-purple-300 text-xl flex justify-center  gap-16 py-3 text-gray-600">
               <AiFillTwitterCircle />
               <AiFillLinkedin />
               <AiFillInstagram />

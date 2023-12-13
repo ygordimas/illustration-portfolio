@@ -3,13 +3,23 @@ import { v4 as uuidv4 } from "uuid";
 export const illustrations = [
   {
     id: uuidv4(),
+    path: "like-a-cannonball",
+    type: "Cover Artwork",
     src: "/ALBIN/likeacannonball.png",
     alt: 'Cover artwork for Albin\'s "Like A Cannonball"',
+    description: `Digital illustration for Albin's music single "Like A Cannonball".`,
     width: 1024,
     height: 1024,
+    tools: [
+      "Blender 3D",
+      "Substance Designer",
+      "Substance Painter",
+      "Adobe Photoshop",
+    ],
   },
   {
     id: uuidv4(),
+    type: "Single Cover Art",
     src: "/ALBIN/loveinslowmotion.png",
     alt: 'Cover artwork for Albin\'s "Love in Slow Motion"',
     width: 1024,
@@ -17,6 +27,7 @@ export const illustrations = [
   },
   {
     id: uuidv4(),
+    type: "Editorial Illustration",
     src: "/APWOT/apwot_0.png",
     alt: "8 pages spread editorial illustration for A Profound Waste of Time's issue 2",
     width: 1820,
@@ -24,6 +35,7 @@ export const illustrations = [
   },
   {
     id: uuidv4(),
+    type: "Editorial Illustration",
     src: "/APWOT/apwot_1.png",
     alt: "8 pages spread editorial illustration for A Profound Waste of Time's issue 2",
     width: 1581,
@@ -31,6 +43,7 @@ export const illustrations = [
   },
   {
     id: uuidv4(),
+    type: "Editorial Illustration",
     src: "/APWOT/apwot_2.png",
     alt: "8 pages spread editorial illustration for A Profound Waste of Time's issue 2",
     width: 1581,
@@ -38,6 +51,7 @@ export const illustrations = [
   },
   {
     id: uuidv4(),
+    type: "Editorial Illustration",
     src: "/APWOT/apwot_3.png",
     alt: "8 pages spread editorial illustration for A Profound Waste of Time's issue 2",
     width: 1581,
@@ -45,6 +59,7 @@ export const illustrations = [
   },
   {
     id: uuidv4(),
+    type: "Editorial Illustration",
     src: "/APWOT/apwot_4.png",
     alt: "8 pages spread editorial illustration for A Profound Waste of Time's issue 2",
     width: 1581,
@@ -52,6 +67,7 @@ export const illustrations = [
   },
   {
     id: uuidv4(),
+    type: "Bookmark Artwork",
     src: "/GAMESMASTER/bookmarks.png",
     alt: "Set of bookmark artwork for GamesMaster: A Oral History",
     width: 1309,
@@ -59,6 +75,7 @@ export const illustrations = [
   },
   {
     id: uuidv4(),
+    type: "Personal Artwork",
     src: "/BREAKFAST/breakfast.png",
     alt: "Personal study for a breakfast scene",
     width: 1448,
@@ -66,6 +83,7 @@ export const illustrations = [
   },
   {
     id: uuidv4(),
+    type: "Commissioned Artwork",
     src: "/CHASE/chase.png",
     alt: "Comissioned abstract artwork",
     width: 1024,
@@ -73,6 +91,7 @@ export const illustrations = [
   },
   {
     id: uuidv4(),
+    type: "Personal Artwork",
     src: "/TROPICALSCENE/tropicalscene.png",
     alt: "Personal study of a tropical scene",
     width: 1600,
@@ -80,6 +99,7 @@ export const illustrations = [
   },
   {
     id: uuidv4(),
+    type: "Digital Comic Strip",
     src: "/STELLA/stella.png",
     alt: "Digital comic strip for Stella",
     width: 1440,
@@ -87,6 +107,7 @@ export const illustrations = [
   },
   {
     id: uuidv4(),
+    type: "Personal Artwork",
     src: "/HELICOPTER/helicopter.png",
     alt: "Personal study of a helicopter",
     width: 1820,
