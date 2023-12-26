@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { AiOutlineArrowRight } from "react-icons/ai";
 
 export default function ContactForm() {
   const [name, setName] = useState("");
@@ -26,15 +27,19 @@ export default function ContactForm() {
   };
 
   return (
-    <form className="" action="" onSubmit={sendMail}>
-      <div className="w-full flex flex-col my-4">
-        <label htmlFor="name" className="font-bold text-gray-700">
+    <form
+      className="flex flex-col gap-2 w-[100vw] md:w-[75vw] xl:w-[50vw] text-xl text-accent-950 px-2"
+      action=""
+      onSubmit={sendMail}
+    >
+      <div className="w-full flex flex-col">
+        <label htmlFor="name" className="invisible w-0 h-0">
           Name
         </label>
         <input
           minLength={2}
           maxLength={60}
-          className=" border border-gray-100 text-black"
+          className="p-4 m-1 bg-white placeholder-primary-300 font-normal focus:outline-none focus:ring-accent-500 focus:ring-2"
           type="text"
           id="name"
           autoComplete="off"
@@ -43,16 +48,17 @@ export default function ContactForm() {
           onChange={(e) => {
             setName(e.target.value);
           }}
+          placeholder="Name"
         />
       </div>
-      <div className="w-full flex flex-col my-4">
-        <label htmlFor="email" className="font-bold text-gray-700">
+      <div className="w-full flex flex-col">
+        <label htmlFor="email" className="invisible w-0 h-0">
           Email
         </label>
         <input
           minLength={5}
           maxLength={120}
-          className=" border border-gray-100 text-black"
+          className="p-4 m-1 bg-white placeholder-primary-300 font-normal focus:outline-none focus:ring-accent-500 focus:ring-2"
           type="email"
           id="email"
           autoComplete="off"
@@ -61,10 +67,12 @@ export default function ContactForm() {
           onChange={(e) => {
             setEmail(e.target.value);
           }}
+          placeholder="E-mail"
         />
       </div>
-      <div className="w-full flex flex-col my-4">
-        <label htmlFor="message" className="font-bold text-gray-700">
+
+      <div className="w-full flex">
+        <label htmlFor="message" className="w-0 invisible">
           Message
         </label>
         <textarea
@@ -72,19 +80,24 @@ export default function ContactForm() {
           minLength={10}
           name="message"
           rows={4}
-          className="w-full p-4 bg-gray-50 border border-gray-100 text-black"
+          className="p-4 m-1 bg-white placeholder-primary-300 font-normal focus:outline-none focus:ring-accent-500 focus:ring-2 grow"
           value={message}
           onChange={(e) => {
             setMessage(e.target.value);
           }}
+          placeholder="Write a message..."
         ></textarea>
+
+        <button
+          type="submit"
+          className="font-display text-3xl ml-2 text-primary-50 bg-accent-500 flex items-center content-between relative before:absolute before:w-full before:h-full before:bg-primary-400 before:top-0 before:left-0 before:scale-x-0 before:translate-x-1/2 hover:before:scale-x-[2] overflow-hidden before:duration-500"
+        >
+          <p className="h-full flex items-center px-2 z-10">submit</p>
+          <div className="text-accent-500 bg-primary-400 h-full flex items-center">
+            <AiOutlineArrowRight className="z-10" />
+          </div>
+        </button>
       </div>
-      <button
-        type="submit"
-        className="px-4 py-2 w-24 bg-gray-700 text-white font-medium mt-2"
-      >
-        Submit
-      </button>
     </form>
   );
 }

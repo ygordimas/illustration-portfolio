@@ -1,24 +1,54 @@
-import { Poppins, Lora } from "next/font/google";
+import {} from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
 import Link from "next/link";
-import {
-  AiFillTwitterCircle,
-  AiFillLinkedin,
-  AiFillInstagram,
-} from "react-icons/ai";
-import Navbar from "./components/Navbar";
 
-const mainfont = Poppins({
-  subsets: ["latin"],
-  weight: "700",
-  variable: "--font-mainfont",
+import Navbar from "./components/Navbar";
+import MainContent from "./components/MainContent";
+import ContactButton from "./components/ContactButton";
+import { GlobalContextProvider } from "./context/store";
+
+import localFont from "next/font/local";
+
+const display = localFont({
+  src: "../../public/FONTS/elipse/elipse.otf",
+  variable: "--font-display",
 });
 
-const secondaryfont = Lora({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-secondaryfont",
+const mainfont = localFont({
+  src: [
+    {
+      path: "../../public/FONTS/lilgrotesk/LilGrotesk-Thin.woff2",
+      weight: "100",
+      style: "normal",
+    },
+    {
+      path: "../../public/FONTS/lilgrotesk/LilGrotesk-Light.woff2",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../../public/FONTS/lilgrotesk/LilGrotesk-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/FONTS/lilgrotesk/LilGrotesk-Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../public/FONTS/lilgrotesk/LilGrotesk-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../../public/FONTS/lilgrotesk/LilGrotesk-Black.woff2",
+      weight: "900",
+      style: "normal",
+    },
+  ],
+  variable: "--font-mainfont",
 });
 
 export const metadata = {
@@ -30,31 +60,26 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${mainfont.variable} ${secondaryfont.variable} font-secondaryfont`}
+        className={`${mainfont.variable} ${display.variable} font-mainfont font-thin`}
       >
-        <div className="h-full w-full flex flex-col align-center overflow-hidden bg-secondary-50">
-          <Head>
-            <title>Ygor Dimas Portfolio</title>
-            <meta
-              name="description"
-              content="3D artist and illustrator working with stylized art and asset creation."
-            />
-            <link rel="icon" href="/favicon.ico" />
-          </Head>
+        <GlobalContextProvider>
+          <div className="h-full w-full flex flex-col align-center overflow-hidden bg-primary-50">
+            <Head>
+              <title>Ygor Dimas Portfolio</title>
+              <meta
+                name="description"
+                content="3D artist and illustrator working with stylized art and asset creation."
+              />
+              <link rel="icon" href="/favicon.ico" />
+            </Head>
 
-          <Navbar />
+            <Navbar />
 
-          <main className="flex flex-col items-center grow overflow-auto">
-            <div className="grow">{children}</div>
+            <MainContent children={children} />
 
-            <footer className="h-[60px] w-full bg-purple-300 text-xl flex justify-center  gap-16 py-3 text-gray-600">
-              <AiFillTwitterCircle />
-              <AiFillLinkedin />
-              <AiFillInstagram />
-              <div>&#169; 2023 by Ygor Dimas</div>
-            </footer>
-          </main>
-        </div>
+            <ContactButton />
+          </div>
+        </GlobalContextProvider>
       </body>
     </html>
   );
