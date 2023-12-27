@@ -3,7 +3,7 @@ import ProjectBreakdown from "../../components/ProjectBreakdown";
 
 export default function ProjectDetails({ params }) {
   const project = illustrations.find(
-    (projects) => projects.path === params.projectName
+    (projects) => projects.path === params.projectName,
   );
 
   return (

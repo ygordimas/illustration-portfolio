@@ -8,8 +8,8 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className=" w-full text-primary-50 bg-secondary-300 py-2 text-xl flex gap-2 mt-2 items-center justify-center divide-x-2">
-      <div className="flex text-4xl gap-1">
+    <footer className="bg-secondary-300 mt-2 flex w-full items-center justify-center gap-2 divide-x-2 py-2 text-xl text-primary-50">
+      <div className="flex gap-1 text-4xl">
         <a href="https://x.com/ikyste" target="_blank">
           <AiFillTwitterCircle />
         </a>
@@ -33,7 +33,7 @@ export default function Footer() {
           <AiFillGithub />
         </a>
       </div>
-      <div className="font-merriweather text-sm pl-2">
+      <div className="font-merriweather pl-2 text-sm">
         &#169; 2023 by Ygor Dimas
       </div>
     </footer>

@@ -18,7 +18,7 @@ export default function MainContent({ children }) {
 
   return (
     <main
-      className="flex flex-col items-center grow overflow-auto relative"
+      className="relative flex grow flex-col items-center overflow-auto"
       ref={scrollArea}
     >
       <div className="grow">{children}</div>

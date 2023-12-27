@@ -30,18 +30,18 @@ export default function ContactForm() {
 
   return (
     <form
-      className="flex flex-col gap-2 w-[100vw] md:w-[75vw] xl:w-[50vw] text-xl text-accent-950 px-2"
+      className="flex w-[100vw] flex-col gap-2 px-2 text-xl text-accent-950 md:w-[75vw] xl:w-[50vw]"
       action=""
       onSubmit={sendMail}
     >
-      <div className="w-full flex flex-col">
-        <label htmlFor="name" className="invisible w-0 h-0">
+      <div className="flex w-full flex-col">
+        <label htmlFor="name" className="invisible h-0 w-0">
           Name
         </label>
         <input
           minLength={2}
           maxLength={60}
-          className="p-4 m-1 bg-white placeholder-primary-300 font-normal focus:outline-none focus:ring-accent-500 focus:ring-2"
+          className="m-1 bg-white p-4 font-normal placeholder-primary-300 focus:outline-none focus:ring-2 focus:ring-accent-500"
           type="text"
           id="name"
           autoComplete="off"
@@ -53,14 +53,14 @@ export default function ContactForm() {
           placeholder="Name"
         />
       </div>
-      <div className="w-full flex flex-col">
-        <label htmlFor="email" className="invisible w-0 h-0">
+      <div className="flex w-full flex-col">
+        <label htmlFor="email" className="invisible h-0 w-0">
           Email
         </label>
         <input
           minLength={5}
           maxLength={120}
-          className="p-4 m-1 bg-white placeholder-primary-300 font-normal focus:outline-none focus:ring-accent-500 focus:ring-2"
+          className="m-1 bg-white p-4 font-normal placeholder-primary-300 focus:outline-none focus:ring-2 focus:ring-accent-500"
           type="email"
           id="email"
           autoComplete="off"
@@ -73,15 +73,15 @@ export default function ContactForm() {
         />
       </div>
 
-      <div className="w-full flex gap-1">
-        <label htmlFor="message" className="w-0 invisible">
+      <div className="flex w-full gap-1">
+        <label htmlFor="message" className="invisible w-0">
           Message
         </label>
         <textarea
           required
           minLength={10}
           name="message"
-          className="p-4 bg-white placeholder-primary-300 font-normal focus:outline-none focus:ring-accent-500 focus:ring-2 grow"
+          className="grow bg-white p-4 font-normal placeholder-primary-300 focus:outline-none focus:ring-2 focus:ring-accent-500"
           value={message}
           onChange={(e) => {
             setMessage(e.target.value);

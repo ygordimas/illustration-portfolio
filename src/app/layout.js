@@ -63,7 +63,7 @@ export default function RootLayout({ children }) {
         className={`${mainfont.variable} ${display.variable} font-mainfont font-thin`}
       >
         <GlobalContextProvider>
-          <div className="h-full w-full flex flex-col align-center overflow-hidden bg-primary-50">
+          <div className="align-center flex h-full w-full flex-col overflow-hidden bg-primary-50">
             <Head>
               <title>Ygor Dimas Portfolio</title>
               <meta

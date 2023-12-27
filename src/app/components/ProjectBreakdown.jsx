@@ -20,7 +20,7 @@ export default function ProjectBreakdown({ project }) {
     useGlobalContext();
 
   const projectIndex = illustrations.findIndex(
-    (projects) => projects.path === project.path
+    (projects) => projects.path === project.path,
   );
 
   useEffect(() => {
@@ -77,14 +77,14 @@ export default function ProjectBreakdown({ project }) {
   };
 
   return (
-    <main className="px-4 flex flex-col gap-2 items-center text-accent-900">
-      <section className="flex flex-col-reverse items-center w-[100%]">
+    <main className="flex flex-col items-center gap-2 px-4 text-accent-900">
+      <section className="flex w-[100%] flex-col-reverse items-center">
         <div>
-          <h2 className="text-2xl text-secondary-500">
+          <h2 className="text-secondary-500 text-2xl">
             {uppercasedTitle(project.path)}
           </h2>
         </div>
-        <nav className="w-[100%] flex justify-between gap-2 text-4xl ">
+        <nav className="flex w-[100%] justify-between gap-2 text-4xl ">
           <Link
             href={`/projects/${
               illustrations[managePreviousIndex(currentIndex)]?.path
@@ -105,7 +105,7 @@ export default function ProjectBreakdown({ project }) {
         </nav>
       </section>
 
-      <div className="self-start flex flex-col gap-2">
+      <div className="flex flex-col gap-2 self-start">
         <p>{project.description}</p>
         <div className="flex flex-wrap gap-2">
           {project.tools.map((tag, index) => (
@@ -114,7 +114,7 @@ export default function ProjectBreakdown({ project }) {
         </div>
       </div>
 
-      <div className="flex flex-col gap-2 justify-center ">
+      <div className="flex flex-col justify-center gap-2 ">
         <Image
           src={project.src}
           alt={project.alt}
@@ -124,23 +124,23 @@ export default function ProjectBreakdown({ project }) {
         />
 
         {project.wips && (
-          <div className="max-w-[1024px] grid grid-cols-2 gap-2">
+          <div className="grid max-w-[1024px] grid-cols-2 gap-2">
             {extraImages()}
           </div>
         )}
       </div>
 
-      <div className="flex flex-col-reverse justify-between items-center w-[100%]">
+      <div className="flex w-[100%] flex-col-reverse items-center justify-between">
         <button
           title="Go To Top"
           onClick={() => {
             setScrollToTop(true);
           }}
-          className="py-2 px-4 text-primary-50 text-2xl font-semibold bg-secondary-400 font-lora rounded-3xl tracking-wide"
+          className="bg-secondary-400 font-lora rounded-3xl px-4 py-2 text-2xl font-semibold tracking-wide text-primary-50"
         >
           Go To Top
         </button>
-        <nav className="w-[100%] flex justify-between gap-2 text-4xl">
+        <nav className="flex w-[100%] justify-between gap-2 text-4xl">
           <Link
             href={`/projects/${
               illustrations[managePreviousIndex(currentIndex)]?.path

@@ -11,7 +11,7 @@ export default function ContactButton() {
   return (
     <>
       {pathname != "/contact" && (
-        <Link href="/contact" className="fixed right-0 bottom-2">
+        <Link href="/contact" className="fixed bottom-2 right-0">
           <RoundButton direction="row-reverse" cta="contact">
             <AiOutlineMail />
           </RoundButton>

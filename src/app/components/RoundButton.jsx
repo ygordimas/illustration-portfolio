@@ -32,7 +32,7 @@ function RoundButton({ direction, cta, height = "100", children }) {
           </div>
           <div
             className={
-              "flex items-center justify-center bg-primary-400 rounded-full absolute top-0 right-0"
+              "absolute right-0 top-0 flex items-center justify-center rounded-full bg-primary-400"
             }
             style={{ width: `${height}px`, height: `${height}px` }}
           >
@@ -55,7 +55,7 @@ function RoundButton({ direction, cta, height = "100", children }) {
           </div>
           <div
             className={
-              "flex items-center justify-center bg-primary-400 rounded-full absolute top-0"
+              "absolute top-0 flex items-center justify-center rounded-full bg-primary-400"
             }
             style={{ width: `${height}px`, height: `${height}px` }}
           >
