@@ -9,10 +9,10 @@ export default function Navbar() {
     return (
       <Link
         href={href}
-        className={`border-2 px-4 text-2xl md:text-xl relative p-2 ${
+        className={`relative rounded-full border-2 p-2 px-4 text-2xl md:text-xl ${
           pathname === `${href}`
-            ? "text-accent-500 bg-accent-50 border-accent-500 tracking-normal font-normal box-border"
-            : "border-primary-50 font-light text-primary-500 tracking-wide hover:before:absolute hover:before:w-full hover:before:bottom-0 hover:before:left-0 hover:before:h-2 hover:before:bg-accent-500"
+            ? "box-border border-accent-500 bg-accent-50 font-normal tracking-normal text-accent-500"
+            : "border-primary-50 font-light tracking-wide text-primary-500 hover:before:absolute hover:before:bottom-0 hover:before:left-0 hover:before:h-2 hover:before:w-full hover:before:bg-accent-500"
         }`}
         // className={`text-accent-950 bg-primary-300 px-4 text-2xl tracking-wide md:text-xl relative p-2 ${
         //   pathname === `${href}`
@@ -26,23 +26,23 @@ export default function Navbar() {
   };
 
   return (
-    <header className="w-full z-10 flex flex-col gap-2 md:gap-1 justify-between items-center p-8  md:flex-row">
-      <div className="flex flex-col items-center cursor-default">
+    <header className="z-10 flex w-full flex-col items-center justify-between gap-2 p-8 md:flex-row  md:gap-1">
+      <div className="flex cursor-default flex-col items-center">
         <Link href={"/"}>
           <h1
-            className={`font-display text-6xl md:text-4xl xl:text-5xl text-primary-500 tracking-wide`}
+            className={`font-display text-6xl tracking-wide text-primary-500 md:text-4xl xl:text-5xl`}
           >
             YGOR DIMAS
           </h1>
         </Link>
 
-        <h2 className="text-primary-400 text-xl font-normal sm:hidden lg:block">
+        <h2 className="text-xl font-normal text-primary-400 sm:hidden lg:block">
           ILLUSTRATOR & 3D ARTIST
         </h2>
       </div>
 
       <div className="flex flex-col items-center gap-4 md:gap-2 xl:flex-row ">
-        <div className="flex items-center gap-2 md:gap-2 py-4">
+        <div className="flex items-center gap-2 py-4 md:gap-2">
           {CustomizedLink("Illustrations", "/")}
           {CustomizedLink("Game Art", "#")}
           {CustomizedLink("About Me", "/about")}
@@ -50,7 +50,7 @@ export default function Navbar() {
 
         <Link
           href="/contact"
-          className="font-display rounded-3xl bg-secondary-400  text-2xl md:text-xl tracking-wide xl:tracking-normal py-2 px-4 hover:bg-opacity-90 sm:hidden"
+          className="bg-secondary-400 rounded-3xl px-4  py-2 font-display text-2xl tracking-wide hover:bg-opacity-90 sm:hidden md:text-xl xl:tracking-normal"
         >
           CONTACT
         </Link>

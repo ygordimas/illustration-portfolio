@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import RoundButton from "../components/RoundButton";
+import IconForButton from "../components/IconForButton";
 
 export default function ContactForm() {
   const [name, setName] = useState("");
@@ -71,7 +73,7 @@ export default function ContactForm() {
         />
       </div>
 
-      <div className="w-full flex">
+      <div className="w-full flex gap-1">
         <label htmlFor="message" className="w-0 invisible">
           Message
         </label>
@@ -79,8 +81,7 @@ export default function ContactForm() {
           required
           minLength={10}
           name="message"
-          rows={4}
-          className="p-4 m-1 bg-white placeholder-primary-300 font-normal focus:outline-none focus:ring-accent-500 focus:ring-2 grow"
+          className="p-4 bg-white placeholder-primary-300 font-normal focus:outline-none focus:ring-accent-500 focus:ring-2 grow"
           value={message}
           onChange={(e) => {
             setMessage(e.target.value);
@@ -88,14 +89,19 @@ export default function ContactForm() {
           placeholder="Write a message..."
         ></textarea>
 
-        <button
+        {/* <button
           type="submit"
           className="font-display text-3xl ml-2 text-primary-50 bg-accent-500 flex items-center content-between relative before:absolute before:w-full before:h-full before:bg-primary-400 before:top-0 before:left-0 before:scale-x-0 before:translate-x-1/2 hover:before:scale-x-[2] overflow-hidden before:duration-500"
         >
           <p className="h-full flex items-center px-2 z-10">submit</p>
           <div className="text-accent-500 bg-primary-400 h-full flex items-center">
-            <AiOutlineArrowRight className="z-10" />
+            <AiOutlineArrowRight className="z-10 rounded-full bg-white m-1" />
           </div>
+        </button> */}
+        <button type="submit">
+          <RoundButton direction="row" cta="submit">
+            <AiOutlineArrowRight className="text-accent-500" />
+          </RoundButton>
         </button>
       </div>
     </form>
