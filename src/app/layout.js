@@ -77,7 +77,7 @@ export default function RootLayout({ children }) {
 
             <MainContent children={children} />
 
-            <ContactButton />
+            {/* <ContactButton /> */}
           </div>
         </GlobalContextProvider>
       </body>
