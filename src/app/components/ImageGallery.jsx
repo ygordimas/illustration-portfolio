@@ -4,7 +4,7 @@ import Image from "next/image";
 import ImageContainer from "./ImageContainer";
 import Masonry from "react-masonry-css";
 
-export default function Gallery({ illustrations, handleClickOpenImage }) {
+export default function ImageGallery({ illustrations, handleClickOpenImage }) {
   const breakpointColumnsObj = {
     default: 3,
     1024: 2,

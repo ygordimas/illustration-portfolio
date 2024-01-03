@@ -3,7 +3,7 @@ import "./globals.css";
 import Head from "next/head";
 import Link from "next/link";
 
-import Navbar from "./components/Navbar";
+import Header from "./components/Header";
 import MainContent from "./components/MainContent";
 import ContactButton from "./components/ContactButton";
 import { GlobalContextProvider } from "./context/store";
@@ -73,11 +73,9 @@ export default function RootLayout({ children }) {
               <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <Navbar />
+            <Header />
 
             <MainContent children={children} />
-
-            {/* <ContactButton /> */}
           </div>
         </GlobalContextProvider>
       </body>

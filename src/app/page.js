@@ -1,7 +1,7 @@
 "use client";
 
 import { illustrations } from "./utils/illustrations";
-import Gallery from "./components/Gallery";
+import ImageGallery from "./components/ImageGallery";
 import { useGlobalContext } from "./context/store";
 
 export default function Home() {
@@ -14,7 +14,7 @@ export default function Home() {
 
   return (
     <>
-      <Gallery
+      <ImageGallery
         illustrations={illustrations}
         handleClickOpenImage={handleClickOpenImage}
       />

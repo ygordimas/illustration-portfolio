@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function ImageContainer({ image, onClick }) {
   return (
@@ -19,6 +20,21 @@ export default function ImageContainer({ image, onClick }) {
         height={image.height}
         className="mb-2 rounded"
       />
+      <MobileOverlay image={image} onClick={onClick} />
     </Link>
   );
 }
+
+const MobileOverlay = ({ image, onClick }) => {
+  return (
+    <motion.div
+      className="absolute left-0 top-0 flex h-full w-full flex-col justify-end "
+      onClick={onClick}
+    >
+      <div className="w-fit rounded-tr-full bg-accent-500 p-8">
+        <h2>{image.title}</h2>
+        <h3>{image.type}</h3>
+      </div>
+    </motion.div>
+  );
+};
