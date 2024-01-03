@@ -1,8 +1,45 @@
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import {
+  motion,
+  useInView,
+  useAnimationControls,
+  useAnimate,
+  AnimatePresence,
+} from "framer-motion";
+import { useEffect, useRef } from "react";
 
 export default function ImageContainer({ image, onClick }) {
+  const [scope, animate] = useAnimate();
+
+  const isInView = useInView(scope);
+
+  const mainControls = useAnimationControls();
+
+  useEffect(() => {
+    if (isInView) {
+      console.log(scope.current);
+      animate(scope.current, { opacity: 1 });
+    }
+  }, [isInView]);
+
+  const overlayVariant = {
+    hidden: { opacity: 0, y: 75 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+  // const MobileOverlay = ({ image, onClick }) => {
+  //   return (
+  //     <div
+  //       className="w-fit  rounded-tr-full bg-primary-50 p-8 opacity-0"
+  //       ref={scope}
+  //     >
+  //       <h2>{image.path}</h2>
+  //       <h3>{image.type}</h3>
+  //     </div>
+  //   );
+  // };
+
   return (
     <Link
       href={`/projects/${image.path}`}
@@ -20,21 +57,20 @@ export default function ImageContainer({ image, onClick }) {
         height={image.height}
         className="mb-2 rounded"
       />
-      <MobileOverlay image={image} onClick={onClick} />
+      <div
+        className="absolute left-0 top-0 flex h-full w-full flex-col justify-end "
+        onClick={onClick}
+      >
+        <AnimatePresence>
+          <div
+            className="w-fit  rounded-tr-full bg-primary-50 p-8 opacity-0"
+            ref={scope}
+          >
+            <h2>{image.path}</h2>
+            <h3>{image.type}</h3>
+          </div>
+        </AnimatePresence>
+      </div>
     </Link>
   );
 }
-
-const MobileOverlay = ({ image, onClick }) => {
-  return (
-    <motion.div
-      className="absolute left-0 top-0 flex h-full w-full flex-col justify-end "
-      onClick={onClick}
-    >
-      <div className="w-fit rounded-tr-full bg-accent-500 p-8">
-        <h2>{image.title}</h2>
-        <h3>{image.type}</h3>
-      </div>
-    </motion.div>
-  );
-};

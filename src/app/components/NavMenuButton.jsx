@@ -57,7 +57,7 @@ function NavMenu({ isOpen, onClick }) {
         animate={isOpen ? { boxShadow: "1px 1px 10px rgba(0, 0, 0, 0.3)" } : {}}
         transition={{ duration: 1 }}
         onClick={onClick}
-        className={`relative z-10 flex h-full w-full items-center justify-center rounded-full bg-primary-100`}
+        className={`relative z-10 flex h-full w-full items-center justify-center rounded-full bg-primary-50`}
       >
         <motion.div
           layout
