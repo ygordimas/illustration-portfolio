@@ -2,7 +2,7 @@ export default function Tags({ tag, id }) {
   return (
     <div
       key={id}
-      className="cursor-default rounded-xl border-2 border-accent-100 px-2"
+      className="cursor-default rounded-xl bg-primary-400 px-2 font-normal text-primary-50"
     >
       {tag}
     </div>

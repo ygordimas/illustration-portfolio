@@ -14,8 +14,14 @@ import Tags from "../components/Tags";
 import { useGlobalContext } from "../context/store";
 import { illustrations } from "../utils/illustrations";
 import { useEffect, useRef, useState } from "react";
+import getUppercaseTitle from "../utils/getUppercaseTitle";
+import { motion, useInView, useAnimate } from "framer-motion";
 
 export default function ProjectBreakdown({ project }) {
+  const footerNavigationRef = useRef(null);
+  const buttonRef = useRef(null);
+  const wrapperRef = useRef(null);
+  const wrapperIsInView = useInView(wrapperRef, { amount: 1 });
   const { currentIndex, setCurrentIndex, setCurrentImage, setScrollToTop } =
     useGlobalContext();
 
@@ -25,28 +31,30 @@ export default function ProjectBreakdown({ project }) {
 
   useEffect(() => {
     setCurrentIndex(projectIndex);
-  }, []);
 
-  const uppercasedTitle = (path) => {
-    const words = path.split("-");
+    console.log(wrapperIsInView);
+  }, [wrapperIsInView]);
 
-    const title = words
-      .map((word) => {
-        return word[0].toUpperCase() + word.substring(1);
-      })
-      .join(" ");
+  // const uppercasedTitle = (path) => {
+  //   const words = path.split("-");
 
-    return title;
-  };
+  //   const title = words
+  //     .map((word) => {
+  //       return word[0].toUpperCase() + word.substring(1);
+  //     })
+  //     .join(" ");
+
+  //   return title;
+  // };
 
   function handleNavigation(direction) {
-    let index = direction == "forward" ? currentIndex + 1 : currentIndex - 1;
+    let index = direction == "next" ? currentIndex + 1 : currentIndex - 1;
 
     if (index < 0) {
       index = illustrations.length - 1;
     }
 
-    if (index >= illustrations.length) {
+    if (index >= illustrations.length - 1) {
       index = 0;
     }
 
@@ -63,7 +71,7 @@ export default function ProjectBreakdown({ project }) {
   };
 
   const manageNextIndex = (currentIndex) => {
-    if (currentIndex >= illustrations.length) {
+    if (currentIndex >= illustrations.length - 1) {
       return 0;
     } else {
       return currentIndex + 1;
@@ -76,37 +84,59 @@ export default function ProjectBreakdown({ project }) {
     ));
   };
 
+  const arrowStyles = "bg-primary-50 rounded-full p-2 mx-1 text-primary-600";
+
+  const GoToTopButton = ({ onClick }) => {
+    return (
+      <button
+        title="Go To Top"
+        onClick={() => {
+          onClick();
+        }}
+        className="bg-secondary-400 font-lora rounded-3xl bg-primary-700 px-4 py-2 text-2xl font-semibold tracking-wide text-primary-50"
+      >
+        Go To Top
+      </button>
+    );
+  };
+
   return (
-    <main className="flex flex-col items-center gap-2 px-4 text-accent-900">
-      <section className="flex w-[100%] flex-col-reverse items-center">
-        <div>
-          <h2 className="text-secondary-500 text-2xl">
-            {uppercasedTitle(project.path)}
-          </h2>
-        </div>
-        <nav className="flex w-[100%] justify-between gap-2 text-4xl ">
-          <Link
-            href={`/projects/${
-              illustrations[managePreviousIndex(currentIndex)]?.path
-            }`}
-            onClick={() => handleNavigation("backwards")}
-          >
-            <AiOutlineArrowLeft />
-          </Link>
+    <main
+      ref={wrapperRef}
+      className="relative flex flex-col items-center gap-2 text-accent-900"
+    >
+      <motion.div
+        ref={buttonRef}
+        className="fixed left-0 top-[90vh] z-10 flex w-full justify-center"
+      >
+        <GoToTopButton onClick={() => setScrollToTop(true)} />
+      </motion.div>
 
-          <Link
-            href={`/projects/${
-              illustrations[manageNextIndex(currentIndex)]?.path
-            }`}
-            onClick={() => handleNavigation("forward")}
-          >
-            <AiOutlineArrowRight />
-          </Link>
-        </nav>
-      </section>
+      <nav className="sticky flex w-[100%] items-center justify-between bg-primary-600 py-4 text-4xl">
+        <Link
+          href={`/projects/${
+            illustrations[managePreviousIndex(currentIndex)]?.path
+          }`}
+          onClick={() => handleNavigation("previous")}
+          className={arrowStyles}
+        >
+          <AiOutlineArrowLeft />
+        </Link>
+        <h2 className="font-medium text-primary-50">{project.type}</h2>
 
-      <div className="flex flex-col gap-2 self-start">
-        <p>{project.description}</p>
+        <Link
+          href={`/projects/${
+            illustrations[manageNextIndex(currentIndex)]?.path
+          }`}
+          onClick={() => handleNavigation("next")}
+          className={arrowStyles}
+        >
+          <AiOutlineArrowRight />
+        </Link>
+      </nav>
+
+      <div className="flex flex-col gap-2 self-start px-2 text-2xl">
+        <p className="font-normal text-primary-700">{project.description}</p>
         <div className="flex flex-wrap gap-2">
           {project.tools.map((tag, index) => (
             <Tags tag={tag} id={index} />
@@ -130,16 +160,10 @@ export default function ProjectBreakdown({ project }) {
         )}
       </div>
 
-      <div className="flex w-[100%] flex-col-reverse items-center justify-between">
-        <button
-          title="Go To Top"
-          onClick={() => {
-            setScrollToTop(true);
-          }}
-          className="bg-secondary-400 font-lora rounded-3xl px-4 py-2 text-2xl font-semibold tracking-wide text-primary-50"
-        >
-          Go To Top
-        </button>
+      <div
+        ref={footerNavigationRef}
+        className="flex w-[100%]  items-center justify-between"
+      >
         <nav className="flex w-[100%] justify-between gap-2 text-4xl">
           <Link
             href={`/projects/${
@@ -149,6 +173,8 @@ export default function ProjectBreakdown({ project }) {
           >
             <AiOutlineArrowLeft />
           </Link>
+
+          <GoToTopButton onClick={() => setScrollToTop(true)} />
 
           <Link
             href={`/projects/${

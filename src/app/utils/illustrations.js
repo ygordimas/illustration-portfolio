@@ -70,7 +70,12 @@ export const illustrations = [
     description: `Digital illustration for Albin's music single "Love In Slow Motion".`,
     width: 1024,
     height: 1024,
-    tools: ["Blender 3D", "Adobe Photoshop", "Adobe Illustrator"],
+    tools: [
+      "Blender 3D",
+      "Substance Designer",
+      "Substance Painter",
+      "Adobe Photoshop",
+    ],
   },
   // {
   //   id: uuidv4(),
@@ -172,7 +177,7 @@ export const illustrations = [
   {
     id: uuidv4(),
     path: "stella-comic-strip",
-    type: "Digital Comic Strip",
+    type: "Digital Comics",
     src: "/STELLA/stella.png",
     alt: "Digital comic strip for Stella",
     width: 1440,

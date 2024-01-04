@@ -113,7 +113,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="relative z-10 flex w-full flex-col items-center justify-between gap-2 bg-primary-400 px-8 md:flex-row  md:gap-1">
+      <header className="sticky top-0 z-10 box-border flex w-full flex-col items-center justify-between gap-2 rounded-3xl bg-primary-400 px-8 md:flex-row  md:gap-1">
         <div className="flex h-full w-full items-center justify-between py-8">
           <div className="flex cursor-default flex-col items-center">
             <Link href={"/"}>

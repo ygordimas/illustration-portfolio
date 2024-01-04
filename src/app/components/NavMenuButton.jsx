@@ -1,7 +1,7 @@
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-function NavMenu({ isOpen, onClick }) {
+function NavMenuButton({ isOpen, onClick }) {
   const burgerTopVariant = {
     open: {
       top: "50%",
@@ -90,4 +90,4 @@ function NavMenu({ isOpen, onClick }) {
   );
 }
 
-export default NavMenu;
+export default NavMenuButton;

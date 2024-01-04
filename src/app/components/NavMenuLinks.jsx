@@ -15,8 +15,6 @@ function NavMenuLinks({ isOpen, handleOpen }) {
     { title: "Instagram", href: "http://instagram.com/ygordimas" },
   ];
 
-  const currentPath = navLinks.find((link) => link.href == pathname);
-
   const containerVars = {
     initial: {
       transition: {
@@ -41,7 +39,7 @@ function NavMenuLinks({ isOpen, handleOpen }) {
           initial="initial"
           animate="open"
           exit="initial"
-          className="pointer-events-none fixed left-0 top-0 z-10 flex h-full w-full flex-col items-end justify-end p-8 font-mainfont font-medium"
+          className="pointer-events-none fixed left-0 top-0 z-20 flex h-[100vh] w-[100vw] flex-col items-end justify-end overflow-hidden p-8 font-mainfont font-medium"
         >
           <div className="flex grow flex-col items-end justify-center gap-4">
             {navLinks.map((link, index) => {
@@ -66,14 +64,10 @@ function NavMenuLinks({ isOpen, handleOpen }) {
           <div className="pointer-events-auto overflow-hidden">
             <motion.div
               variants={mobileLinkVars}
-              className="text-3xl tracking-wide"
+              className="text-3xl tracking-wide underline"
+              onClick={() => handleOpen()}
             >
-              <Link
-                href={currentPath.href}
-                className="cursor-pointer underline"
-              >
-                return to {currentPath.title}
-              </Link>
+              Close
             </motion.div>
           </div>
         </motion.div>

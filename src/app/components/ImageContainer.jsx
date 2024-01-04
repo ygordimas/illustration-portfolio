@@ -8,18 +8,38 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import { useEffect, useRef } from "react";
+import getUppercaseTitle from "../utils/getUppercaseTitle";
+import { AiOutlineEye } from "react-icons/ai";
 
 export default function ImageContainer({ image, onClick }) {
+  const container = useRef(null);
   const [scope, animate] = useAnimate();
 
-  const isInView = useInView(scope);
+  const isInView = useInView(container, {
+    once: false,
+    amount: 0.8,
+    margin: "0% 0% 0% 0%",
+  });
 
-  const mainControls = useAnimationControls();
+  // const [ribbonScope, animateRibbon] = useAnimate();
+  // const ribbonIsInView = useInView(ribbonScope, {
+  //   once: false,
+  //   amount: 1,
+  //   margin: "0% 0% -30% 0%",
+  // });
+
+  // const mainControls = useAnimationControls();
 
   useEffect(() => {
     if (isInView) {
-      console.log(scope.current);
-      animate(scope.current, { opacity: 1 });
+      // animate(scope.current, { opacity: 1, translateY: "16px" });
+      // animate(ribbonScope.current, { scale: [1.2, 1, 1.2, 1], opacity: 1 });
+    } else {
+      // animate(scope.current, {
+      //   opacity: 0,
+      //   translateY: "-16px",
+      // });
+      // animate(ribbonScope.current, { opacity: 0 });
     }
   }, [isInView]);
 
@@ -27,18 +47,6 @@ export default function ImageContainer({ image, onClick }) {
     hidden: { opacity: 0, y: 75 },
     visible: { opacity: 1, y: 0 },
   };
-
-  // const MobileOverlay = ({ image, onClick }) => {
-  //   return (
-  //     <div
-  //       className="w-fit  rounded-tr-full bg-primary-50 p-8 opacity-0"
-  //       ref={scope}
-  //     >
-  //       <h2>{image.path}</h2>
-  //       <h3>{image.type}</h3>
-  //     </div>
-  //   );
-  // };
 
   return (
     <Link
@@ -57,20 +65,39 @@ export default function ImageContainer({ image, onClick }) {
         height={image.height}
         className="mb-2 rounded"
       />
+
+      {/* ********OVERLAY START********* */}
       <div
         className="absolute left-0 top-0 flex h-full w-full flex-col justify-end "
         onClick={onClick}
+        ref={container}
       >
         <AnimatePresence>
-          <div
-            className="w-fit  rounded-tr-full bg-primary-50 p-8 opacity-0"
+          {/* *********RIBBON STARTS********** */}
+          {/* <div
+            key="ribbon"
+            ref={ribbonScope}
+            className="absolute bottom-0 right-0 m-4 flex items-center justify-center rounded-full bg-primary-50 text-2xl text-primary-600 opacity-0"
+          >
+            <AiOutlineEye className="text-4xl" />
+            <p className="ml-8 text-xl font-medium">click for more</p>
+          </div> */}
+          {/* *********RIBBON ENDS********** */}
+
+          {/* *********MOBILE OVERLAY STARTS********* */}
+          {/* <div
+            key="description"
+            layout
+            className="w-fit -translate-y-[16px] rounded-tr-full bg-primary-50 p-8 font-medium text-primary-600 opacity-0"
             ref={scope}
           >
-            <h2>{image.path}</h2>
+            <h2 className="mr-8">{getUppercaseTitle(image.path)}</h2>
             <h3>{image.type}</h3>
-          </div>
+          </div> */}
+          {/* *********MOBILE OVERLAY ENDS********* */}
         </AnimatePresence>
       </div>
+      {/* ********OVERLAY ENDS********* */}
     </Link>
   );
 }

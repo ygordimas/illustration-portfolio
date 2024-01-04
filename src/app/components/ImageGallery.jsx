@@ -20,7 +20,7 @@ export default function ImageGallery({ illustrations, handleClickOpenImage }) {
   ));
 
   return (
-    <div className="mt-2 px-2">
+    <div className="mt-2">
       <Masonry
         breakpointCols={breakpointColumnsObj}
         className="flex gap-2"

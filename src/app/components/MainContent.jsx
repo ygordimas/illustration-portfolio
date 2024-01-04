@@ -17,13 +17,10 @@ export default function MainContent({ children }) {
   }, [scrollToTop]);
 
   return (
-    <main
-      className="relative flex grow flex-col items-center overflow-auto"
-      ref={scrollArea}
-    >
+    <main className="relative flex grow flex-col items-center" ref={scrollArea}>
       <div className="grow">{children}</div>
 
-      <Footer />
+      {/* <Footer /> */}
     </main>
   );
 }
