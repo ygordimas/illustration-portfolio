@@ -1,5 +1,5 @@
-import { illustrations } from "../../utils/illustrations";
-import ProjectBreakdown from "../../components/ProjectBreakdown";
+import { illustrations } from "../../data/illustrations";
+import ProjectBreakdown from "../../components/project/ProjectBreakdown";
 
 export default function ProjectDetails({ params }) {
   const project = illustrations.find(

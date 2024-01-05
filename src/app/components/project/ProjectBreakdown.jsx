@@ -10,9 +10,9 @@ import {
 } from "react-icons/ai";
 import Image from "next/image";
 import Link from "next/link";
-import Tags from "../components/Tags";
+import Tags from "../../components/ui/Tags";
 import { useGlobalContext } from "../../context/store";
-import { illustrations } from "../utils/illustrations";
+import { illustrations } from "../../data/illustrations";
 import { useEffect, useRef, useState } from "react";
 import getUppercaseTitle from "../../utils/getUppercaseTitle";
 import { motion, useInView, useAnimate } from "framer-motion";
@@ -31,8 +31,6 @@ export default function ProjectBreakdown({ project }) {
 
   useEffect(() => {
     setCurrentIndex(projectIndex);
-
-    console.log(wrapperIsInView);
   }, [wrapperIsInView]);
 
   // const uppercasedTitle = (path) => {

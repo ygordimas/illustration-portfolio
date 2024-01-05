@@ -52,41 +52,27 @@ function NavMenuButton({ isOpen, onClick }) {
   };
 
   return (
-    <motion.div className={`relative h-${size} w-${size}`}>
-      <motion.button
-        animate={isOpen ? { boxShadow: "1px 1px 10px rgba(0, 0, 0, 0.3)" } : {}}
-        transition={{ duration: 1 }}
-        onClick={onClick}
-        className={`relative z-10 flex h-full w-full items-center justify-center rounded-full bg-primary-50`}
-      >
-        <motion.div
-          layout
-          key="top"
-          variants={burgerTopVariant}
-          animate={isOpen ? "open" : "close"}
-          className="absolute top-[40%] h-[2px] w-[40%] bg-accent-500"
-        ></motion.div>
-        <motion.div
-          layout
-          key="bottom"
-          variants={burgerBottomVariant}
-          animate={isOpen ? "open" : "close"}
-          className="absolute top-[60%] h-[2px] w-[40%] bg-accent-500"
-        ></motion.div>
-      </motion.button>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            variants={menuBgVariant}
-            key="menuBackground"
-            initial="close"
-            animate="open"
-            exit="close"
-            className="absolute left-[50%] top-[50%] h-[200vh] w-[200vh] rounded-full bg-primary-300"
-          ></motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
+    <motion.button
+      animate={isOpen ? { boxShadow: "1px 1px 10px rgba(0, 0, 0, 0.3)" } : {}}
+      transition={{ duration: 1 }}
+      onClick={onClick}
+      className={`relative z-10 flex h-full w-full items-center justify-center rounded-full bg-primary-50`}
+    >
+      <motion.div
+        layout
+        key="top"
+        variants={burgerTopVariant}
+        animate={isOpen ? "open" : "close"}
+        className="absolute top-[40%] h-[2px] w-[40%] bg-accent-500"
+      ></motion.div>
+      <motion.div
+        layout
+        key="bottom"
+        variants={burgerBottomVariant}
+        animate={isOpen ? "open" : "close"}
+        className="absolute top-[60%] h-[2px] w-[40%] bg-accent-500"
+      ></motion.div>
+    </motion.button>
   );
 }
 

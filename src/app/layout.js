@@ -8,6 +8,8 @@ import MainContent from "./components/main/MainContent";
 import ContactButton from "./components/ui/ContactButton";
 import { GlobalContextProvider } from "./context/store";
 
+import Wrapper from "./components/layout/Wrapper";
+
 import localFont from "next/font/local";
 
 const display = localFont({
@@ -105,20 +107,20 @@ export default function RootLayout({ children }) {
         className={`${mainfont.variable} ${display.variable} ${youngserif.variable} font-mainfont font-thin`}
       >
         <GlobalContextProvider>
-          <div className="align-center flex h-[100vh] w-full flex-col overflow-auto px-2">
-            <Head>
-              <title>Ygor Dimas Portfolio</title>
-              <meta
-                name="description"
-                content="3D artist and illustrator working with stylized art and asset creation."
-              />
-              <link rel="icon" href="/favicon.ico" />
-            </Head>
+          <Head>
+            <title>Ygor Dimas Portfolio</title>
+            <meta
+              name="description"
+              content="3D artist and illustrator working with stylized art and asset creation."
+            />
+            <link rel="icon" href="/favicon.ico" />
+          </Head>
 
+          <Wrapper>
             <Header />
 
             <MainContent children={children} />
-          </div>
+          </Wrapper>
         </GlobalContextProvider>
       </body>
     </html>

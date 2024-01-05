@@ -14,6 +14,7 @@ import { AiOutlineEye } from "react-icons/ai";
 export default function ImageContainer({ image, onClick }) {
   const container = useRef(null);
   const [scope, animate] = useAnimate();
+  const [eye, animateEye] = useAnimate();
 
   const isInView = useInView(container, {
     once: false,
@@ -21,27 +22,41 @@ export default function ImageContainer({ image, onClick }) {
     margin: "0% 0% 0% 0%",
   });
 
-  // const [ribbonScope, animateRibbon] = useAnimate();
-  // const ribbonIsInView = useInView(ribbonScope, {
-  //   once: false,
-  //   amount: 1,
-  //   margin: "0% 0% -30% 0%",
-  // });
-
-  // const mainControls = useAnimationControls();
-
   useEffect(() => {
     if (isInView) {
-      // animate(scope.current, { opacity: 1, translateY: "16px" });
-      // animate(ribbonScope.current, { scale: [1.2, 1, 1.2, 1], opacity: 1 });
+      animate(
+        scope.current,
+        { opacity: 1, translateY: "16px" },
+        overlayTransition,
+      );
+      animateEye(eye.current, { opacity: 1, translateY: "0px" }, eyeTransition);
     } else {
-      // animate(scope.current, {
-      //   opacity: 0,
-      //   translateY: "-16px",
-      // });
-      // animate(ribbonScope.current, { opacity: 0 });
+      animate(
+        scope.current,
+        {
+          opacity: 0,
+          translateY: "-16px",
+        },
+        overlayTransition,
+      );
+      animateEye(
+        eye.current,
+        { opacity: 0, translateY: "16px" },
+        eyeTransition,
+      );
     }
   }, [isInView]);
+
+  const overlayTransition = {
+    duration: 0.8,
+    ease: [0.5, 1, 0.89, 1],
+  };
+
+  const eyeTransition = {
+    delay: 0.5,
+    duration: 1,
+    ease: [0.34, 1.56, 0.64, 1],
+  };
 
   const overlayVariant = {
     hidden: { opacity: 0, y: 75 },
@@ -51,19 +66,16 @@ export default function ImageContainer({ image, onClick }) {
   return (
     <Link
       href={`/projects/${image.path}`}
-      className="group relative overflow-hidden rounded "
+      className="group relative overflow-hidden rounded-2xl "
       onClick={() => onClick()}
       key={image.id}
     >
-      <div className="lg:bg-secondary-400 hidden group-hover:opacity-100 lg:visible lg:absolute lg:flex lg:h-full lg:w-full lg:items-center lg:justify-center lg:rounded lg:opacity-0">
-        <p className="bg-primary-500 p-10">{image.type}</p>
-      </div>
       <Image
         src={image.src}
         alt={image.alt}
         width={image.width}
         height={image.height}
-        className="mb-2 rounded"
+        className="mb-2 rounded-2xl"
       />
 
       {/* ********OVERLAY START********* */}
@@ -73,27 +85,26 @@ export default function ImageContainer({ image, onClick }) {
         ref={container}
       >
         <AnimatePresence>
-          {/* *********RIBBON STARTS********** */}
-          {/* <div
-            key="ribbon"
-            ref={ribbonScope}
-            className="absolute bottom-0 right-0 m-4 flex items-center justify-center rounded-full bg-primary-50 text-2xl text-primary-600 opacity-0"
-          >
-            <AiOutlineEye className="text-4xl" />
-            <p className="ml-8 text-xl font-medium">click for more</p>
-          </div> */}
-          {/* *********RIBBON ENDS********** */}
-
           {/* *********MOBILE OVERLAY STARTS********* */}
-          {/* <div
-            key="description"
-            layout
-            className="w-fit -translate-y-[16px] rounded-tr-full bg-primary-50 p-8 font-medium text-primary-600 opacity-0"
-            ref={scope}
-          >
-            <h2 className="mr-8">{getUppercaseTitle(image.path)}</h2>
-            <h3>{image.type}</h3>
-          </div> */}
+          <div className="relative flex w-full items-center justify-between">
+            <motion.div
+              key="overlay"
+              className="w-fit -translate-y-[16px] rounded-tr-full bg-primary-50 p-8 font-medium text-primary-600 opacity-0"
+              ref={scope}
+            >
+              <h2 className="mr-8 text-xl font-semibold tracking-wider">
+                {getUppercaseTitle(image.path)}
+              </h2>
+              <h3>{image.type}</h3>
+            </motion.div>
+            <motion.div
+              key="eye"
+              ref={eye}
+              className=" mr-8 translate-y-[200px] rounded-full bg-primary-500 opacity-0"
+            >
+              <AiOutlineEye className="p-2 text-6xl text-primary-50" />
+            </motion.div>
+          </div>
           {/* *********MOBILE OVERLAY ENDS********* */}
         </AnimatePresence>
       </div>

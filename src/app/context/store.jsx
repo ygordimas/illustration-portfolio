@@ -10,7 +10,9 @@ const GlobalContext = createContext({
   scrollToTop: false,
   setScrollToTop: () => Boolean,
   isOpen: false,
-  setIsOpe: () => Boolean,
+  setIsOpen: () => Boolean,
+  hideHeader: false,
+  setHideHeader: () => Boolean,
 });
 
 export const GlobalContextProvider = ({ children }) => {
@@ -18,6 +20,11 @@ export const GlobalContextProvider = ({ children }) => {
   const [currentImage, setCurrentImage] = useState(null);
   const [scrollToTop, setScrollToTop] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [hideHeader, setHideHeader] = useState(false);
+
+  const toggleOpen = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <GlobalContext.Provider
@@ -30,6 +37,8 @@ export const GlobalContextProvider = ({ children }) => {
         setScrollToTop,
         isOpen,
         setIsOpen,
+        hideHeader,
+        setHideHeader,
       }}
     >
       {children}
