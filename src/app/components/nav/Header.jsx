@@ -10,10 +10,11 @@ import {
 import { AnimatePresence, motion } from "framer-motion";
 import NavMenuButton from "./NavMenuButton";
 import NavMenuLinks from "./NavMenuLinks";
+import { useGlobalContext } from "../../context/store";
 
 export default function Header() {
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(false);
+  const { isOpen, setIsOpen } = useGlobalContext();
 
   const navLinks = [
     { title: "Contact", href: "/contact" },
@@ -113,7 +114,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-10 box-border flex w-full flex-col items-center justify-between gap-2 rounded-3xl bg-primary-400 px-8 md:flex-row  md:gap-1">
+      <header className="sticky top-2 z-10 box-border flex w-full flex-col items-center justify-between gap-2 rounded-3xl bg-primary-400 px-8 md:flex-row  md:gap-1">
         <div className="flex h-full w-full items-center justify-between py-8">
           <div className="flex cursor-default flex-col items-center">
             <Link href={"/"}>

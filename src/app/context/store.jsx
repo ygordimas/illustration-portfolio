@@ -7,12 +7,17 @@ const GlobalContext = createContext({
   setCurrentIndex: () => null,
   currentImage: null,
   setCurrentImage: () => null,
+  scrollToTop: false,
+  setScrollToTop: () => Boolean,
+  isOpen: false,
+  setIsOpe: () => Boolean,
 });
 
 export const GlobalContextProvider = ({ children }) => {
   const [currentIndex, setCurrentIndex] = useState(null);
   const [currentImage, setCurrentImage] = useState(null);
   const [scrollToTop, setScrollToTop] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <GlobalContext.Provider
@@ -23,6 +28,8 @@ export const GlobalContextProvider = ({ children }) => {
         setCurrentImage,
         scrollToTop,
         setScrollToTop,
+        isOpen,
+        setIsOpen,
       }}
     >
       {children}

@@ -3,9 +3,9 @@ import "./globals.css";
 import Head from "next/head";
 import Link from "next/link";
 
-import Header from "./components/Header";
-import MainContent from "./components/MainContent";
-import ContactButton from "./components/ContactButton";
+import Header from "./components/nav/Header";
+import MainContent from "./components/main/MainContent";
+import ContactButton from "./components/ui/ContactButton";
 import { GlobalContextProvider } from "./context/store";
 
 import localFont from "next/font/local";
@@ -105,7 +105,7 @@ export default function RootLayout({ children }) {
         className={`${mainfont.variable} ${display.variable} ${youngserif.variable} font-mainfont font-thin`}
       >
         <GlobalContextProvider>
-          <div className="align-center flex h-full w-full flex-col px-2 pt-2">
+          <div className="align-center flex h-[100vh] w-full flex-col overflow-auto px-2">
             <Head>
               <title>Ygor Dimas Portfolio</title>
               <meta

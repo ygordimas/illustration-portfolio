@@ -1,7 +1,7 @@
 "use client";
 
-import { illustrations } from "./utils/illustrations";
-import ImageGallery from "./components/ImageGallery";
+import { illustrations } from "./data/illustrations";
+import ImageGallery from "./components/gallery/ImageGallery";
 import { useGlobalContext } from "./context/store";
 
 export default function Home() {

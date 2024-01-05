@@ -6,7 +6,8 @@ import Masonry from "react-masonry-css";
 
 export default function ImageGallery({ illustrations, handleClickOpenImage }) {
   const breakpointColumnsObj = {
-    default: 1,
+    default: 3,
+    1536: 3,
     1280: 3,
     1024: 2,
     640: 1,

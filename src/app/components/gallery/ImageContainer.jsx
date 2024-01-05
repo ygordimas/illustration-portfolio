@@ -8,7 +8,7 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import { useEffect, useRef } from "react";
-import getUppercaseTitle from "../utils/getUppercaseTitle";
+import getUppercaseTitle from "../../utils/getUppercaseTitle";
 import { AiOutlineEye } from "react-icons/ai";
 
 export default function ImageContainer({ image, onClick }) {

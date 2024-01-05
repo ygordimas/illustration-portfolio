@@ -11,10 +11,10 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import Tags from "../components/Tags";
-import { useGlobalContext } from "../context/store";
+import { useGlobalContext } from "../../context/store";
 import { illustrations } from "../utils/illustrations";
 import { useEffect, useRef, useState } from "react";
-import getUppercaseTitle from "../utils/getUppercaseTitle";
+import getUppercaseTitle from "../../utils/getUppercaseTitle";
 import { motion, useInView, useAnimate } from "framer-motion";
 
 export default function ProjectBreakdown({ project }) {
