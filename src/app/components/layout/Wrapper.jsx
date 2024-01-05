@@ -3,14 +3,17 @@
 import React, { useRef } from "react";
 import { useGlobalContext } from "../../context/store";
 import { useScroll, useMotionValueEvent } from "framer-motion";
+import { useScrollingContext } from "../../context/ScrollingContext";
 
 function Wrapper({ children }) {
   const wrapperRef = useRef(null);
   const { scrollY } = useScroll({
     container: wrapperRef,
   });
+  const { scrollYProgress } = useScroll({ container: wrapperRef });
 
-  const { hideHeader, setHideHeader } = useGlobalContext();
+  const { setHideHeader } = useGlobalContext();
+  const { setScrollingProgress } = useScrollingContext();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious();
@@ -19,6 +22,10 @@ function Wrapper({ children }) {
     } else {
       setHideHeader(false);
     }
+  });
+
+  useMotionValueEvent(scrollYProgress, "change", () => {
+    setScrollingProgress(scrollYProgress.current);
   });
 
   return (

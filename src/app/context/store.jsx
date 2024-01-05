@@ -2,23 +2,11 @@
 
 import { createContext, useContext, useState } from "react";
 
-const GlobalContext = createContext({
-  currentIndex: null,
-  setCurrentIndex: () => null,
-  currentImage: null,
-  setCurrentImage: () => null,
-  scrollToTop: false,
-  setScrollToTop: () => Boolean,
-  isOpen: false,
-  setIsOpen: () => Boolean,
-  hideHeader: false,
-  setHideHeader: () => Boolean,
-});
+const GlobalContext = createContext({});
 
 export const GlobalContextProvider = ({ children }) => {
   const [currentIndex, setCurrentIndex] = useState(null);
   const [currentImage, setCurrentImage] = useState(null);
-  const [scrollToTop, setScrollToTop] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [hideHeader, setHideHeader] = useState(false);
 
@@ -33,8 +21,7 @@ export const GlobalContextProvider = ({ children }) => {
         setCurrentIndex,
         currentImage,
         setCurrentImage,
-        scrollToTop,
-        setScrollToTop,
+
         isOpen,
         setIsOpen,
         hideHeader,

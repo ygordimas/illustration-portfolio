@@ -16,14 +16,24 @@ import { illustrations } from "../../data/illustrations";
 import { useEffect, useRef, useState } from "react";
 import getUppercaseTitle from "../../utils/getUppercaseTitle";
 import { motion, useInView, useAnimate } from "framer-motion";
+import {
+  useScrollingContext,
+  ScrollingContextProvider,
+} from "../../context/ScrollingContext";
 
 export default function ProjectBreakdown({ project }) {
   const footerNavigationRef = useRef(null);
   const buttonRef = useRef(null);
   const wrapperRef = useRef(null);
-  const wrapperIsInView = useInView(wrapperRef, { amount: 1 });
-  const { currentIndex, setCurrentIndex, setCurrentImage, setScrollToTop } =
-    useGlobalContext();
+
+  const { currentIndex, setCurrentIndex, setCurrentImage } = useGlobalContext();
+
+  const {
+    scrollToTop,
+    setScrollToTop,
+    scrollingProgress,
+    setScrollingProgress,
+  } = useScrollingContext();
 
   const projectIndex = illustrations.findIndex(
     (projects) => projects.path === project.path,
@@ -31,19 +41,7 @@ export default function ProjectBreakdown({ project }) {
 
   useEffect(() => {
     setCurrentIndex(projectIndex);
-  }, [wrapperIsInView]);
-
-  // const uppercasedTitle = (path) => {
-  //   const words = path.split("-");
-
-  //   const title = words
-  //     .map((word) => {
-  //       return word[0].toUpperCase() + word.substring(1);
-  //     })
-  //     .join(" ");
-
-  //   return title;
-  // };
+  }, []);
 
   function handleNavigation(direction) {
     let index = direction == "next" ? currentIndex + 1 : currentIndex - 1;
@@ -98,6 +96,21 @@ export default function ProjectBreakdown({ project }) {
     );
   };
 
+  const goToTopButtonVariant = {
+    show: {
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+      },
+    },
+    hide: {
+      opacity: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
     <main
       ref={wrapperRef}
@@ -105,7 +118,10 @@ export default function ProjectBreakdown({ project }) {
     >
       <motion.div
         ref={buttonRef}
-        className="fixed left-0 top-[90vh] z-10 flex w-full justify-center"
+        variants={goToTopButtonVariant}
+        initial="hide"
+        animate={scrollingProgress > 0.1 ? "show" : "hide"}
+        className="fixed left-0 top-[90vh] z-10 flex w-full justify-center bg-red-400 opacity-0"
       >
         <GoToTopButton onClick={() => setScrollToTop(true)} />
       </motion.div>

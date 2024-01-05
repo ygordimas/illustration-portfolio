@@ -11,6 +11,7 @@ import { GlobalContextProvider } from "./context/store";
 import Wrapper from "./components/layout/Wrapper";
 
 import localFont from "next/font/local";
+import { ScrollingContextProvider } from "./context/ScrollingContext";
 
 const display = localFont({
   src: "../../public/FONTS/elipse/elipse.otf",
@@ -116,11 +117,13 @@ export default function RootLayout({ children }) {
             <link rel="icon" href="/favicon.ico" />
           </Head>
 
-          <Wrapper>
-            <Header />
+          <ScrollingContextProvider>
+            <Wrapper>
+              <Header />
 
-            <MainContent children={children} />
-          </Wrapper>
+              <MainContent children={children} />
+            </Wrapper>
+          </ScrollingContextProvider>
         </GlobalContextProvider>
       </body>
     </html>
