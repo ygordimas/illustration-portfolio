@@ -36,7 +36,13 @@ export default function Header({}) {
           key="header"
           variants={headerVariants}
           animate={hideHeader ? "hide" : "show"}
-          className="flex w-full items-center justify-between gap-2 rounded-3xl bg-primary-400 p-8"
+          className="flex w-full items-center justify-between gap-2 rounded-3xl bg-accent-400 p-8 shadow-glass"
+          // style={{
+          //   border: "2px solid rgba(255, 255, 255, .5)",
+          //   borderRight: "2px solid rgba(255, 255, 255, .2)",
+          //   borderBottom: "2px solid rgba(255, 255, 255, .2)",
+          //   backdropFilter: "blur(10px)",
+          // }}
         >
           <div className="flex cursor-default flex-col items-center">
             <Link href={"/"}>

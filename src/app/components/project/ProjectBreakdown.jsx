@@ -20,6 +20,8 @@ import {
   useScrollingContext,
   ScrollingContextProvider,
 } from "../../context/ScrollingContext";
+import GoToTopButton from "../../components/ui/GoToTopButton";
+import NavigateProjectsButton from "../../components/ui/NavigateProjectsButton";
 
 export default function ProjectBreakdown({ project }) {
   const footerNavigationRef = useRef(null);
@@ -82,20 +84,6 @@ export default function ProjectBreakdown({ project }) {
 
   const arrowStyles = "bg-primary-50 rounded-full p-2 mx-1 text-primary-600";
 
-  const GoToTopButton = ({ onClick }) => {
-    return (
-      <button
-        title="Go To Top"
-        onClick={() => {
-          onClick();
-        }}
-        className="bg-secondary-400 font-lora rounded-3xl bg-primary-700 px-4 py-2 text-2xl font-semibold tracking-wide text-primary-50"
-      >
-        Go To Top
-      </button>
-    );
-  };
-
   const goToTopButtonVariant = {
     show: {
       opacity: 1,
@@ -138,7 +126,7 @@ export default function ProjectBreakdown({ project }) {
         </Link>
         <h2 className="font-medium text-primary-50">{project.type}</h2>
 
-        <Link
+        {/* <Link
           href={`/projects/${
             illustrations[manageNextIndex(currentIndex)]?.path
           }`}
@@ -146,7 +134,13 @@ export default function ProjectBreakdown({ project }) {
           className={arrowStyles}
         >
           <AiOutlineArrowRight />
-        </Link>
+        </Link> */}
+        <NavigateProjectsButton
+          path={illustrations[manageNextIndex(currentIndex)]?.path}
+          handleNavigation={() => handleNavigation("next")}
+        >
+          <AiOutlineArrowRight />
+        </NavigateProjectsButton>
       </nav>
 
       <div className="flex flex-col gap-2 self-start px-2 text-2xl">
@@ -178,7 +172,7 @@ export default function ProjectBreakdown({ project }) {
         ref={footerNavigationRef}
         className="flex w-[100%]  items-center justify-between"
       >
-        <nav className="flex w-[100%] justify-between gap-2 text-4xl">
+        {/* <nav className="flex w-[100%] justify-between gap-2 text-4xl">
           <Link
             href={`/projects/${
               illustrations[managePreviousIndex(currentIndex)]?.path
@@ -198,7 +192,7 @@ export default function ProjectBreakdown({ project }) {
           >
             <AiOutlineArrowRight />
           </Link>
-        </nav>
+        </nav> */}
       </div>
     </main>
   );
