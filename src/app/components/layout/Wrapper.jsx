@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { useGlobalContext } from "../../context/store";
 import { useScroll, useMotionValueEvent } from "framer-motion";
 import { useScrollingContext } from "../../context/ScrollingContext";
@@ -13,7 +13,8 @@ function Wrapper({ children }) {
   const { scrollYProgress } = useScroll({ container: wrapperRef });
 
   const { setHideHeader } = useGlobalContext();
-  const { setScrollingProgress } = useScrollingContext();
+  const { setScrollingProgress, setScrollToTop, scrollToTop } =
+    useScrollingContext();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious();
@@ -27,6 +28,13 @@ function Wrapper({ children }) {
   useMotionValueEvent(scrollYProgress, "change", () => {
     setScrollingProgress(scrollYProgress.current);
   });
+
+  useEffect(() => {
+    if (scrollToTop) {
+      wrapperRef.current.scrollTop = 0;
+      setScrollToTop(false);
+    }
+  }, [scrollToTop]);
 
   return (
     <div

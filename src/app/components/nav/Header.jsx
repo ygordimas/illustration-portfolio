@@ -36,28 +36,22 @@ export default function Header({}) {
           key="header"
           variants={headerVariants}
           animate={hideHeader ? "hide" : "show"}
-          className="flex w-full items-center justify-between gap-2 rounded-3xl bg-accent-400 p-8 shadow-glass"
-          // style={{
-          //   border: "2px solid rgba(255, 255, 255, .5)",
-          //   borderRight: "2px solid rgba(255, 255, 255, .2)",
-          //   borderBottom: "2px solid rgba(255, 255, 255, .2)",
-          //   backdropFilter: "blur(10px)",
-          // }}
+          className="border-myblue-900 flex w-full items-center justify-between gap-2 rounded-full border-4 bg-accent-500 p-8"
         >
-          <div className="flex cursor-default flex-col items-center">
+          <div className="bg-mypink-500 border-myblue-950  box-border flex cursor-default flex-col items-center rounded-full border-4 px-8 py-4 ">
             <Link href={"/"}>
               <h1
-                className={`font-display text-4xl tracking-tight text-primary-100 md:text-4xl xl:text-5xl`}
+                className={`text-myblue-950 font-singoShadow text-8xl tracking-wide `}
               >
-                YGOR DIMAS
+                Ygor Dimas
               </h1>
             </Link>
-
+            {/* 
             <h2 className="text-xl font-normal text-primary-300 sm:hidden lg:block">
               ILLUSTRATOR & 3D ARTIST
-            </h2>
+            </h2> */}
           </div>
-          <div className="flex items-center justify-between rounded-full bg-primary-50 p-2">
+          <div className="flex items-center justify-between rounded-full">
             {/* <div className="h-fit rounded-full bg-primary-500 p-2">Contact</div> */}
             <NavMenu />
           </div>

@@ -6,8 +6,8 @@ function NavigateProjectsButton({ path, handleNavigation, children }) {
   return (
     <Link
       href={`/projects/${path}`}
-      onClick={() => handleNavigation("next")}
-      className="bg-accent-400 p-8"
+      onClick={() => handleNavigation()}
+      className="rounded-2xl bg-accent-400 text-6xl text-primary-50"
     >
       {children}
     </Link>

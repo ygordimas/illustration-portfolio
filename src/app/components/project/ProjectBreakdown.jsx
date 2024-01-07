@@ -30,12 +30,7 @@ export default function ProjectBreakdown({ project }) {
 
   const { currentIndex, setCurrentIndex, setCurrentImage } = useGlobalContext();
 
-  const {
-    scrollToTop,
-    setScrollToTop,
-    scrollingProgress,
-    setScrollingProgress,
-  } = useScrollingContext();
+  const { scrollingProgress } = useScrollingContext();
 
   const projectIndex = illustrations.findIndex(
     (projects) => projects.path === project.path,
@@ -102,39 +97,41 @@ export default function ProjectBreakdown({ project }) {
   return (
     <main
       ref={wrapperRef}
-      className="relative flex flex-col items-center gap-2 text-accent-900"
+      className="relative my-2 flex w-full flex-col items-center justify-center gap-4 text-accent-900"
     >
       <motion.div
         ref={buttonRef}
         variants={goToTopButtonVariant}
         initial="hide"
         animate={scrollingProgress > 0.1 ? "show" : "hide"}
-        className="fixed left-0 top-[90vh] z-10 flex w-full justify-center bg-red-400 opacity-0"
+        className="fixed left-0 top-[90vh] z-10 flex w-full items-center justify-between px-2 opacity-0"
       >
-        <GoToTopButton onClick={() => setScrollToTop(true)} />
-      </motion.div>
-
-      <nav className="sticky flex w-[100%] items-center justify-between bg-primary-600 py-4 text-4xl">
-        <Link
-          href={`/projects/${
-            illustrations[managePreviousIndex(currentIndex)]?.path
-          }`}
-          onClick={() => handleNavigation("previous")}
-          className={arrowStyles}
+        <NavigateProjectsButton
+          path={illustrations[managePreviousIndex(currentIndex)]?.path}
+          handleNavigation={() => handleNavigation("previous")}
         >
           <AiOutlineArrowLeft />
-        </Link>
-        <h2 className="font-medium text-primary-50">{project.type}</h2>
-
-        {/* <Link
-          href={`/projects/${
-            illustrations[manageNextIndex(currentIndex)]?.path
-          }`}
-          onClick={() => handleNavigation("next")}
-          className={arrowStyles}
+        </NavigateProjectsButton>
+        <GoToTopButton />
+        <NavigateProjectsButton
+          path={illustrations[manageNextIndex(currentIndex)]?.path}
+          handleNavigation={() => handleNavigation("next")}
         >
           <AiOutlineArrowRight />
-        </Link> */}
+        </NavigateProjectsButton>
+      </motion.div>
+
+      <nav className="flex w-full max-w-5xl items-center justify-between gap-2 text-4xl">
+        <NavigateProjectsButton
+          path={illustrations[managePreviousIndex(currentIndex)]?.path}
+          handleNavigation={() => handleNavigation("previous")}
+        >
+          <AiOutlineArrowLeft />
+        </NavigateProjectsButton>
+        <h2 className="flex h-full grow justify-center rounded-full border-2 border-accent-500 p-6 font-medium text-accent-600">
+          {project.type}
+        </h2>
+
         <NavigateProjectsButton
           path={illustrations[manageNextIndex(currentIndex)]?.path}
           handleNavigation={() => handleNavigation("next")}
@@ -143,7 +140,7 @@ export default function ProjectBreakdown({ project }) {
         </NavigateProjectsButton>
       </nav>
 
-      <div className="flex flex-col gap-2 self-start px-2 text-2xl">
+      <div className="flex w-full max-w-5xl flex-col items-center gap-2 px-2 text-2xl">
         <p className="font-normal text-primary-700">{project.description}</p>
         <div className="flex flex-wrap gap-2">
           {project.tools.map((tag, index) => (
@@ -152,7 +149,9 @@ export default function ProjectBreakdown({ project }) {
         </div>
       </div>
 
-      <div className="flex flex-col justify-center gap-2 ">
+      <hr className="h-1 w-full bg-accent-500" />
+
+      <div className="flex flex-col justify-center gap-4 ">
         <Image
           src={project.src}
           alt={project.alt}
@@ -162,37 +161,14 @@ export default function ProjectBreakdown({ project }) {
         />
 
         {project.wips && (
-          <div className="grid max-w-[1024px] grid-cols-2 gap-2">
-            {extraImages()}
-          </div>
+          <>
+            <hr className="h-1 w-full bg-accent-500" />
+
+            <div className="grid max-w-5xl grid-cols-2 gap-4">
+              {extraImages()}
+            </div>
+          </>
         )}
-      </div>
-
-      <div
-        ref={footerNavigationRef}
-        className="flex w-[100%]  items-center justify-between"
-      >
-        {/* <nav className="flex w-[100%] justify-between gap-2 text-4xl">
-          <Link
-            href={`/projects/${
-              illustrations[managePreviousIndex(currentIndex)]?.path
-            }`}
-            onClick={() => handleNavigation("backwards")}
-          >
-            <AiOutlineArrowLeft />
-          </Link>
-
-          <GoToTopButton onClick={() => setScrollToTop(true)} />
-
-          <Link
-            href={`/projects/${
-              illustrations[manageNextIndex(currentIndex)]?.path
-            }`}
-            onClick={() => handleNavigation("forward")}
-          >
-            <AiOutlineArrowRight />
-          </Link>
-        </nav> */}
       </div>
     </main>
   );

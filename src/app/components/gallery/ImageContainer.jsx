@@ -10,6 +10,7 @@ import {
 import { useEffect, useRef } from "react";
 import getUppercaseTitle from "../../utils/getUppercaseTitle";
 import { AiOutlineEye } from "react-icons/ai";
+import StarSVG from "../../components/layout/StarSVG";
 
 export default function ImageContainer({ image, onClick }) {
   const container = useRef(null);
@@ -26,7 +27,7 @@ export default function ImageContainer({ image, onClick }) {
     if (isInView) {
       animate(
         scope.current,
-        { opacity: 1, translateY: "16px" },
+        { opacity: 1, translateY: "0px" },
         overlayTransition,
       );
       animateEye(eye.current, { opacity: 1, translateY: "0px" }, eyeTransition);
@@ -75,7 +76,7 @@ export default function ImageContainer({ image, onClick }) {
         alt={image.alt}
         width={image.width}
         height={image.height}
-        className="mb-2 rounded-2xl"
+        className="mb-2 overflow-hidden rounded-2xl"
       />
 
       {/* ********OVERLAY START********* */}
@@ -89,20 +90,24 @@ export default function ImageContainer({ image, onClick }) {
           <div className="relative flex w-full items-center justify-between">
             <motion.div
               key="overlay"
-              className="w-fit -translate-y-[16px] rounded-tr-full bg-primary-50 p-8 font-medium text-primary-600 opacity-0"
+              className="bg-mygreen-500 border-myblue-950 w-fit -translate-y-[16px] rounded-tr-full border-4 px-4 py-8 font-medium text-primary-600 opacity-0"
               ref={scope}
             >
-              <h2 className="mr-8 text-xl font-semibold tracking-wider">
+              <h2 className="text-myblue-950 mr-14 text-xl font-semibold tracking-normal">
                 {getUppercaseTitle(image.path)}
               </h2>
-              <h3>{image.type}</h3>
+              <h3 className="bg-myblue-500 text-myblue-950 w-fit rounded-xl px-2 py-1">
+                {image.type}
+              </h3>
             </motion.div>
             <motion.div
               key="eye"
               ref={eye}
-              className=" mr-8 translate-y-[200px] rounded-full bg-primary-500 opacity-0"
+              className="relative mr-8 translate-y-[200px] rounded-full bg-primary-500 opacity-0"
             >
-              <AiOutlineEye className="p-2 text-6xl text-primary-50" />
+              <StarSVG color={"fill-myyellow-500"} size={"h-20 w-20"} />
+
+              <AiOutlineEye className="text-myblue-950 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-6xl" />
             </motion.div>
           </div>
           {/* *********MOBILE OVERLAY ENDS********* */}
