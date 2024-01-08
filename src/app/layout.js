@@ -90,6 +90,22 @@ const mainfont = localFont({
   variable: "--font-mainfont",
 });
 
+const singo = localFont({
+  src: [
+    {
+      path: "../../public/FONTS/singo/Singo-Regular.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/FONTS/singo/SingoRegularItalic-Regular.otf",
+      weight: "400",
+      style: "italic",
+    },
+  ],
+  variable: "--font-singo",
+});
+
 const singoOutline = localFont({
   src: [
     {
@@ -122,10 +138,20 @@ const singoShadow = localFont({
   variable: "--font-singoShadow",
 });
 
-const youngserif = Young_Serif({
-  subsets: ["latin"],
-  variable: "--font-youngserif",
-  weight: "400",
+const singoRound = localFont({
+  src: [
+    {
+      path: "../../public/FONTS/singo/SingoRounded-Regular.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/FONTS/singo/SingoRoundItalic-Regular.otf",
+      weight: "400",
+      style: "italic",
+    },
+  ],
+  variable: "--font-singoRound",
 });
 
 export const metadata = {
@@ -137,7 +163,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${mainfont.variable} ${display.variable} ${youngserif.variable} ${singoOutline.variable} ${singoShadow.variable} bg-accent-500 font-mainfont font-thin`}
+        className={`${mainfont.variable} ${display.variable} ${singo.variable} ${singoRound.variable} ${singoOutline.variable} ${singoShadow.variable} bg-accent-500 font-mainfont font-thin`}
       >
         <GlobalContextProvider>
           <Head>

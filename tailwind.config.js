@@ -120,6 +120,8 @@ module.exports = {
       youngserif: ["var(--font-youngserif)"],
       singoOutline: ["var(--font-singoOutline)"],
       singoShadow: ["var(--font-singoShadow)"],
+      singoRound: ["var(--font-singoRound)"],
+      singo: ["var(--font-singo)"],
     },
   },
   plugins: [],

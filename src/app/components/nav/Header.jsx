@@ -36,12 +36,19 @@ export default function Header({}) {
           key="header"
           variants={headerVariants}
           animate={hideHeader ? "hide" : "show"}
-          className="border-myblue-900 flex w-full items-center justify-between gap-2 rounded-full border-4 bg-accent-500 p-8"
+          className="flex w-full items-center justify-between gap-2 rounded-full border-4 border-myblue-900 bg-accent-500 p-8"
+          style={{
+            boxShadow:
+              "rgba(6, 152, 214, 0.4) 0px 0px 0px 2px, rgba(66, 152, 214, 0.65) 0px 4px 6px -1px, rgba(6, 152, 214, 0.08) 0px 1px 0px inset",
+          }}
         >
-          <div className="bg-mypink-500 border-myblue-950  box-border flex cursor-default flex-col items-center rounded-full border-4 px-8 py-4 ">
-            <Link href={"/"}>
+          <div className="box-border flex  cursor-default flex-col items-center rounded-full border-[6px] border-myblue-950 bg-mypink-500 px-8 py-4 ">
+            <Link className="relative " href={"/"}>
+              <div className="z-8 font-singo absolute left-[-2px] top-[-2px] whitespace-nowrap text-8xl tracking-wide text-myyellow-500">
+                Ygor Dimas
+              </div>
               <h1
-                className={`text-myblue-950 font-singoShadow text-8xl tracking-wide `}
+                className={`z-10 font-singoShadow text-8xl tracking-wide text-myblue-950`}
               >
                 Ygor Dimas
               </h1>

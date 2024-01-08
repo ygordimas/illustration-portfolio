@@ -13,7 +13,7 @@ export default function MainContent({ children }) {
   const { scrollToTop, setScrollToTop } = useScrollingContext();
   const scrollArea = useRef();
 
-  const mainStyles = `relative mt-2 flex grow flex-col items-center opacity-1`;
+  const mainStyles = `relative p-2 flex grow flex-col items-center justify-center opacity-1`;
 
   return (
     <motion.main
@@ -22,7 +22,7 @@ export default function MainContent({ children }) {
       animate={isOpen ? { opacity: 0 } : {}}
       transition={{ duration: 0.5 }}
     >
-      <div className="grow">{children}</div>
+      {children}
 
       {/* <Footer /> */}
     </motion.main>

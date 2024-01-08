@@ -48,7 +48,7 @@ function NavMenuLinks({ isOpen, handleOpen }) {
               } else {
                 return (
                   <div
-                    onClick={handleOpen}
+                    onClick={() => handleOpen()}
                     className="pointer-events-auto  overflow-hidden"
                   >
                     <MobileNavLink
