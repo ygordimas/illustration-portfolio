@@ -13,7 +13,7 @@ export default function MainContent({ children }) {
   const { scrollToTop, setScrollToTop } = useScrollingContext();
   const scrollArea = useRef();
 
-  const mainStyles = `relative p-2 flex grow flex-col items-center justify-center opacity-1`;
+  const mainStyles = `relative py-8 flex grow flex-col items-center justify-center opacity-1`;
 
   return (
     <motion.main

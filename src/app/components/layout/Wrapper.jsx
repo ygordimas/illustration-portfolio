@@ -4,6 +4,7 @@ import React, { useRef, useEffect } from "react";
 import { useGlobalContext } from "../../context/store";
 import { useScroll, useMotionValueEvent } from "framer-motion";
 import { useScrollingContext } from "../../context/ScrollingContext";
+import StripesSVG from "./StripesSVG";
 
 function Wrapper({ children }) {
   const wrapperRef = useRef(null);
@@ -41,6 +42,8 @@ function Wrapper({ children }) {
       ref={wrapperRef}
       className="align-center relative flex h-full w-full flex-col overflow-y-scroll  px-2"
     >
+      {/* <StripesSVG /> */}
+
       {children}
     </div>
   );

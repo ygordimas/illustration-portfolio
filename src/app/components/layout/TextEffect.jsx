@@ -3,7 +3,7 @@ import React from "react";
 function TextEffect({ text, size, padding }) {
   return (
     <p
-      className={`relative block h-fit w-fit ${size} mr-10 font-singoShadow text-myyellow-500`}
+      className={`relative block h-fit w-fit ${size} mr-0 font-singoShadow text-myyellow-500`}
     >
       {text}
       <span

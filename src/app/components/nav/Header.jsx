@@ -9,6 +9,7 @@ import {
 import NavMenu from "./NavMenu";
 import { useGlobalContext } from "../../context/store";
 import { useEffect, useState } from "react";
+import StripesSVG from "../../components/layout/StripesSVG";
 
 export default function Header({}) {
   const { isOpen, setIsOpen } = useGlobalContext();
@@ -32,7 +33,7 @@ export default function Header({}) {
               "rgba(6, 152, 214, 0.4) 0px 0px 0px 2px, rgba(66, 152, 214, 0.65) 0px 4px 6px -1px, rgba(6, 152, 214, 0.08) 0px 1px 0px inset",
           }}
         >
-          <div className="box-border flex  cursor-default flex-col items-center rounded-full border-[6px] border-myblue-950 bg-mypink-500 px-8 py-4 ">
+          <div className="relative box-border flex  cursor-default flex-col items-center rounded-full border-[6px] border-myblue-950 bg-mypink-500 px-8 py-4 ">
             <Link className="relative " href={"/"}>
               <div className="z-3 whitespace-nowrap  font-singo text-8xl tracking-wider text-myblue-950">
                 Ygor Dimas
@@ -43,6 +44,9 @@ export default function Header({}) {
                 Ygor Dimas
               </h1>
             </Link>
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 rounded-full border-4 border-myblue-950 bg-myyellow-500 font-singoRound text-xl tracking-wide text-myblue-950">
+              <p className="px-4 py-1">3D ARTIST & ILLUSTRATOR</p>
+            </div>
           </div>
           <div className="flex items-center justify-between rounded-full">
             <NavMenu />

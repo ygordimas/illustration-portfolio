@@ -34,31 +34,49 @@ export default function ImageContainer({ image, onClick }) {
     margin: "0% 0% 0% 0%",
   });
 
-  // const handleAnimate = async () => {
-  //   await animate(scope.current, {opacity: 1, translateX: "0px"}, overlayTransition)
-  // }
+  const handleAnimateEnter = async () => {
+    await animate(scope.current, overlayVariant.show, overlayTransition);
+    await animate(
+      scope.current,
+      overlayStrokeVariant.show,
+      overlayDescriptionTransition,
+    );
+    await animate(
+      "h3",
+      overlayDescriptionVariant.show,
+      overlayDescriptionTransition,
+    );
+  };
 
-  // useEffect(() => {
-  //   if (isInView) {
-  //     animate(
-  //       scope.current,
-  //       { opacity: 1, translateX: "0px", borderColor: "#FFF" },
-  //       overlayTransition,
-  //     );
-  //   } else {
-  //     animate(
-  //       scope.current,
-  //       {
-  //         opacity: 0,
-  //         translateX: "-16px",
-  //       },
-  //       overlayTransition,
-  //     );
-  //   }
-  // }, [isInView]);
+  const handleAnimateExit = async () => {
+    await animate(scope.current, overlayVariant.hide, overlayTransition);
+    await animate(
+      scope.current,
+      overlayStrokeVariant.hide,
+      overlayDescriptionTransition,
+    );
+    await animate(
+      "h3",
+      overlayDescriptionVariant.hide,
+      overlayDescriptionTransition,
+    );
+  };
+
+  useEffect(() => {
+    if (isInView) {
+      // animate(
+      //   scope.current,
+      //   { opacity: 1, translateX: "0px", borderColor: "#FFF" },
+      //   overlayTransition,
+      // );
+      handleAnimateEnter();
+    } else {
+      handleAnimateExit();
+    }
+  }, [isInView]);
 
   const overlayTransition = {
-    duration: 0.8,
+    duration: 0.4,
     ease: [0.5, 1, 0.89, 1],
   };
 
@@ -70,7 +88,25 @@ export default function ImageContainer({ image, onClick }) {
 
   const overlayVariant = {
     hide: { opacity: 0, x: "-32px" },
-    show: { opacity: 1, x: "0" },
+    show: { opacity: 1, x: "0px" },
+  };
+
+  const overlayDescriptionVariant = {
+    hide: { opacity: 0, x: "-32px", y: "-50%" },
+    show: { opacity: 1, x: "0px", y: "-50%" },
+  };
+
+  const overlayDescriptionTransition = {
+    duration: 0.2,
+  };
+
+  const overlayStrokeVariant = {
+    hide: {
+      borderColor: "rgba(2, 39, 55, 0)",
+    },
+    show: {
+      borderColor: "rgba(2, 39, 55, 1)",
+    },
   };
 
   const eyeRibbonVariant = {
@@ -110,7 +146,7 @@ export default function ImageContainer({ image, onClick }) {
 
       {/* ********OVERLAY START********* */}
       <motion.div
-        className="absolute left-0 top-0 flex h-full w-full flex-col justify-between "
+        className="absolute left-0 top-0 flex h-full w-full flex-col sm:justify-end lg:justify-between "
         onClick={onClick}
         ref={container}
         onMouseEnter={handleMouseEnter}
@@ -154,23 +190,23 @@ export default function ImageContainer({ image, onClick }) {
 
         <AnimatePresence>
           {/* ********* OVERLAY STARTS********* */}
-          <div className="relative flex w-full items-center justify-between overflow-hidden">
+          <div className="relative flex w-full items-center justify-between self-end ">
             <AnimatePresence>
               <motion.div
                 key="overlay"
-                className="w-fit -translate-x-[32px] rounded-bl-2xl rounded-tr-full border-4 border-myblue-950  bg-mygreen-500 px-4 py-4 font-medium text-primary-600 opacity-0"
+                className="relative w-fit rounded-bl-2xl rounded-tr-2xl border-4 border-myblue-950 border-opacity-0 bg-mygreen-500 px-4 py-4 font-medium text-primary-600 opacity-0"
                 ref={scope}
                 variants={overlayVariant}
-                animate={isInView ? "show" : "hide"}
+                // animate={isInView ? "show" : "hide"}
                 initial="hide"
-                transition={{ duration: 0.6 }}
+                // transition={{ duration: 0.6 }}
               >
                 <TextEffect
                   text={getUppercaseTitle(image.path)}
                   size={`text-2xl`}
                 />
 
-                <h3 className="w-fit rounded-lg bg-myblue-500 px-1.5 py-0.5 text-myblue-950">
+                <h3 className="absolute left-2 top-0 block w-fit -translate-y-1/2 whitespace-nowrap rounded-lg border-4 border-myblue-950 bg-myblue-500 px-1.5 py-0.5 text-myblue-950 opacity-0">
                   {image.type}
                 </h3>
               </motion.div>
