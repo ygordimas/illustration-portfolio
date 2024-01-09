@@ -11,6 +11,7 @@ import { useEffect, useRef, useState } from "react";
 import getUppercaseTitle from "../../utils/getUppercaseTitle";
 import { AiOutlineEye } from "react-icons/ai";
 import StarSVG from "../../components/layout/StarSVG";
+import TextEffect from "../../components/layout/TextEffect";
 
 export default function ImageContainer({ image, onClick }) {
   const container = useRef(null);
@@ -33,24 +34,28 @@ export default function ImageContainer({ image, onClick }) {
     margin: "0% 0% 0% 0%",
   });
 
-  useEffect(() => {
-    if (isInView) {
-      animate(
-        scope.current,
-        { opacity: 1, translateY: "0px" },
-        overlayTransition,
-      );
-    } else {
-      animate(
-        scope.current,
-        {
-          opacity: 0,
-          translateY: "-16px",
-        },
-        overlayTransition,
-      );
-    }
-  }, [isInView]);
+  // const handleAnimate = async () => {
+  //   await animate(scope.current, {opacity: 1, translateX: "0px"}, overlayTransition)
+  // }
+
+  // useEffect(() => {
+  //   if (isInView) {
+  //     animate(
+  //       scope.current,
+  //       { opacity: 1, translateX: "0px", borderColor: "#FFF" },
+  //       overlayTransition,
+  //     );
+  //   } else {
+  //     animate(
+  //       scope.current,
+  //       {
+  //         opacity: 0,
+  //         translateX: "-16px",
+  //       },
+  //       overlayTransition,
+  //     );
+  //   }
+  // }, [isInView]);
 
   const overlayTransition = {
     duration: 0.8,
@@ -64,8 +69,8 @@ export default function ImageContainer({ image, onClick }) {
   };
 
   const overlayVariant = {
-    hide: {},
-    show: {},
+    hide: { opacity: 0, x: "-32px" },
+    show: { opacity: 1, x: "0" },
   };
 
   const eyeRibbonVariant = {
@@ -111,18 +116,29 @@ export default function ImageContainer({ image, onClick }) {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
+        {/* *****EYE RIBBON STARTS***** */}
         <motion.div
           key="ribbon"
-          className="font-singoRound relative gap-2 self-end pt-8 text-2xl sm:hidden lg:flex lg:items-center lg:justify-center"
+          className="relative gap-2 self-end pt-8 font-singoRound text-2xl sm:hidden lg:flex lg:items-center lg:justify-center"
           ref={eyeDesktop}
         >
           <motion.span
-            className="rounded-full border-4 border-myblue-950 bg-myyellow-500 p-2 text-myblue-950"
+            className=" text-myblue-950"
             initial="hide"
             animate={isHovered ? "show" : "hide"}
             variants={eyeIconVariant}
           >
-            <AiOutlineEye className="" />
+            <div className="relative flex h-fit w-fit content-center">
+              <svg
+                className="h-16 w-16 overflow-visible fill-myyellow-500 stroke-myblue-950 stroke-[20px]"
+                viewBox="0 0 510.68 510.68"
+              >
+                <path d="M206.48 137.39 255.34 0l48.85 137.39 131.7-62.6-62.6 131.69 137.39 48.86-137.39 48.85 62.6 131.7-131.7-62.6-48.85 137.39-48.86-137.39-131.69 62.6 62.6-131.7L0 255.34l137.39-48.86-62.6-131.69 131.69 62.6z" />
+              </svg>
+              <span className="z-5 absolute left-[50%] top-[50%] flex h-fit w-fit -translate-x-1/2 -translate-y-1/2 content-center">
+                <AiOutlineEye className="block" />
+              </span>
+            </div>
           </motion.span>
           <motion.p
             className="block rounded-l-full bg-mygreen-500 px-2 py-1 pl-6 uppercase tracking-wide text-myblue-950 "
@@ -134,24 +150,33 @@ export default function ImageContainer({ image, onClick }) {
             View
           </motion.p>
         </motion.div>
+        {/* *****EYE RIBBON ENDS***** */}
 
         <AnimatePresence>
-          {/* *********MOBILE OVERLAY STARTS********* */}
-          <div className="relative flex w-full items-center justify-between">
-            <motion.div
-              key="overlay"
-              className="w-fit -translate-y-[16px] rounded-tr-full border-4 border-myblue-950 bg-mygreen-500 px-4 py-4 font-medium text-primary-600 opacity-0"
-              ref={scope}
-            >
-              <h2 className="font-singoRound mr-14 text-2xl tracking-wide text-myblue-950">
-                {getUppercaseTitle(image.path)}
-              </h2>
-              <h3 className="w-fit rounded-lg bg-myblue-500 px-1.5 py-0.5 text-myblue-950">
-                {image.type}
-              </h3>
-            </motion.div>
+          {/* ********* OVERLAY STARTS********* */}
+          <div className="relative flex w-full items-center justify-between overflow-hidden">
+            <AnimatePresence>
+              <motion.div
+                key="overlay"
+                className="w-fit -translate-x-[32px] rounded-bl-2xl rounded-tr-full border-4 border-myblue-950  bg-mygreen-500 px-4 py-4 font-medium text-primary-600 opacity-0"
+                ref={scope}
+                variants={overlayVariant}
+                animate={isInView ? "show" : "hide"}
+                initial="hide"
+                transition={{ duration: 0.6 }}
+              >
+                <TextEffect
+                  text={getUppercaseTitle(image.path)}
+                  size={`text-2xl`}
+                />
+
+                <h3 className="w-fit rounded-lg bg-myblue-500 px-1.5 py-0.5 text-myblue-950">
+                  {image.type}
+                </h3>
+              </motion.div>
+            </AnimatePresence>
           </div>
-          {/* *********MOBILE OVERLAY ENDS********* */}
+          {/* ********* OVERLAY ENDS********* */}
         </AnimatePresence>
       </motion.div>
       {/* ********OVERLAY ENDS********* */}

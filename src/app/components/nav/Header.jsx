@@ -19,19 +19,9 @@ export default function Header({}) {
     hide: { opacity: 0 },
   };
 
-  // const { scrollY } = useScroll();
-
-  // useMotionValueEvent(scrollY, "change", (latest) => console.log(latest));
-
   return (
     <>
-      <header
-        // layoutScroll
-        // key="header"
-        // variants={headerVariants}
-        // animate={hidden ? "hide" : "show"}
-        className="sticky top-2 z-10 w-full"
-      >
+      <header className="sticky top-2 z-10 w-full">
         <motion.div
           key="header"
           variants={headerVariants}
@@ -44,27 +34,21 @@ export default function Header({}) {
         >
           <div className="box-border flex  cursor-default flex-col items-center rounded-full border-[6px] border-myblue-950 bg-mypink-500 px-8 py-4 ">
             <Link className="relative " href={"/"}>
-              <div className="z-8 font-singo absolute left-[-2px] top-[-2px] whitespace-nowrap text-8xl tracking-wide text-myyellow-500">
+              <div className="z-3 whitespace-nowrap  font-singo text-8xl tracking-wider text-myblue-950">
                 Ygor Dimas
               </div>
               <h1
-                className={`z-10 font-singoShadow text-8xl tracking-wide text-myblue-950`}
+                className={`z-5 absolute left-[-2px] top-[-2px] whitespace-nowrap font-singoShadow text-8xl tracking-wider text-myyellow-500`}
               >
                 Ygor Dimas
               </h1>
             </Link>
-            {/* 
-            <h2 className="text-xl font-normal text-primary-300 sm:hidden lg:block">
-              ILLUSTRATOR & 3D ARTIST
-            </h2> */}
           </div>
           <div className="flex items-center justify-between rounded-full">
-            {/* <div className="h-fit rounded-full bg-primary-500 p-2">Contact</div> */}
             <NavMenu />
           </div>
         </motion.div>
       </header>
-      {/* <NavMenuLinks isOpen={isOpen} handleOpen={toggleMenu} /> */}
     </>
   );
 }

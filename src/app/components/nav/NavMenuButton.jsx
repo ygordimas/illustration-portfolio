@@ -13,7 +13,7 @@ function NavMenuButton({ isOpen, onClick }) {
       y: "-50%",
     },
     close: {
-      top: "40%",
+      top: "45%",
       y: "-50%",
     },
   };
@@ -28,60 +28,54 @@ function NavMenuButton({ isOpen, onClick }) {
       y: "-50%",
     },
     close: {
-      top: "60%",
+      top: "55%",
       y: "-50%",
     },
   };
 
-  const menuBgVariant = {
+  const buttonSVGVariant = {
     close: {
-      scale: 0,
-      y: "-50%",
-      x: "-50%",
-      transition: { delay: 0.25, duration: 0.6 },
+      fill: "#0698D6",
     },
     open: {
-      scale: 3,
-      y: "-50%",
-      x: "-50%",
-      transition: { duration: 0.6 },
-    },
-  };
-
-  const size = "20";
-
-  const buttonShadowVariant = {
-    shadow: {
-      boxShadow: "1px 1px 10px rgba(0, 0, 0, 0.3)",
+      fill: "#F56B7C",
+      // backgroundColor: "#C1DC40",
     },
   };
 
   return (
     <motion.button
       onClick={onClick}
-      className={`text-myblue-500 relative z-10 flex h-fit w-fit items-center justify-center`}
+      className={`relative z-10 flex h-fit w-fit items-center justify-center text-myblue-500`}
+      // variants={buttonVariant}
+      // initial="close"
+      // animate="open"
+      // transition={{ duration: 1 }}
     >
-      {/* <svg
-        className="stroke-myblue-950 h-24 w-24 fill-current stroke-[2px]"
-        viewBox="0 0 63 60"
+      <motion.svg
+        className="stroke-myblue-950` h-24 w-24 overflow-visible stroke-[20px]"
+        viewBox="0 0 512 512"
+        variants={buttonSVGVariant}
+        initial="close"
+        animate={isOpen ? "open" : "close"}
+        stroke="#022737"
       >
-        <path d="m31.4 59.6-5.7-9.5-9.4 5.9-.6-11.1-11.1.5 5.1-9.8L0 30.1l9.7-5.4-5.2-9.8 11.1.5.6-11.1 9.5 5.8L31.4.6l5.7 9.5 9.4-5.8.6 11 11.1-.5-5.1 9.8 9.7 5.5-9.7 5.5 5.2 9.8-11.1-.5-.6 11.1-9.5-5.9-5.7 9.5Z" />
-      </svg> */}
+        <path d="m256 0 34.68 81.67 63.29-62.18.78 88.72 82.27-33.23-33.23 82.27 88.72.78-62.18 63.29L512 256l-81.67 34.68 62.18 63.29-88.72.78 33.23 82.27-82.27-33.23-.78 88.72-63.29-62.18L256 512l-34.68-81.67-63.29 62.18-.78-88.72-82.27 33.23 33.23-82.27-88.72-.78 62.18-63.29L0 256l81.67-34.68-62.18-63.29 88.72-.78-33.23-82.27 82.27 33.23.78-88.72 63.29 62.18L256 0z" />
+      </motion.svg>
 
-      <StarSVG color={"fill-myblue-500"} size={"h-24 w-24"} />
       <motion.div
         layout
         key="top"
         variants={burgerTopVariant}
         animate={isOpen ? "open" : "close"}
-        className="absolute top-[40%] h-[4px] w-[30%] rounded-full bg-accent-500"
+        className="absolute top-[45%] h-[4px] w-[30%] rounded-full bg-myyellow-400"
       ></motion.div>
       <motion.div
         layout
         key="bottom"
         variants={burgerBottomVariant}
         animate={isOpen ? "open" : "close"}
-        className="absolute top-[60%] h-[4px] w-[30%] rounded-full bg-accent-500"
+        className="absolute top-[55%] h-[4px] w-[30%] rounded-full bg-myyellow-400"
       ></motion.div>
     </motion.button>
   );
