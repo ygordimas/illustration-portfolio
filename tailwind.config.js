@@ -18,6 +18,9 @@ module.exports = {
         "pos-0": "0% 0%",
         "pos-100": "100% 100%",
       },
+      // backgroundImage: {
+      //   lines: "url('/public/SVG/GCxktUdXYAAoJ63.jpg')",
+      // },
       colors: {
         primary: {
           DEFAULT: "#C1DC40",

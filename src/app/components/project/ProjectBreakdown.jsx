@@ -105,14 +105,14 @@ export default function ProjectBreakdown({ project }) {
         variants={goToTopButtonVariant}
         initial="hide"
         animate={scrollingProgress > 0.1 ? "show" : "hide"}
-        className="fixed left-0 top-[90vh] z-10 flex w-full items-center justify-between  px-2 opacity-0"
+        className="fixed bottom-[2vh] left-0 z-10 flex w-full items-center justify-between  px-8 opacity-0"
       >
         <NavigateProjectsButton
           path={illustrations[managePreviousIndex(currentIndex)]?.path}
           handleNavigation={() => handleNavigation("previous")}
-        >
-          <AiOutlineArrowLeft />
-        </NavigateProjectsButton>
+          direction="left"
+        />
+
         <GoToTopButton />
         <NavigateProjectsButton
           path={illustrations[manageNextIndex(currentIndex)]?.path}

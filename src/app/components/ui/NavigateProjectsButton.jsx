@@ -26,7 +26,7 @@ function NavigateProjectsButton({
     <Link
       href={`/projects/${path}`}
       onClick={() => handleNavigation()}
-      className="flex"
+      className="flex text-4xl"
     >
       {/* {direction == "left" ? <FaRegHandPointLeft /> : <FaRegHandPointRight />}
       <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 translate-y-1/2 rounded-full border-4 border-myblue-950 bg-myyellow-500 px-2 py-0.5">

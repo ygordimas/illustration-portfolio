@@ -1,11 +1,13 @@
 import ContactForm from "./ContactForm";
-import { GiMailbox } from "react-icons/gi";
+import ContactHeading from "./ContactHeading";
 
 export default function ContactPage() {
   return (
     <>
-      <GiMailbox className="text-6xl" />
-      <ContactForm />
+      <div className="relative h-fit w-fit">
+        <ContactHeading />
+        <ContactForm />
+      </div>
     </>
   );
 }
