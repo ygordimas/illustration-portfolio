@@ -7,9 +7,11 @@ import {
   useScroll,
 } from "framer-motion";
 import NavMenu from "./NavMenu";
+import HeaderButton from "./HeaderButton";
 import { useGlobalContext } from "../../context/store";
 import { useEffect, useState } from "react";
 import StripesSVG from "../../components/layout/StripesSVG";
+import { usePathname } from "next/navigation";
 
 export default function Header({}) {
   const { isOpen, setIsOpen } = useGlobalContext();
@@ -48,6 +50,13 @@ export default function Header({}) {
               <p className="px-4 py-1">3D ARTIST & ILLUSTRATOR</p>
             </div>
           </div>
+
+          <div className="hidden grow justify-end gap-2 md:flex md:flex-col lg:flex-row">
+            <HeaderButton label="Illustrations" path={"/"} />
+            <HeaderButton label="Game Art" path={"/3d-art"} />
+            <HeaderButton label="Abstract Art" path={"/abstract-art"} />
+          </div>
+
           <div className="flex items-center justify-between rounded-full">
             <NavMenu />
           </div>
