@@ -8,7 +8,7 @@ function NavMenu() {
   const { isOpen, setIsOpen } = useGlobalContext();
   const size = "20";
   return (
-    <div className={`h-fit w-fit`}>
+    <div className={`z-10 h-fit w-fit`}>
       <NavMenuButton isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
       {isOpen && <NavMenuLinks isOpen={isOpen} handleOpen={setIsOpen} />}
       <NavMenuOverlay />

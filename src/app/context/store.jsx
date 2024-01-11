@@ -1,6 +1,7 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import useWindowSize from "../hooks/useWindowSize";
 
 const GlobalContext = createContext({});
 
@@ -9,10 +10,6 @@ export const GlobalContextProvider = ({ children }) => {
   const [currentImage, setCurrentImage] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [hideHeader, setHideHeader] = useState(false);
-
-  const toggleOpen = () => {
-    setIsOpen(!isOpen);
-  };
 
   return (
     <GlobalContext.Provider
