@@ -10,6 +10,7 @@ export default function ImageGallery({ illustrations, handleClickOpenImage }) {
     1536: 3,
     1280: 3,
     1024: 2,
+    768: 1,
     640: 1,
   };
 

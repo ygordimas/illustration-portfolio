@@ -18,15 +18,38 @@ import ViewOverlay from "./ViewOverlay";
 import TitleOverlay from "./TitleOverlay";
 
 export default function ImageContainer({ image, onClick }) {
-  const container = useRef(null);
-  const [scope, animate] = useAnimate();
-  const [eyeDesktop, animateEyeDesktop] = useAnimate();
-
+  const [container, animate] = useAnimate();
   const [isHovered, setIsHovered] = useState(false);
-
   const windowWidth = useWindowSize();
 
-  useEffect(() => {}, [isHovered]);
+  const isInView = useInView(container, {
+    once: false,
+    amount: 0.9,
+    margin: "0% 0% 0% 0%",
+  });
+
+  useEffect(() => {
+    if (isInView && windowWidth < 1024) {
+      animate(container.current, shadowAnimation.show);
+    } else if (!isInView && windowWidth < 1024) {
+      animate(container.current, shadowAnimation.hide);
+    }
+  }, [isInView, windowWidth]);
+
+  const shadowAnimation = {
+    show: {
+      boxShadow: "inset 0px 0px 0px 8px rgba(2,39,55,1)",
+      transition: {
+        duration: 0.5,
+      },
+    },
+    hide: {
+      boxShadow: "inset 0px 0px 0px 8px rgba(2,39,55,0)",
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
 
   function handleMouseEnter() {
     setIsHovered(true);
@@ -35,82 +58,6 @@ export default function ImageContainer({ image, onClick }) {
   function handleMouseLeave() {
     setIsHovered(false);
   }
-
-  const isInView = useInView(container, {
-    once: false,
-    amount: 0.8,
-    margin: "0% 0% 0% 0%",
-  });
-
-  const handleAnimateEnter = async () => {
-    await animate(scope.current, overlayVariant.show, overlayTransition);
-    await animate(
-      scope.current,
-      overlayStrokeVariant.show,
-      overlayDescriptionTransition,
-    );
-    await animate(
-      "h3",
-      overlayDescriptionVariant.show,
-      overlayDescriptionTransition,
-    );
-  };
-
-  const handleAnimateExit = async () => {
-    await animate(scope.current, overlayVariant.hide, overlayTransition);
-    await animate(
-      scope.current,
-      overlayStrokeVariant.hide,
-      overlayDescriptionTransition,
-    );
-    await animate(
-      "h3",
-      overlayDescriptionVariant.hide,
-      overlayDescriptionTransition,
-    );
-  };
-
-  useEffect(() => {
-    if (isInView) {
-      // animate(
-      //   scope.current,
-      //   { opacity: 1, translateX: "0px", borderColor: "#FFF" },
-      //   overlayTransition,
-      // );
-      // handleAnimateEnter();
-    } else {
-      // handleAnimateExit();
-    }
-  }, [isInView]);
-
-  const overlayVariant = {
-    hide: { opacity: 0, x: "-32px", borderColor: "rgba(2, 39, 55, 1)" },
-    show: { opacity: 1, x: "0px" },
-  };
-
-  const overlayTransition = {
-    duration: 0.4,
-    ease: [0.5, 1, 0.89, 1],
-    type: "tween",
-  };
-
-  const overlayDescriptionVariant = {
-    hide: { opacity: 0, x: "-32px", y: "-50%" },
-    show: { opacity: 1, x: "0px", y: "-50%" },
-  };
-
-  const overlayDescriptionTransition = {
-    duration: 0.2,
-  };
-
-  const overlayStrokeVariant = {
-    hide: {
-      borderColor: "rgba(2, 39, 55, 0)",
-    },
-    show: {
-      borderColor: "rgba(2, 39, 55, 1)",
-    },
-  };
 
   return (
     <Link
@@ -128,8 +75,8 @@ export default function ImageContainer({ image, onClick }) {
       />
 
       {/* ********OVERLAY START********* */}
-      <div
-        className="absolute left-0 top-0 flex h-full w-full flex-col justify-between rounded-2xl"
+      <motion.div
+        className="absolute left-0 top-0 flex h-full w-full flex-col justify-between overflow-hidden rounded-2xl"
         onClick={onClick}
         ref={container}
         onMouseEnter={handleMouseEnter}
@@ -150,7 +97,7 @@ export default function ImageContainer({ image, onClick }) {
           isInView={isInView}
           windowWidth={windowWidth}
         />
-      </div>
+      </motion.div>
       {/* ********OVERLAY ENDS********* */}
     </Link>
   );
