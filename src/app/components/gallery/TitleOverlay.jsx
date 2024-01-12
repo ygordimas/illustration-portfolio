@@ -13,7 +13,7 @@ function TitleOverlay({ path, isHovered, isInView, windowWidth }) {
       opacity: 0,
       x: "-80%",
       transition: {
-        duration: 0.4,
+        duration: 0.2,
         ease: [0.16, 1, 0.3, 1],
         type: "tween",
       },
@@ -22,7 +22,7 @@ function TitleOverlay({ path, isHovered, isInView, windowWidth }) {
       opacity: 1,
       x: "0%",
       transition: {
-        delay: 0.4,
+        delay: 0.2,
         duration: 0.2,
         ease: [0.16, 1, 0.3, 1],
         type: "tween",

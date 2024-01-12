@@ -44,7 +44,7 @@ function HeaderButton({ label, href }) {
   };
 
   const linkStyle =
-    "relative rounded-full border-2 border-myblue-950 max-lg:[--borderOpacity:rgba(2,39,55,1)] [--borderOpacity:rgba(2,39,55,0)] px-4 py-2 font-singoRound text-2xl xl:text-4xl tracking-normal text-myblue-950 z-10";
+    "relative rounded-full border-2 border-myblue-950 max-lg:[--borderOpacity:rgba(2,39,55,1)] [--borderOpacity:rgba(2,39,55,0)] px-4 py-2 font-singoRound text-2xl xl:text-2xl tracking-normal text-myblue-950 z-10";
 
   return (
     <Link href={href} className="relative h-fit w-fit">
@@ -52,6 +52,7 @@ function HeaderButton({ label, href }) {
         className={linkStyle}
         variants={buttonVariant}
         animate={pathname == href ? "active" : "inactive"}
+        initial={pathname == href ? "active" : "inactive"}
         whileHover={{
           borderColor: "rgba(2, 39, 55, 1)",
         }}
@@ -62,13 +63,14 @@ function HeaderButton({ label, href }) {
             pathname == href ? `` : `hidden`
           } absolute bottom-0 left-1/2 flex items-center justify-center rounded-full border-4 border-myblue-950 bg-myyellow-500 p-1 text-2xl`}
           variants={littleHandVariant}
+          initial={pathname == href ? "active" : "inactive"}
           animate={pathname == href ? "active" : "inactive"}
           transition={buttonTransition}
         >
           <LiaHandPointUpSolid />
         </motion.div>
       </motion.div>
-      <motion.div className="-z-2 absolute -bottom-2 left-1 h-full w-full rounded-full bg-myyellow-500"></motion.div>
+      <motion.div className="-z-2 absolute -bottom-1 left-1 h-full w-full rounded-full bg-myyellow-500"></motion.div>
     </Link>
   );
 }

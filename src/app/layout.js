@@ -6,15 +6,15 @@ import Link from "next/link";
 import Header from "./components/nav/Header";
 import MainContent from "./components/main/MainContent";
 import ContactButton from "./components/ui/ContactButton";
-import { GlobalContextProvider } from "./context/store";
-
+import MobileNavMenu from "./components/nav/MobileNavMenu";
 import Wrapper from "./components/layout/Wrapper";
 
 import localFont from "next/font/local";
 import { ScrollingContextProvider } from "./context/ScrollingContext";
+import { GlobalContextProvider } from "./context/store";
 
 const display = localFont({
-  src: "../../public/FONTS/elipse/elipse.otf",
+  src: "../../public/FONTS/quickremarks/quickremarks.ttf",
   variable: "--font-display",
 });
 

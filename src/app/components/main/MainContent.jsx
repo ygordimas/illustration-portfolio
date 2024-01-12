@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 import Footer from "../ui/Footer";
 import ContactButton from "../ui/ContactButton";
 
-import { motion, useAnimate } from "framer-motion";
+import { AnimatePresence, motion, useAnimate } from "framer-motion";
 import { useScrollingContext } from "../../context/ScrollingContext";
 
 export default function MainContent({ children }) {
@@ -16,15 +16,19 @@ export default function MainContent({ children }) {
   const mainStyles = `relative py-8 flex grow flex-col items-center opacity-1 mt-10 lg:mt-2`;
 
   return (
-    <motion.main
-      className={mainStyles}
-      ref={scrollArea}
-      animate={isOpen ? { opacity: 0 } : {}}
-      transition={{ duration: 0.5 }}
-    >
-      {children}
+    <AnimatePresence>
+      {!isOpen && (
+        <motion.main
+          className={mainStyles}
+          ref={scrollArea}
+          animate={isOpen ? { opacity: 0 } : {}}
+          transition={{ duration: 0.5 }}
+        >
+          {children}
 
-      {/* <Footer /> */}
-    </motion.main>
+          {/* <Footer /> */}
+        </motion.main>
+      )}
+    </AnimatePresence>
   );
 }

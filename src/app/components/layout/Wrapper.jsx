@@ -2,9 +2,11 @@
 
 import React, { useRef, useEffect } from "react";
 import { useGlobalContext } from "../../context/store";
-import { useScroll, useMotionValueEvent } from "framer-motion";
+import { useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import { useScrollingContext } from "../../context/ScrollingContext";
 import StripesSVG from "./StripesSVG";
+
+import { motion } from "framer-motion";
 
 function Wrapper({ children }) {
   const wrapperRef = useRef(null);
@@ -13,7 +15,7 @@ function Wrapper({ children }) {
   });
   const { scrollYProgress } = useScroll({ container: wrapperRef });
 
-  const { setHideHeader } = useGlobalContext();
+  const { setHideHeader, isOpen } = useGlobalContext();
   const { setScrollingProgress, setScrollToTop, scrollToTop } =
     useScrollingContext();
 

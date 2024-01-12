@@ -52,13 +52,13 @@ function ViewOverlay({ isHovered, isInView, windowWidth }) {
     hide: {
       opacity: 0,
       transition: {
-        duration: 0.4,
+        duration: 0.2,
       },
     },
     show: {
       opacity: 1,
       transition: {
-        delay: 0.4,
+        delay: 0.2,
         duration: 0.2,
       },
     },
@@ -67,11 +67,12 @@ function ViewOverlay({ isHovered, isInView, windowWidth }) {
   return (
     <motion.div
       key="ribbon"
-      className="relative flex gap-2 self-end pt-8 font-singoRound text-2xl text-myblue-950"
+      className="relative mt-8 flex gap-2 self-end font-singoRound text-2xl text-myblue-950"
       variants={overlayVariant}
+      initial="hide"
       ref={overlay}
     >
-      <div className="relative flex h-fit w-fit content-center">
+      <div className="relative z-10 flex h-fit w-fit  content-center">
         <svg
           className="h-16 w-16 overflow-visible fill-myyellow-500 stroke-myblue-950 stroke-[20px]"
           viewBox="0 0 510.68 510.68"
@@ -82,6 +83,7 @@ function ViewOverlay({ isHovered, isInView, windowWidth }) {
           <AiOutlineEye className="block" />
         </div>
       </div>
+      <div className="-z-1 absolute left-0 top-0 h-16 w-16 bg-myblue-500 "></div>
       <motion.p
         variants={ribbonVariant}
         animate={isHovered ? "show" : "hide"}
