@@ -1,25 +1,24 @@
 import React, { useEffect } from "react";
 import { AnimatePresence, motion, useAnimate, stagger } from "framer-motion";
+import NavMenuLinks from "./NavMenuLinks";
 
 function MobileNavMenuOverlay({ isOpen }) {
   const [container, animate] = useAnimate();
 
   const handleEnter = async () => {
-    await animate(container.current, { opacity: 1 }, { duration: 0.4 });
     await animate(
       "div",
-      { scaleY: 1 },
-      { duration: 0.4, delay: stagger(0.1, { from: "last" }) },
+      { top: "0%" },
+      { duration: 0.2, delay: stagger(0.05, { from: "last" }) },
     );
   };
 
   const handleExit = async () => {
     await animate(
       "div",
-      { scaleY: 0 },
-      { duration: 0.4, delay: stagger(0.1, { from: "first" }) },
+      { top: "-125%" },
+      { duration: 0.2, delay: stagger(0.05, { from: "first" }) },
     );
-    await animate(container.current, { opacity: 0 }, { duration: 0.4 });
   };
 
   useEffect(() => {
@@ -59,12 +58,14 @@ function MobileNavMenuOverlay({ isOpen }) {
         {[...Array(numberOfColumns)].map((_, i) => {
           return (
             <motion.div
-              initial={{ scaleY: 0 }}
-              className="relative h-[125%] w-full origin-top rounded-b-full rounded-t-none bg-myblue-500"
+              initial={{}}
+              className="relative top-[-125%] h-[125%] w-full rounded-b-full rounded-t-none bg-myblue-500"
               key={i}
             />
           );
         })}
+
+        <NavMenuLinks />
       </motion.div>
     </AnimatePresence>
   );

@@ -49,7 +49,7 @@ function TitleOverlay({ path, isHovered, isInView, windowWidth }) {
   return (
     <motion.div
       key="overlay"
-      className="h-fit w-fit rounded-tr-full border-r-4 border-t-4 border-myblue-950 bg-mygreen-500 py-1 pl-2 pr-6"
+      className="h-fit w-fit rounded-tr-full border-r-4 border-t-4 border-myblue-800 bg-mygreen-500 py-1 pl-2 pr-6"
       initial="hide"
       animate={isHovered ? "show" : "hide"}
       variants={overlayVariant}

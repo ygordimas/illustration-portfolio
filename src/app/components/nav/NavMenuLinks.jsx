@@ -13,6 +13,7 @@ function NavMenuLinks({ isOpen, handleOpen }) {
     { title: "GitHub", href: "http://github.com/ygordimas" },
     { title: "Linkedin", href: "http://linkedin.com/ygordimas" },
     { title: "Instagram", href: "http://instagram.com/ygordimas" },
+    { title: "Artstation", href: "https://www.artstation.com/ikyste" },
   ];
 
   const containerVars = {
@@ -39,7 +40,7 @@ function NavMenuLinks({ isOpen, handleOpen }) {
           initial="initial"
           animate="open"
           exit="initial"
-          className="font-singoRound pointer-events-none fixed left-0 top-0 z-20 flex h-[100vh] w-[100vw] flex-col items-end justify-end overflow-hidden p-8"
+          className="pointer-events-none fixed left-0 top-0 z-20 flex h-[100vh] w-[100vw] flex-col items-end justify-end overflow-hidden p-8 font-singoRound text-myblue-800"
         >
           <div className="flex grow flex-col items-end justify-center gap-4">
             {navLinks.map((link, index) => {
@@ -61,15 +62,7 @@ function NavMenuLinks({ isOpen, handleOpen }) {
               }
             })}
           </div>
-          <div className="pointer-events-auto overflow-hidden">
-            <motion.div
-              variants={mobileLinkVars}
-              className="text-3xl tracking-wide underline"
-              onClick={() => handleOpen()}
-            >
-              Close
-            </motion.div>
-          </div>
+          <div className="pointer-events-auto overflow-hidden"></div>
         </motion.div>
       )}
     </AnimatePresence>

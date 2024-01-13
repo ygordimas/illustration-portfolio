@@ -6,6 +6,7 @@ import { useGlobalContext } from "../../context/store";
 import useWindowSize from "../../hooks/useWindowSize";
 import MobileNavMenuOverlay from "./MobileNavMenuOverlay";
 import { AnimatePresence } from "framer-motion";
+import NavMenuLinks from "./NavMenuLinks";
 
 function MobileNavMenu() {
   const { isOpen, setIsOpen } = useGlobalContext();
@@ -17,6 +18,7 @@ function MobileNavMenu() {
         <div className="pointer-events-auto absolute bottom-16 right-16">
           <NavMenuButton isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
         </div>
+        {isOpen && <NavMenuLinks isOpen={isOpen} handleOpen={setIsOpen} />}
 
         <MobileNavMenuOverlay isOpen={isOpen} />
       </div>

@@ -38,13 +38,13 @@ export default function ImageContainer({ image, onClick }) {
 
   const shadowAnimation = {
     show: {
-      boxShadow: "inset 0px 0px 0px 8px rgba(2,39,55,1)",
+      boxShadow: "inset 0px 0px 0px 8px rgba(3, 67, 95, 1)",
       transition: {
         duration: 0.5,
       },
     },
     hide: {
-      boxShadow: "inset 0px 0px 0px 8px rgba(2,39,55,0)",
+      boxShadow: "inset 0px 0px 0px 8px rgba(3, 67, 95, 0)",
       transition: {
         duration: 0.5,
       },
@@ -82,7 +82,7 @@ export default function ImageContainer({ image, onClick }) {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         whileHover={{
-          boxShadow: "inset 0px 0px 0px 8px rgba(2,39,55,1)",
+          boxShadow: "inset 0px 0px 0px 8px rgb(3, 67, 95, 1)",
         }}
       >
         <ViewOverlay

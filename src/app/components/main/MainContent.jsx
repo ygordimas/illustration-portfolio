@@ -2,7 +2,6 @@
 
 import { useGlobalContext } from "../../context/store";
 import { useEffect, useRef } from "react";
-import Footer from "../ui/Footer";
 import ContactButton from "../ui/ContactButton";
 
 import { AnimatePresence, motion, useAnimate } from "framer-motion";

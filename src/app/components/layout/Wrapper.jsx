@@ -5,6 +5,7 @@ import { useGlobalContext } from "../../context/store";
 import { useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import { useScrollingContext } from "../../context/ScrollingContext";
 import StripesSVG from "./StripesSVG";
+import Footer from "../../components/footer/Footer";
 
 import { motion } from "framer-motion";
 
@@ -54,6 +55,8 @@ function Wrapper({ children }) {
       </div>
 
       {children}
+
+      <Footer />
     </div>
   );
 }
