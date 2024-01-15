@@ -4,6 +4,7 @@ import { useState } from "react";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import RoundButton from "../components/ui/RoundButton";
 import IconForButton from "../components/ui/IconForButton";
+import SendMessageButton from "./SendMessageButton";
 
 export default function ContactForm() {
   const [name, setName] = useState("");
@@ -28,7 +29,6 @@ export default function ContactForm() {
     // console.log(await response.json());
   };
 
-  const labelStyles = "";
   const inputStyles =
     "rounded-full border-2 px-8 bg-myyellow-500 border-myblue-950 py-4 placeholder-myblue-950 placeholder-transparent focus:outline-none focus:ring-2 focus:ring-myblue-500";
 
@@ -41,51 +41,53 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="z-2 w-full border-4 border-myblue-950 bg-myblue-500 p-4">
+    <section className="z-2 w-full rounded-br-3xl border-4 border-myblue-950 bg-myblue-500 p-4">
       <form
         className="flex flex-col gap-8 pt-2 text-xl text-myblue-950"
         action=""
         onSubmit={sendMail}
       >
-        <div className="relative flex w-full flex-col">
-          <label htmlFor="name" className="invisible h-0 w-0">
-            Name
-          </label>
-          <input
-            minLength={2}
-            maxLength={60}
-            className={inputStyles}
-            type="text"
-            id="name"
-            autoComplete="off"
-            required
-            value={name}
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
-            placeholder="Name"
-          />
-          <FloatingLabel title="Name" />
-        </div>
-        <div className="relative flex w-full flex-col">
-          <label htmlFor="email" className="invisible h-0 w-0">
-            Email
-          </label>
-          <input
-            minLength={5}
-            maxLength={120}
-            className={inputStyles}
-            type="email"
-            id="email"
-            autoComplete="off"
-            required
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-            placeholder="E-mail"
-          />
-          <FloatingLabel title="E-Mail" />
+        <div className="flex items-center gap-4">
+          <div className="relative flex w-full flex-col">
+            <label htmlFor="name" className="invisible h-0 w-0">
+              Name
+            </label>
+            <input
+              minLength={2}
+              maxLength={60}
+              className={inputStyles}
+              type="text"
+              id="name"
+              autoComplete="off"
+              required
+              value={name}
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
+              placeholder="Name"
+            />
+            <FloatingLabel title="Name" />
+          </div>
+          <div className="relative flex w-full flex-col">
+            <label htmlFor="email" className="invisible h-0 w-0">
+              Email
+            </label>
+            <input
+              minLength={5}
+              maxLength={120}
+              className={inputStyles}
+              type="email"
+              id="email"
+              autoComplete="off"
+              required
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+              placeholder="E-mail"
+            />
+            <FloatingLabel title="E-Mail" />
+          </div>
         </div>
 
         <div className="relative flex w-full gap-1">
@@ -104,12 +106,7 @@ export default function ContactForm() {
             placeholder="Write a message..."
           ></textarea>
 
-          <button
-            className="rounded-full border-2 border-myblue-950 bg-mypink-500 p-4 font-singoRound text-4xl"
-            type="submit"
-          >
-            Send Message
-          </button>
+          <SendMessageButton />
           <FloatingLabel title="Message" />
         </div>
       </form>

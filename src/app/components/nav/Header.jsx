@@ -42,10 +42,10 @@ export default function Header({}) {
           }}
         >
           <div className="relative box-border flex cursor-default flex-col items-center rounded-full border-[6px] border-myblue-800 bg-mypink-500 px-8 py-4 ">
-            <Link className="relative " href={"/"}>
+            <Link className="relative" href={"/"}>
               <div
-                className="z-3 whitespace-nowrap p-2 font-display text-7xl tracking-tight text-myblue-950 
-              before:absolute before:left-0.5 before:top-0 before:z-[0] before:whitespace-nowrap before:p-2 before:text-myyellow-500 before:content-['Ygor_Dimas']"
+                className="z-3 whitespace-nowrap p-4 font-display text-5xl tracking-tight text-myblue-950 before:absolute 
+              before:left-0.5 before:top-0 before:z-[0] before:whitespace-nowrap before:p-4 before:text-mygreen-500 before:content-['Ygor_Dimas']"
               >
                 Ygor Dimas
               </div>

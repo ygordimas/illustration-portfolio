@@ -46,7 +46,7 @@ function NavMenuButton({ isOpen, onClick }) {
   return (
     <motion.button
       onClick={onClick}
-      className={`relative z-10 flex h-fit w-fit items-center justify-center text-myblue-500`}
+      className={`pointer-events-auto relative z-10 flex h-fit w-fit items-center justify-center text-myblue-500`}
       // variants={buttonVariant}
       // initial="close"
       // animate="open"

@@ -16,10 +16,7 @@ import { illustrations } from "../../data/illustrations";
 import { useEffect, useRef, useState } from "react";
 import getUppercaseTitle from "../../utils/getUppercaseTitle";
 import { motion, useInView, useAnimate } from "framer-motion";
-import {
-  useScrollingContext,
-  ScrollingContextProvider,
-} from "../../context/ScrollingContext";
+import { useScrollingContext } from "../../context/ScrollingContext";
 import GoToTopButton from "../../components/ui/GoToTopButton";
 import NavigateProjectsButton from "../../components/ui/NavigateProjectsButton";
 
@@ -100,7 +97,7 @@ export default function ProjectBreakdown({ project }) {
       className="relative my-2 flex w-full flex-col items-center justify-center gap-4 text-accent-900"
     >
       {/* *****NAVIGATION OVERLAY***** */}
-      <motion.div
+      {/* <motion.div
         ref={buttonRef}
         variants={goToTopButtonVariant}
         initial="hide"
@@ -120,7 +117,7 @@ export default function ProjectBreakdown({ project }) {
         >
           <AiOutlineArrowRight />
         </NavigateProjectsButton>
-      </motion.div>
+      </motion.div> */}
 
       <nav className="flex w-full max-w-5xl items-center justify-between gap-2 text-4xl">
         <NavigateProjectsButton

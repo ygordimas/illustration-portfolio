@@ -56,7 +56,7 @@ function Wrapper({ children }) {
 
       {children}
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

@@ -12,7 +12,7 @@ function GoToTopButton() {
   return (
     <motion.button
       onClick={() => handleScroll()}
-      className="rounded-full border-4 border-myblue-950 bg-mygreen-500 p-4 font-singoRound text-4xl text-myblue-950"
+      className="rounded-full border-4 border-myblue-950 bg-mygreen-500 p-4 font-singoRound text-myblue-950"
     >
       Scroll To Top
     </motion.button>

@@ -163,7 +163,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${mainfont.variable} ${display.variable} ${singo.variable} ${singoRound.variable} ${singoOutline.variable} ${singoShadow.variable} bg-accent-500 font-mainfont font-thin`}
+        className={`${mainfont.variable} ${display.variable} ${singo.variable} ${singoRound.variable} ${singoOutline.variable} ${singoShadow.variable} bg-accent-500 font-mainfont font-thin text-myblue-800`}
       >
         <GlobalContextProvider>
           <Head>

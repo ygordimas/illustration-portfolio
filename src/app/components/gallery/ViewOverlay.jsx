@@ -3,6 +3,7 @@
 import { motion, useAnimate } from "framer-motion";
 import React, { useEffect, useRef } from "react";
 import { AiOutlineEye } from "react-icons/ai";
+import { TfiEye } from "react-icons/tfi";
 
 function ViewOverlay({ isHovered, isInView, windowWidth }) {
   const [overlay, animate] = useAnimate();
@@ -74,13 +75,14 @@ function ViewOverlay({ isHovered, isInView, windowWidth }) {
     >
       <div className="relative z-10 flex h-fit w-fit  content-center">
         <svg
-          className="h-16 w-16 overflow-visible fill-myyellow-500 stroke-myblue-800 stroke-[20px]"
+          className="h-16 w-16 overflow-visible fill-mypink-500 stroke-myblue-800 stroke-[20px]"
           viewBox="0 0 510.68 510.68"
         >
           <path d="M206.48 137.39 255.34 0l48.85 137.39 131.7-62.6-62.6 131.69 137.39 48.86-137.39 48.85 62.6 131.7-131.7-62.6-48.85 137.39-48.86-137.39-131.69 62.6 62.6-131.7L0 255.34l137.39-48.86-62.6-131.69 131.69 62.6z" />
         </svg>
         <div className="z-5 absolute left-[50%] top-[50%] flex h-fit w-fit -translate-x-1/2 -translate-y-1/2 content-center">
-          <AiOutlineEye className="block" />
+          <TfiEye className="z-10 block" />
+          <span className="absolute left-1/2 top-1/2 h-[150%] w-[150%] -translate-x-1/2 -translate-y-[(calc(50%-1px))] rounded-full border-[4px] border-myyellow-500"></span>
         </div>
       </div>
       <div className="-z-1 absolute left-0 top-0 h-16 w-16 bg-myblue-500 "></div>

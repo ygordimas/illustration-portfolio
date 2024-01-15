@@ -3,6 +3,7 @@ import { usePathname } from "next/navigation";
 import { LiaHandPointUpSolid } from "react-icons/lia";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import TextEffect from "../layout/TextEffect";
 
 function HeaderButton({ label, href }) {
   const pathname = usePathname();
@@ -57,7 +58,7 @@ function HeaderButton({ label, href }) {
           borderColor: "rgba(2, 39, 55, 1)",
         }}
       >
-        {label}
+        {pathname == href ? <TextEffect text={label} size="inherit" /> : label}
         <motion.div
           className={`${
             pathname == href ? `` : `hidden`
