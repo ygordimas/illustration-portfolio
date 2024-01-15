@@ -48,10 +48,10 @@ function Wrapper({ children }) {
       <div
         className="absolute left-0 top-0 h-1/2 w-full overflow-hidden"
         style={{
-          mask: "linear-gradient(0deg, rgba(255,255,255,0) 45%, rgba(193,220,64,1) 100%)",
+          mask: "linear-gradient(0deg, rgba(255,255,255,0) 42%, rgba(245,249,224,1) 53%, rgba(193,220,64,1) 100%)",
         }}
       >
-        <StripesSVG />
+        <StripesSVG color="bg-myblue-100" />
       </div>
 
       {children}

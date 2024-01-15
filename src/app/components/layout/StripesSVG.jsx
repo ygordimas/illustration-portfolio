@@ -1,10 +1,10 @@
 import React from "react";
 
-function StripesSVG() {
+function StripesSVG({ color }) {
   return (
     <>
       <div
-        className="h-full w-full bg-myblue-100 bg-repeat"
+        className={`h-full w-full ${color} bg-repeat`}
         style={{ mask: "url('/SVG/lines2.svg')", maskSize: "12px" }}
       ></div>
     </>

@@ -40,7 +40,7 @@ function NavMenuLinks({ isOpen, handleOpen }) {
           initial="initial"
           animate="open"
           exit="initial"
-          className="pointer-events-none fixed left-0 top-0 z-20 flex h-[100vh] w-[100vw] flex-col items-end justify-end overflow-hidden p-8 font-singoRound text-myblue-800"
+          className="pointer-events-none fixed left-0 top-0 z-20 flex h-[100vh] w-[100vw] flex-col items-end justify-end overflow-hidden p-16 font-singoRound text-myblue-800"
         >
           <div className="flex grow flex-col items-end justify-center gap-4">
             {navLinks.map((link, index) => {
