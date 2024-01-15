@@ -10,14 +10,14 @@ function HeaderButton({ label, href }) {
 
   const buttonVariant = {
     active: {
-      backgroundColor: "#0698D6",
+      backgroundColor: "#84D8FC",
       borderColor: "rgba(2, 39, 55, 1)",
       transition: {
         duration: 0.4,
       },
     },
     inactive: {
-      backgroundColor: "#C1DC40",
+      backgroundColor: "#CBE15B",
       borderColor: "var(--borderOpacity, rgba(2, 39, 55, 0))",
       transition: {
         duration: 0.2,
@@ -62,7 +62,7 @@ function HeaderButton({ label, href }) {
         <motion.div
           className={`${
             pathname == href ? `` : `hidden`
-          } absolute bottom-0 left-1/2 flex items-center justify-center rounded-full border-4 border-myblue-950 bg-myyellow-500 p-1 text-2xl`}
+          } absolute bottom-0 left-1/2 flex items-center justify-center rounded-full border-4 border-myblue-800 bg-myyellow-500 p-1 text-2xl`}
           variants={littleHandVariant}
           initial={pathname == href ? "active" : "inactive"}
           animate={pathname == href ? "active" : "inactive"}

@@ -17,6 +17,12 @@ import { usePathname } from "next/navigation";
 import MobileNavMenu from "./MobileNavMenu";
 import useWindowSize from "../../hooks/useWindowSize";
 import TextEffect from "../layout/TextEffect";
+import LogoImpossible from "../layout/LogoImpossible";
+import LogoMentra from "../layout/LogoMentra";
+import LogoZaltys from "../layout/LogoZaltys";
+import LogoIkapyto from "../layout/LogoIkapyto";
+import LogoQuickRemarks from "../layout/LogoQuickRemarks";
+import LogoLobular from "../layout/LogoLobular";
 
 export default function Header({}) {
   const { isOpen, setIsOpen } = useGlobalContext();
@@ -35,27 +41,22 @@ export default function Header({}) {
           key="header"
           variants={headerVariants}
           animate={hideHeader ? "hide" : "show"}
-          className="relative flex w-full items-center justify-center gap-8 rounded-full border-4 border-myblue-800 bg-accent-500 p-8 lg:justify-between"
+          className="relative flex w-full items-center justify-center gap-8 rounded-full border-4 border-myblue-800 bg-mygreen-500 p-8 lg:justify-between"
           style={{
             boxShadow:
               "rgba(6, 152, 214, 0.4) 0px 0px 0px 2px, rgba(66, 152, 214, 0.65) 0px 4px 6px -1px, rgba(6, 152, 214, 0.08) 0px 1px 0px inset",
           }}
         >
-          <div className="relative box-border flex cursor-default flex-col items-center rounded-full border-[6px] border-myblue-800 bg-mypink-500 px-8 py-4 ">
+          <div className="relative box-border flex cursor-default flex-col items-center rounded-full border-[6px] border-myyellow-500 bg-mypink-500 px-8 py-4 ">
             <Link className="relative" href={"/"}>
-              <div
-                className="z-3 whitespace-nowrap p-4 font-display text-5xl tracking-tight text-myblue-950 before:absolute 
-              before:left-0.5 before:top-0 before:z-[0] before:whitespace-nowrap before:p-4 before:text-mygreen-500 before:content-['Ygor_Dimas']"
-              >
-                Ygor Dimas
-              </div>
-              {/* <h1
-                className={`z-5 absolute left-[-2px] top-[-2px] whitespace-nowrap font-singoShadow text-8xl tracking-wider text-myyellow-500`}
-              >
-                Ygor Dimas
-              </h1> */}
+              {/* <LogoImpossible /> */}
+              {/* <LogoMentra /> */}
+              <LogoZaltys />
+              {/* <LogoIkapyto /> */}
+              {/* <LogoQuickRemarks /> */}
+              {/* <LogoLobular /> */}
             </Link>
-            <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-myblue-800 bg-myyellow-500 font-singoRound text-xl tracking-wide text-myblue-950 max-lg:top-0 lg:bottom-0 lg:translate-y-1/2">
+            <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-mygreen-500 bg-myyellow-500 font-singoRound text-xl tracking-wide text-myblue-800 max-lg:top-0 lg:bottom-0 lg:translate-y-1/2">
               <p className="px-4 py-1">3D ARTIST & ILLUSTRATOR</p>
             </div>
           </div>

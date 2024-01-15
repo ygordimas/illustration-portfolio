@@ -35,7 +35,7 @@ function NavMenuButton({ isOpen, onClick }) {
 
   const buttonSVGVariant = {
     close: {
-      fill: "#0698D6",
+      fill: "#84D8FC",
     },
     open: {
       fill: "#F56B7C",
@@ -68,14 +68,14 @@ function NavMenuButton({ isOpen, onClick }) {
         key="top"
         variants={burgerTopVariant}
         animate={isOpen ? "open" : "close"}
-        className="absolute top-[45%] h-[4px] w-[30%] rounded-full bg-myyellow-400"
+        className="absolute top-[45%] h-[4px] w-[30%] rounded-full bg-mypink-500"
       ></motion.div>
       <motion.div
         layout
         key="bottom"
         variants={burgerBottomVariant}
         animate={isOpen ? "open" : "close"}
-        className="absolute top-[55%] h-[4px] w-[30%] rounded-full bg-myyellow-400"
+        className="absolute top-[55%] h-[4px] w-[30%] rounded-full bg-mypink-500"
       ></motion.div>
     </motion.button>
   );

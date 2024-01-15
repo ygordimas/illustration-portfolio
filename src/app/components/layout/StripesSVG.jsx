@@ -4,8 +4,8 @@ function StripesSVG() {
   return (
     <>
       <div
-        className="h-full w-full bg-mypink-500 bg-repeat"
-        style={{ mask: "url('/SVG/lines2.svg')", maskSize: "16px" }}
+        className="h-full w-full bg-myblue-100 bg-repeat"
+        style={{ mask: "url('/SVG/lines2.svg')", maskSize: "12px" }}
       ></div>
     </>
   );
