@@ -3,15 +3,16 @@ import "./globals.css";
 import Head from "next/head";
 import Link from "next/link";
 
-import Header from "./components/nav/Header";
+import Header from "./components/header/Header";
 import MainContent from "./components/main/MainContent";
 import ContactButton from "./components/ui/ContactButton";
-import MobileNavMenu from "./components/nav/MobileNavMenu";
+import MobileNavMenu from "./components/mobileFooter/MobileNavMenu";
 import Wrapper from "./components/layout/Wrapper";
 
 import localFont from "next/font/local";
 import { ScrollingContextProvider } from "./context/ScrollingContext";
 import { GlobalContextProvider } from "./context/store";
+import { ContactModalProvider } from "./context/ContactModalContext";
 
 const display = localFont({
   src: "../../public/FONTS/quickremarks/quickremarks.ttf",
@@ -176,11 +177,13 @@ export default function RootLayout({ children }) {
           </Head>
 
           <ScrollingContextProvider>
-            <Wrapper>
-              <Header />
+            <ContactModalProvider>
+              <Wrapper>
+                <Header />
 
-              <MainContent children={children} />
-            </Wrapper>
+                <MainContent children={children} />
+              </Wrapper>
+            </ContactModalProvider>
           </ScrollingContextProvider>
         </GlobalContextProvider>
       </body>

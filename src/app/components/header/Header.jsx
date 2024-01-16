@@ -9,12 +9,12 @@ import {
   useScroll,
 } from "framer-motion";
 import NavMenu from "./NavMenu";
-import HeaderButton from "./HeaderButton";
+import HeaderLink from "./HeaderLink";
 import { useGlobalContext } from "../../context/store";
 import { useEffect, useState } from "react";
-import StripesSVG from "../../components/layout/StripesSVG";
+import StripesSVG from "../layout/StripesSVG";
 import { usePathname } from "next/navigation";
-import MobileNavMenu from "./MobileNavMenu";
+import MobileNavMenu from "../mobileFooter/MobileNavMenu";
 import useWindowSize from "../../hooks/useWindowSize";
 import TextEffect from "../layout/TextEffect";
 import LogoImpossible from "../layout/LogoImpossible";
@@ -47,7 +47,7 @@ export default function Header({}) {
               "rgba(6, 152, 214, 0.4) 0px 0px 0px 2px, rgba(66, 152, 214, 0.65) 0px 4px 6px -1px, rgba(6, 152, 214, 0.08) 0px 1px 0px inset",
           }}
         >
-          <div className="relative box-border flex cursor-default flex-col items-center border-[6px] border-myyellow-500 bg-mygreen-500 px-8 py-8 lg:rounded-full">
+          <div className="relative box-border flex cursor-default flex-col items-center border-[6px] border-myyellow-500 bg-mygreen-500 px-8 lg:rounded-full lg:py-8">
             <Link className="relative" href={"/"}>
               {/* <LogoImpossible /> */}
               {/* <LogoMentra /> */}
@@ -63,19 +63,10 @@ export default function Header({}) {
 
           {/* *****MOBILE HEADER BUTTONS***** */}
           <div className="flex grow items-center justify-end  gap-2 max-lg:absolute max-lg:bottom-0 max-lg:translate-y-1/2 lg:h-full">
-            <HeaderButton label="Illustrations" href={"/"} />
-            <HeaderButton label="Game Art" href={"/game-art"} />
-            <HeaderButton label="Abstract Art" href={"/abstract-art"} />
+            <HeaderLink label="Illustrations" href={"/"} />
+            <HeaderLink label="Game Art" href={"/game-art"} />
+            <HeaderLink label="Abstract Art" href={"/abstract-art"} />
           </div>
-          {/* *****MOBILE HEADER BUTTONS***** */}
-
-          {/* *****DESKTOP HEADER BUTTONS***** */}
-          {/* <div className="hidden grow justify-end gap-2 lg:flex lg:flex-row">
-            <HeaderButton label="Illustrations" href={"/"} />
-            <HeaderButton label="Game Art" href={"/game-art"} />
-            <HeaderButton label="Abstract Art" href={"/abstract-art"} />
-          </div> */}
-          {/* *****DESKTOP HEADER BUTTONS***** */}
 
           <div className="hidden items-center justify-between rounded-full lg:flex">
             <NavMenu />

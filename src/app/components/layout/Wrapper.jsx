@@ -8,6 +8,8 @@ import StripesSVG from "./StripesSVG";
 import Footer from "../../components/footer/Footer";
 
 import { motion } from "framer-motion";
+import ContactModal from "../contactModal/ContactModal";
+import { useContactModalContext } from "@/app/context/ContactModalContext";
 
 function Wrapper({ children }) {
   const wrapperRef = useRef(null);
@@ -19,6 +21,7 @@ function Wrapper({ children }) {
   const { setHideHeader, isOpen } = useGlobalContext();
   const { setScrollingProgress, setScrollToTop, scrollToTop } =
     useScrollingContext();
+  const { openModal, setOpenModal } = useContactModalContext();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious();
@@ -38,7 +41,7 @@ function Wrapper({ children }) {
       wrapperRef.current.scrollTop = 0;
       setScrollToTop(false);
     }
-  }, [scrollToTop]);
+  }, [scrollToTop, openModal]);
 
   return (
     <div
@@ -55,6 +58,8 @@ function Wrapper({ children }) {
       </div>
 
       {children}
+
+      {openModal && <ContactModal />}
 
       {/* <Footer /> */}
     </div>

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { AnimatePresence, motion, useAnimate, stagger } from "framer-motion";
-import NavMenuLinks from "./NavMenuLinks";
+import NavMenuLinks from "../header/NavMenuLinks";
 
 function MobileNavMenuOverlay({ isOpen }) {
   const [container, animate] = useAnimate();

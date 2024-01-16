@@ -1,6 +1,6 @@
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import StarSVG from "../../components/layout/StarSVG";
+import StarSVG from "../layout/StarSVG";
 import TwelvePoints from "../SVGs/TwelvePoints";
 
 function NavMenuButton({ isOpen, onClick }) {

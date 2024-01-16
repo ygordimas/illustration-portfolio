@@ -4,7 +4,7 @@ import { TfiCommentsSmiley } from "react-icons/tfi";
 function SendMessageButton() {
   return (
     <button
-      className="relative rounded-full border-2 border-myblue-950 bg-mypink-500 p-4 font-singoRound text-4xl"
+      className="relative w-fit self-end rounded-full border-2 border-myblue-950 bg-myblue-100 p-4 font-singoRound text-4xl"
       type="submit"
     >
       Send Message

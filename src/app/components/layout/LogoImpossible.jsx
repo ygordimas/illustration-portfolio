@@ -4,9 +4,9 @@ function LogoImpossible() {
   return (
     <div className="flex h-[124px] w-[448px] items-center justify-center">
       <svg
-        fill="#03435F"
         data-name="Layer 2"
         viewBox="0 0 448 77.99"
+        fill="#03435F"
         style={{
           filter: "drop-shadow(1px 2px 0px rgb(245, 187, 19, 1))",
         }}

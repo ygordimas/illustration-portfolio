@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import TextEffect from "../layout/TextEffect";
 
-function HeaderButton({ label, href }) {
+function HeaderLink({ label, href }) {
   const pathname = usePathname();
 
   const buttonVariant = {
@@ -76,4 +76,4 @@ function HeaderButton({ label, href }) {
   );
 }
 
-export default HeaderButton;
+export default HeaderLink;

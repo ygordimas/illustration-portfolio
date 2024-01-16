@@ -1,19 +1,21 @@
 "use client";
 
 import React from "react";
-import NavMenuButton from "./NavMenuButton";
+import NavMenuButton from "../header/NavMenuButton";
 import { useGlobalContext } from "../../context/store";
 import useWindowSize from "../../hooks/useWindowSize";
 import MobileNavMenuOverlay from "./MobileNavMenuOverlay";
 import { AnimatePresence } from "framer-motion";
-import NavMenuLinks from "./NavMenuLinks";
+import NavMenuLinks from "../header/NavMenuLinks";
 import MobileNavContactCTA from "./MobileNavContactCTA";
 import GoToTopButton from "../ui/GoToTopButton";
 import { useScrollingContext } from "../../context/ScrollingContext";
 import StripesSVG from "../layout/StripesSVG";
+import { useContactModalContext } from "@/app/context/ContactModalContext";
 
 function MobileNavMenu() {
   const { isOpen, setIsOpen } = useGlobalContext();
+  const { openModal, setOpenModal } = useContactModalContext();
   const windowWidth = useWindowSize();
 
   const { scrollingProgress } = useScrollingContext();

@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { AiOutlineArrowRight } from "react-icons/ai";
-import RoundButton from "../components/ui/RoundButton";
-import IconForButton from "../components/ui/IconForButton";
-import SendMessageButton from "../components/contactModal/SendMessageButton";
+import RoundButton from "../../components/ui/RoundButton";
+import IconForButton from "../../components/ui/IconForButton";
+import SendMessageButton from "./SendMessageButton";
+import CloseModalButton from "./CloseModalButton";
 
 export default function ContactForm() {
   const [name, setName] = useState("");
@@ -29,29 +30,33 @@ export default function ContactForm() {
     // console.log(await response.json());
   };
 
-  const inputStyles =
-    "rounded-full border-2 px-8 bg-myyellow-500 border-myblue-950 py-4 placeholder-myblue-950 placeholder-transparent focus:outline-none focus:ring-2 focus:ring-myblue-500";
+  const gap = 8;
 
-  const FloatingLabel = ({ title }) => {
+  const inputStyles =
+    " border-2 px-8 bg-mygreen-100 border-myblue-950 py-4 placeholder-myblue-950 placeholder-transparent focus:outline-none focus:ring-2 focus:ring-myblue-500 font-medium";
+
+  const FloatingLabel = ({ title, props }) => {
     return (
-      <div className="absolute left-0 top-0 z-10 -translate-y-1/2 rounded-full border-2 border-myblue-950 bg-mygreen-500 px-2 font-singoRound tracking-wider">
+      <label
+        {...props}
+        className="absolute left-0 top-0 z-10 -translate-y-1/2 rounded-full border-2 border-myblue-950 bg-mygreen-500 px-2 font-singoRound tracking-wider"
+      >
         {title}
-      </div>
+      </label>
     );
   };
 
   return (
-    <section className="z-2 w-full rounded-br-3xl border-4 border-myblue-950 bg-myblue-500 p-4">
+    <section className="z-2 h-fit w-[80%] rounded-br-3xl border-4 border-myblue-950 bg-mygreen-500 p-4">
       <form
-        className="flex flex-col gap-8 pt-2 text-xl text-myblue-950"
+        className={`flex flex-col justify-center gap-${gap} pt-2 text-xl text-myblue-950`}
         action=""
         onSubmit={sendMail}
       >
-        <div className="flex items-center gap-4">
+        <div className={`flex flex-col items-center gap-${gap}`}>
           <div className="relative flex w-full flex-col">
-            <label htmlFor="name" className="invisible h-0 w-0">
-              Name
-            </label>
+            <FloatingLabel htmlFor="name" title="Name" />
+
             <input
               minLength={2}
               maxLength={60}
@@ -66,12 +71,10 @@ export default function ContactForm() {
               }}
               placeholder="Name"
             />
-            <FloatingLabel title="Name" />
           </div>
           <div className="relative flex w-full flex-col">
-            <label htmlFor="email" className="invisible h-0 w-0">
-              Email
-            </label>
+            <FloatingLabel htmlFor="email" title="E-Mail" />
+
             <input
               minLength={5}
               maxLength={120}
@@ -86,28 +89,28 @@ export default function ContactForm() {
               }}
               placeholder="E-mail"
             />
-            <FloatingLabel title="E-Mail" />
           </div>
         </div>
 
-        <div className="relative flex w-full gap-1">
-          <label htmlFor="message" className="invisible w-0">
-            Message
-          </label>
+        <div className="relative flex w-full ">
+          <FloatingLabel htmlFor="message" title="Message" />
+
           <textarea
             required
             minLength={10}
             name="message"
-            className={`${inputStyles} grow`}
+            className={`${inputStyles} h-[40vh] grow`}
             value={message}
             onChange={(e) => {
               setMessage(e.target.value);
             }}
             placeholder="Write a message..."
           ></textarea>
+        </div>
 
+        <div className="flex w-full justify-between">
+          <CloseModalButton />
           <SendMessageButton />
-          <FloatingLabel title="Message" />
         </div>
       </form>
     </section>
