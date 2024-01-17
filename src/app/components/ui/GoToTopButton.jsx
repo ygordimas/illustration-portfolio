@@ -24,17 +24,22 @@ function GoToTopButton({ styles }) {
     setScrollToTop(true);
   };
   return (
-    <motion.button
-      onClick={() => handleScroll()}
-      variants={goToTopButtonVariant}
-      initial="hide"
-      exit="hide"
-      animate={scrollingProgress > 0.1 ? "show" : "hide"}
-      className={styles}
-      onClick={() => handleScroll()}
-    >
-      Scroll To Top
-    </motion.button>
+    <>
+      {scrollingProgress > 0.1 && (
+        <motion.button
+          layout
+          onClick={() => handleScroll()}
+          variants={goToTopButtonVariant}
+          initial="hide"
+          exit="hide"
+          animate={scrollingProgress > 0.1 ? "show" : "hide"}
+          className={styles}
+          onClick={() => handleScroll()}
+        >
+          Scroll To Top
+        </motion.button>
+      )}
+    </>
   );
 }
 

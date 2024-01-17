@@ -4,6 +4,7 @@ import StripesSVG from "../layout/StripesSVG";
 import ContactButton from "../ui/ContactButton";
 import GoToTopButton from "../ui/GoToTopButton";
 import useWindowSize from "../../hooks/useWindowSize";
+import { AnimatePresence } from "framer-motion";
 
 function Footer() {
   const windowSize = useWindowSize();
@@ -29,13 +30,15 @@ function Footer() {
               mask: "linear-gradient(0deg, rgba(193,220,64,1) 0%, rgba(255,255,255,0) 50%, rgba(245,249,224,0) 100%)",
             }}
           >
-            <StripesSVG color="bg-mypink-300" />
+            <StripesSVG color="bg-mygreen-300" />
           </div>
           <div className="z-10 flex h-full w-full justify-between">
-            <ContactButton styles={footerButtonStyles} />
-            {/* {windowSize >= 1024 ? <SocialMedia /> : null} */}
-            <SocialMedia />
-            <GoToTopButton styles={footerButtonStyles} />
+            <AnimatePresence mode="popLayout">
+              <ContactButton key="contact" styles={footerButtonStyles} />
+              <SocialMedia key="social" />
+
+              <GoToTopButton key="scrollUp" styles={footerButtonStyles} />
+            </AnimatePresence>
           </div>
         </div>
       </div>

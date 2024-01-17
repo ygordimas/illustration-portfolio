@@ -1,6 +1,6 @@
 import React from "react";
 import { usePathname } from "next/navigation";
-import { LiaHandPointUpSolid } from "react-icons/lia";
+import { LiaHandPointUpSolid, LiaHandPointDownSolid } from "react-icons/lia";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import TextEffect from "../layout/TextEffect";
@@ -34,13 +34,13 @@ function HeaderLink({ label, href }) {
       opacity: 1,
       x: "-100%",
       y: "80%",
-      rotate: "45deg",
+      rotate: "125deg",
     },
     inactive: {
       opacity: 0,
       x: "-200%",
       y: "80%",
-      rotate: "45deg",
+      rotate: "125deg",
     },
   };
 
@@ -62,13 +62,13 @@ function HeaderLink({ label, href }) {
         <motion.div
           className={`${
             pathname == href ? `` : `hidden`
-          } absolute bottom-0 left-1/2 flex items-center justify-center rounded-full border-2 border-myblue-800 bg-myyellow-500 p-1 text-2xl`}
+          } absolute bottom-0 left-full flex items-center justify-center rounded-full border-2 border-myblue-800 bg-myyellow-500 p-1 text-2xl`}
           variants={littleHandVariant}
           initial={pathname == href ? "active" : "inactive"}
           animate={pathname == href ? "active" : "inactive"}
           transition={buttonTransition}
         >
-          <LiaHandPointUpSolid />
+          <LiaHandPointDownSolid />
         </motion.div>
       </motion.div>
       {/* <motion.div className="-z-2 absolute -bottom-1 left-1 h-full w-full rounded-full bg-mypink-300"></motion.div> */}

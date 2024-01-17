@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { TfiHandPointLeft, TfiHandPointRight } from "react-icons/tfi";
 import { FaRegHandPointRight, FaRegHandPointLeft } from "react-icons/fa";
+import { LiaHandPointLeft, LiaHandPointRight } from "react-icons/lia";
 
 function NavigateProjectsButton({
   path,
@@ -45,11 +46,7 @@ function NavigateProjectsButton({
             direction == "left" ? `border-r-0` : `border-l-0`
           } border-myblue-950 bg-myblue-500 p-1 text-myyellow-500`}
         >
-          {direction == "left" ? (
-            <FaRegHandPointLeft />
-          ) : (
-            <FaRegHandPointRight />
-          )}
+          {direction == "left" ? <LiaHandPointLeft /> : <LiaHandPointRight />}
         </div>
         <span
           className={`relative box-border h-20 w-10 overflow-hidden ${
