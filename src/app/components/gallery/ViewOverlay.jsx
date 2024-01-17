@@ -85,7 +85,7 @@ function ViewOverlay({ isHovered, isInView, windowWidth }) {
           <span className="absolute left-1/2 top-1/2 h-[150%] w-[150%] -translate-x-1/2 -translate-y-[(calc(50%-1px))] rounded-full border-[4px] border-myyellow-500"></span>
         </div>
       </div>
-      <div className="-z-1 absolute left-0 top-0 h-16 w-16 bg-myblue-100 "></div>
+      <div className="-z-1 absolute left-0 top-0 h-16 w-16 rounded-full bg-myblue-100"></div>
       <motion.p
         variants={ribbonVariant}
         animate={isHovered ? "show" : "hide"}

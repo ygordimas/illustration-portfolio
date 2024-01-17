@@ -61,7 +61,7 @@ function Wrapper({ children }) {
 
       {openModal && <ContactModal />}
 
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

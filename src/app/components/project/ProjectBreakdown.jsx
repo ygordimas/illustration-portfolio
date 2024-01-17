@@ -21,6 +21,7 @@ import GoToTopButton from "../../components/ui/GoToTopButton";
 import NavigateProjectsButton from "../../components/ui/NavigateProjectsButton";
 
 export default function ProjectBreakdown({ project }) {
+  const [openViewModal, setOpenViewModal] = useState(false);
   const footerNavigationRef = useRef(null);
   const buttonRef = useRef(null);
   const wrapperRef = useRef(null);
@@ -92,12 +93,13 @@ export default function ProjectBreakdown({ project }) {
   };
 
   return (
-    <main
-      ref={wrapperRef}
-      className="relative my-2 flex w-full flex-col items-center justify-center gap-4 text-accent-900"
-    >
-      {/* *****NAVIGATION OVERLAY***** */}
-      {/* <motion.div
+    <>
+      <main
+        ref={wrapperRef}
+        className="relative my-2 flex w-full flex-col items-center justify-center gap-4 text-accent-900"
+      >
+        {/* *****NAVIGATION OVERLAY***** */}
+        {/* <motion.div
         ref={buttonRef}
         variants={goToTopButtonVariant}
         initial="hide"
@@ -119,53 +121,80 @@ export default function ProjectBreakdown({ project }) {
         </NavigateProjectsButton>
       </motion.div> */}
 
-      <nav className="flex w-full max-w-5xl items-center justify-between gap-2 text-4xl">
-        <NavigateProjectsButton
-          path={illustrations[managePreviousIndex(currentIndex)]?.path}
-          handleNavigation={() => handleNavigation("previous")}
-          direction="left"
-        />
-        <h2 className="flex h-full grow justify-center rounded-full border-4 border-myblue-950 bg-myyellow-500 p-6 font-singoRound text-myblue-950 ">
-          {project.type}
-        </h2>
+        <nav className="flex w-full max-w-5xl items-center justify-between gap-2 text-4xl">
+          <NavigateProjectsButton
+            path={illustrations[managePreviousIndex(currentIndex)]?.path}
+            handleNavigation={() => handleNavigation("previous")}
+            direction="left"
+          />
+          <h2 className="flex h-full grow justify-center border-4 border-myblue-950 bg-myyellow-500 p-6 font-singoRound tracking-wide text-myblue-950 ">
+            {project.type}
+          </h2>
 
-        <NavigateProjectsButton
-          path={illustrations[manageNextIndex(currentIndex)]?.path}
-          handleNavigation={() => handleNavigation("next")}
-          direction="right"
-        />
-      </nav>
+          <NavigateProjectsButton
+            path={illustrations[manageNextIndex(currentIndex)]?.path}
+            handleNavigation={() => handleNavigation("next")}
+            direction="right"
+          />
+        </nav>
 
-      <div className="flex w-full max-w-5xl flex-col items-center gap-2 px-2 text-2xl">
-        <p className="font-normal text-myblue-950">{project.description}</p>
-        <div className="flex flex-wrap items-center justify-center gap-0.5">
-          {project.tools.map((tag, index) => (
-            <Tags tag={tag} id={index} />
-          ))}
+        <div className="flex w-full max-w-5xl flex-col items-center gap-2 px-2 text-2xl">
+          <p className="font-normal text-myblue-950">{project.description}</p>
+          <div className="flex flex-wrap items-center justify-center gap-0.5">
+            {project.tools.map((tag, index) => (
+              <Tags tag={tag} id={index} />
+            ))}
+          </div>
         </div>
-      </div>
 
-      <hr className="w-full border-4 border-myblue-950" />
+        <hr className="w-full border-4 border-myblue-950" />
 
-      <div className="flex flex-col justify-center gap-4 ">
+        <div className="flex flex-col justify-center gap-4 ">
+          <Image
+            src={project.src}
+            alt={project.alt}
+            width={project.width}
+            height={project.height}
+            className="cursor-pointer"
+            onClick={() => setOpenViewModal(true)}
+          />
+
+          {project.wips && (
+            <>
+              <hr className="h-1 w-full bg-accent-500" />
+
+              <div className="grid max-w-5xl grid-cols-2 gap-4">
+                {extraImages()}
+              </div>
+            </>
+          )}
+        </div>
+      </main>
+      {openViewModal && (
+        <ViewModal project={project} onClick={() => setOpenViewModal(false)} />
+      )}
+    </>
+  );
+}
+
+const ViewModal = ({ project, onClick }) => {
+  return (
+    <div
+      onClick={onClick}
+      className="fixed left-0 top-0 z-20 flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-myblue-50"
+    >
+      <div className="h-[80vh] w-[80vw]">
         <Image
           src={project.src}
           alt={project.alt}
           width={project.width}
           height={project.height}
-          className=""
+          className="pointer-events-none h-full w-full object-contain"
         />
-
-        {project.wips && (
-          <>
-            <hr className="h-1 w-full bg-accent-500" />
-
-            <div className="grid max-w-5xl grid-cols-2 gap-4">
-              {extraImages()}
-            </div>
-          </>
-        )}
       </div>
-    </main>
+      <p className="pointe cursor-default font-singo text-2xl">
+        Click anywhere to return
+      </p>
+    </div>
   );
-}
+};

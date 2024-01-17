@@ -6,11 +6,54 @@ import RoundButton from "../../components/ui/RoundButton";
 import IconForButton from "../../components/ui/IconForButton";
 import SendMessageButton from "./SendMessageButton";
 import CloseModalButton from "./CloseModalButton";
+import { useFormik } from "formik";
+import { basicSchema } from "./schemas";
+
+const onSubmit = async (values, actions) => {
+  console.log(values);
+  console.log(actions);
+  const { name, email, message } = values;
+
+  const response = await fetch("../api/sendEmail", {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({
+      name,
+      email,
+      message,
+    }),
+  });
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  actions.resetForm();
+};
 
 export default function ContactForm() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  // FORMIK DECLARATIONS
+  const {
+    values,
+    errors,
+    touched,
+    isSubmitting,
+    handleBlur,
+    handleChange,
+    handleSubmit,
+  } = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      message: "",
+    },
+    validationSchema: basicSchema,
+    onSubmit,
+  });
+
+  console.log(errors);
+
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [message, setMessage] = useState("");
 
   const sendMail = async (e) => {
     e.preventDefault();
@@ -30,10 +73,14 @@ export default function ContactForm() {
     // console.log(await response.json());
   };
 
-  const gap = 8;
+  const gap = "gap-10";
 
   const inputStyles =
     " border-2 px-8 bg-mygreen-100 border-myblue-950 py-4 placeholder-myblue-950 placeholder-transparent focus:outline-none focus:ring-2 focus:ring-myblue-500 font-medium";
+  const inputError = "border-mypink-500";
+
+  const errorMessageStyles =
+    "absolute bottom-0 left-0 translate-y-full text-sm font-semibold tracking-wide text-mypink-800";
 
   const FloatingLabel = ({ title, props }) => {
     return (
@@ -49,44 +96,41 @@ export default function ContactForm() {
   return (
     <section className="z-2 h-fit w-[80%] rounded-br-3xl border-4 border-myblue-950 bg-mygreen-500 p-4">
       <form
-        className={`flex flex-col justify-center gap-${gap} pt-2 text-xl text-myblue-950`}
+        className={`flex flex-col justify-center ${gap} pt-2 text-xl text-myblue-950`}
         action=""
-        onSubmit={sendMail}
+        onSubmit={handleSubmit}
       >
-        <div className={`flex flex-col items-center gap-${gap}`}>
+        <div className={`flex flex-col items-center ${gap}`}>
           <div className="relative flex w-full flex-col">
             <FloatingLabel htmlFor="name" title="Name" />
 
             <input
-              minLength={2}
-              maxLength={60}
-              className={inputStyles}
+              value={values.name}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              className={`${inputStyles} ${
+                errors.name && touched.name ? inputError : ""
+              }`}
               type="text"
               id="name"
               autoComplete="off"
-              required
-              value={name}
-              onChange={(e) => {
-                setName(e.target.value);
-              }}
               placeholder="Name"
             />
+            {errors.name && touched.name ? (
+              <p className={errorMessageStyles}>{errors.name}</p>
+            ) : null}
           </div>
           <div className="relative flex w-full flex-col">
             <FloatingLabel htmlFor="email" title="E-Mail" />
 
             <input
-              minLength={5}
-              maxLength={120}
+              value={values.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
               className={inputStyles}
               type="email"
               id="email"
               autoComplete="off"
-              required
-              value={email}
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
               placeholder="E-mail"
             />
           </div>
@@ -96,21 +140,19 @@ export default function ContactForm() {
           <FloatingLabel htmlFor="message" title="Message" />
 
           <textarea
-            required
             minLength={10}
             name="message"
             className={`${inputStyles} h-[40vh] grow`}
-            value={message}
-            onChange={(e) => {
-              setMessage(e.target.value);
-            }}
+            value={values.message}
+            onChange={handleChange}
+            onBlur={handleBlur}
             placeholder="Write a message..."
           ></textarea>
         </div>
 
         <div className="flex w-full justify-between">
           <CloseModalButton />
-          <SendMessageButton />
+          <SendMessageButton isSubmitting={isSubmitting} />
         </div>
       </form>
     </section>

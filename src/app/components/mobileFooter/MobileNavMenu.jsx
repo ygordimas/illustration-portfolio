@@ -3,22 +3,15 @@
 import React from "react";
 import NavMenuButton from "../header/NavMenuButton";
 import { useGlobalContext } from "../../context/store";
-import useWindowSize from "../../hooks/useWindowSize";
 import MobileNavMenuOverlay from "./MobileNavMenuOverlay";
-import { AnimatePresence } from "framer-motion";
 import NavMenuLinks from "../header/NavMenuLinks";
 import MobileNavContactCTA from "./MobileNavContactCTA";
 import GoToTopButton from "../ui/GoToTopButton";
-import { useScrollingContext } from "../../context/ScrollingContext";
 import StripesSVG from "../layout/StripesSVG";
-import { useContactModalContext } from "@/app/context/ContactModalContext";
+import ContactButton from "../ui/ContactButton";
 
 function MobileNavMenu() {
   const { isOpen, setIsOpen } = useGlobalContext();
-  const { openModal, setOpenModal } = useContactModalContext();
-  const windowWidth = useWindowSize();
-
-  const { scrollingProgress } = useScrollingContext();
 
   return (
     <>
@@ -32,7 +25,7 @@ function MobileNavMenu() {
           >
             <StripesSVG color="bg-mygreen-500" />
           </div>
-          <MobileNavContactCTA />
+          <ContactButton />
           <GoToTopButton />
           <NavMenuButton isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
         </div>

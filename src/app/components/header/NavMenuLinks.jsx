@@ -8,8 +8,8 @@ function NavMenuLinks({ isOpen, handleOpen }) {
 
   const navLinks = [
     { title: "Home", href: "/" },
-    { title: "Contact", href: "/contact" },
-    { title: "Resources", href: "/resources" },
+    // { title: "Contact", href: "/contact" },
+    // { title: "Resources", href: "/resources" },
     { title: "GitHub", href: "http://github.com/ygordimas" },
     { title: "Linkedin", href: "http://linkedin.com/ygordimas" },
     { title: "Instagram", href: "http://instagram.com/ygordimas" },

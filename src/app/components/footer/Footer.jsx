@@ -1,28 +1,49 @@
 import React from "react";
 import SocialMedia from "../ui/SocialMedia";
 import StripesSVG from "../layout/StripesSVG";
+import ContactButton from "../ui/ContactButton";
+import GoToTopButton from "../ui/GoToTopButton";
+import useWindowSize from "../../hooks/useWindowSize";
 
 function Footer() {
+  const windowSize = useWindowSize();
   return (
-    <div
-      className="relative mb-2 box-border h-fit w-full overflow-hidden rounded-full border-4 border-myblue-800 bg-mygreen-500 max-lg:w-[50vw]"
-      style={{
-        boxShadow:
-          "rgba(6, 152, 214, 0.4) 0px 0px 0px 2px, rgba(66, 152, 214, 0.65) 0px 4px 6px -1px, rgba(6, 152, 214, 0.08) 0px 1px 0px inset",
-      }}
-    >
-      <SocialMedia />
-
+    <>
       <div
-        className="absolute bottom-0 left-0 h-1/3 w-full overflow-hidden"
-        style={{
-          mask: "linear-gradient(0deg, rgba(255,255,255,0) 45%, rgba(193,220,64,1) 100%)",
-        }}
+        className="pointer-events-none fixed left-0 top-0 z-20 h-[100vh] w-[100vw]"
+        // style={{
+        //   background:
+        //     "linear-gradient(0deg, rgba(203,225,91,1) 0%, rgba(203,225,91,0) 75%, rgba(203,225,91,0) 100%)",
+        // }}
       >
-        <StripesSVG />
+        <div
+          className="pointer-events-none absolute bottom-0 left-0 flex w-[100vw] justify-between px-16 pb-8 text-2xl"
+          style={{
+            background:
+              "linear-gradient(0deg, rgba(203,225,91,1) 0%, rgba(203,225,91,0.5) 50%, rgba(203,225,91,0) 100%)",
+          }}
+        >
+          <div
+            className="absolute left-0 top-0  h-full w-full"
+            style={{
+              mask: "linear-gradient(0deg, rgba(193,220,64,1) 0%, rgba(255,255,255,0) 50%, rgba(245,249,224,0) 100%)",
+            }}
+          >
+            <StripesSVG color="bg-mypink-300" />
+          </div>
+          <div className="z-10 flex h-full w-full justify-between">
+            <ContactButton styles={footerButtonStyles} />
+            {/* {windowSize >= 1024 ? <SocialMedia /> : null} */}
+            <SocialMedia />
+            <GoToTopButton styles={footerButtonStyles} />
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
 export default Footer;
+
+const footerButtonStyles =
+  "pointer-events-auto font-singo flex cursor-pointer items-center gap-2 rounded-full border-[2px] border-myblue-800 bg-myblue-100 px-8 text-2xl shadow-[2px_2px_0_0_rgb(250,183,192)]";

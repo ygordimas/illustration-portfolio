@@ -47,7 +47,7 @@ export default function Header({}) {
               "rgba(6, 152, 214, 0.4) 0px 0px 0px 2px, rgba(66, 152, 214, 0.65) 0px 4px 6px -1px, rgba(6, 152, 214, 0.08) 0px 1px 0px inset",
           }}
         >
-          <div className="relative box-border flex cursor-default flex-col items-center border-[6px] border-myyellow-500 bg-mygreen-500 px-8 lg:rounded-full lg:py-8">
+          <div className="relative box-border flex cursor-default flex-col items-center border-[3px] border-mypink-300 bg-mygreen-500 px-8 lg:rounded-full lg:py-8">
             <Link className="relative" href={"/"}>
               {/* <LogoImpossible /> */}
               {/* <LogoMentra /> */}
@@ -56,7 +56,14 @@ export default function Header({}) {
               {/* <LogoQuickRemarks /> */}
               {/* <LogoLobular /> */}
             </Link>
-            <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-mygreen-500 bg-mypink-500 font-singoRound text-2xl tracking-wider text-myblue-800 max-lg:top-0 lg:bottom-0 lg:translate-y-1/2">
+            <div
+              className="absolute left-1/2 -translate-x-1/2 -translate-y-[calc(50%+4px)] rounded-full bg-mygreen-500 font-singoRound text-2xl tracking-wider text-myblue-800 max-lg:top-0 max-lg:text-xl lg:bottom-0 lg:translate-y-1/2"
+              style={
+                {
+                  // boxShadow: "inset 0 0 0 2px rgb(245, 107, 124)",
+                }
+              }
+            >
               <p className="px-4 py-2">3D ARTIST & ILLUSTRATOR</p>
             </div>
           </div>
@@ -72,7 +79,7 @@ export default function Header({}) {
             <NavMenu />
           </div>
         </motion.div>
-        {windowsWidth < 1024 && <MobileNavMenu />}
+        {/* {windowsWidth < 1024 && <MobileNavMenu />} */}
       </header>
     </>
   );
