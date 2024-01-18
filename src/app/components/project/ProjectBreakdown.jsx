@@ -96,38 +96,15 @@ export default function ProjectBreakdown({ project }) {
     <>
       <main
         ref={wrapperRef}
-        className="relative my-2 flex w-full flex-col items-center justify-center gap-4 text-accent-900"
+        className="relative my-2 flex w-full flex-col items-center justify-center gap-8 text-accent-800"
       >
-        {/* *****NAVIGATION OVERLAY***** */}
-        {/* <motion.div
-        ref={buttonRef}
-        variants={goToTopButtonVariant}
-        initial="hide"
-        animate={scrollingProgress > 0.1 ? "show" : "hide"}
-        className="fixed bottom-[2vh] left-0 z-10 flex w-full items-center justify-between  px-8 opacity-0"
-      >
-        <NavigateProjectsButton
-          path={illustrations[managePreviousIndex(currentIndex)]?.path}
-          handleNavigation={() => handleNavigation("previous")}
-          direction="left"
-        />
-
-        <GoToTopButton />
-        <NavigateProjectsButton
-          path={illustrations[manageNextIndex(currentIndex)]?.path}
-          handleNavigation={() => handleNavigation("next")}
-        >
-          <AiOutlineArrowRight />
-        </NavigateProjectsButton>
-      </motion.div> */}
-
         <nav className="flex w-full max-w-5xl items-center justify-between gap-2 text-4xl">
           <NavigateProjectsButton
             path={illustrations[managePreviousIndex(currentIndex)]?.path}
             handleNavigation={() => handleNavigation("previous")}
             direction="left"
           />
-          <h2 className="flex h-full grow justify-center border-4 border-myblue-950 bg-myyellow-500 p-6 font-singoRound tracking-wide text-myblue-950 ">
+          <h2 className="flex h-full grow justify-center border-4 border-myblue-800 bg-myyellow-500 p-6 font-mainfont font-bold tracking-wide text-myblue-800">
             {project.type}
           </h2>
 
@@ -138,8 +115,10 @@ export default function ProjectBreakdown({ project }) {
           />
         </nav>
 
-        <div className="flex w-full max-w-5xl flex-col items-center gap-2 px-2 text-2xl">
-          <p className="font-normal text-myblue-950">{project.description}</p>
+        <div className="flex w-full max-w-5xl flex-col items-center gap-8 px-2 text-2xl">
+          <p className="font-mainfont font-normal tracking-tight text-myblue-800">
+            {project.description}
+          </p>
           <div className="flex flex-wrap items-center justify-center gap-0.5">
             {project.tools.map((tag, index) => (
               <Tags tag={tag} id={index} />
@@ -147,7 +126,7 @@ export default function ProjectBreakdown({ project }) {
           </div>
         </div>
 
-        <hr className="w-full border-4 border-myblue-950" />
+        <hr className="w-full border-4 border-myblue-800" />
 
         <div className="flex flex-col justify-center gap-4 ">
           <Image
@@ -181,7 +160,7 @@ const ViewModal = ({ project, onClick }) => {
   return (
     <div
       onClick={onClick}
-      className="fixed left-0 top-0 z-20 flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-myblue-50"
+      className="fixed left-0 top-0 z-50 flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-myblue-50"
     >
       <div className="h-[80vh] w-[80vw]">
         <Image
@@ -192,7 +171,7 @@ const ViewModal = ({ project, onClick }) => {
           className="pointer-events-none h-full w-full object-contain"
         />
       </div>
-      <p className="pointe cursor-default font-singo text-2xl">
+      <p className="pointe cursor-default font-mainfont text-2xl">
         Click anywhere to return
       </p>
     </div>

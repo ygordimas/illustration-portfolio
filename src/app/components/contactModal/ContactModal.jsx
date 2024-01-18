@@ -11,7 +11,7 @@ function ContactModal() {
   const { openModal } = useContactModalContext();
 
   return (
-    <motion.div className="pointer-events-none fixed left-0 top-0 z-50 flex h-[100vh] w-[100vw] flex-col justify-center gap-2 p-2">
+    <motion.div className="pointer-events-none fixed left-0 top-0 z-50 flex h-[100vh] w-[100vw] items-center justify-center gap-2 p-2">
       <ContactFormModal />
       {/* <div
         className="absolute right-0 top-0 -z-50 h-full w-1/2"
@@ -21,7 +21,9 @@ function ContactModal() {
       >
         <StripesSVG color="bg-myblue-100" />
       </div> */}
-      <ContactModalOverlay />
+      <AnimatePresence>
+        {openModal ? <ContactModalOverlay /> : null}
+      </AnimatePresence>
     </motion.div>
   );
 }

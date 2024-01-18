@@ -57,14 +57,14 @@ export default function Header({}) {
               {/* <LogoLobular /> */}
             </Link>
             <div
-              className="absolute left-1/2 -translate-x-1/2 -translate-y-[calc(50%+4px)] rounded-full bg-mygreen-500 font-singoRound text-2xl tracking-wider text-myblue-800 max-xl:top-0 max-xl:text-xl xl:bottom-0 xl:translate-y-1/2"
+              className="absolute left-1/2 -translate-x-1/2 -translate-y-[calc(50%+4px)] rounded-full bg-mygreen-500 text-2xl tracking-wider text-myblue-800 max-xl:top-0 max-xl:text-xl xl:bottom-0 xl:translate-y-1/2"
               style={
                 {
                   // boxShadow: "inset 0 0 0 2px rgb(245, 107, 124)",
                 }
               }
             >
-              <p className="px-4 py-2">3D ARTIST & ILLUSTRATOR</p>
+              <p className="px-4 py-2 font-light">3D ARTIST & ILLUSTRATOR</p>
             </div>
           </div>
 

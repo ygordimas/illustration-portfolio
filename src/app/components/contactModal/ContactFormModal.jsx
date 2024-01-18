@@ -119,7 +119,7 @@ export default function ContactForm() {
       animate={openModal ? formVariant.enter : ""}
       initial={formVariant.exit}
       exit={formVariant.exit}
-      className="z-2 pointer-events-auto h-fit w-[80%] rounded-br-3xl border-4 border-myblue-950 bg-mygreen-500 p-4"
+      className="z-2 pointer-events-auto h-fit w-[80%]  rounded-br-3xl border-4 border-myblue-950 bg-mygreen-500 p-4"
     >
       <form
         className={`flex flex-col justify-center ${gap} pt-2 text-xl text-myblue-950`}
@@ -159,6 +159,9 @@ export default function ContactForm() {
               autoComplete="off"
               placeholder="E-mail"
             />
+            {errors.email && touched.email ? (
+              <p className={errorMessageStyles}>{errors.mail}</p>
+            ) : null}
           </div>
         </div>
 
@@ -174,6 +177,9 @@ export default function ContactForm() {
             onBlur={handleBlur}
             placeholder="Write a message..."
           ></textarea>
+          {errors.message && touched.message ? (
+            <p className={errorMessageStyles}>{errors.message}</p>
+          ) : null}
         </div>
 
         <div className="flex w-full justify-between">

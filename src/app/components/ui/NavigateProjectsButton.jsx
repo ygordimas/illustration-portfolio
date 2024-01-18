@@ -11,29 +11,11 @@ function NavigateProjectsButton({
   direction,
 }) {
   return (
-    // <Link
-    //   href={`/projects/${path}`}
-    //   onClick={() => handleNavigation()}
-    //   className="relative rounded-full border-4 border-myblue-950 bg-myblue-500 p-2 text-4xl text-myyellow-500"
-    // >
-    //   {direction == "left" ? <FaRegHandPointLeft /> : <FaRegHandPointRight />}
-    //   <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 translate-y-1/2 rounded-full border-4 border-myblue-950 bg-myyellow-500 px-2 py-0.5">
-    //     <p className="font-singoRound text-lg tracking-wide text-myblue-950">
-    //       {direction == "left" ? "Previous" : "Next"}
-    //     </p>
-    //   </span>
-    // </Link>
     <Link
       href={`/projects/${path}`}
       onClick={() => handleNavigation()}
       className="flex text-4xl"
     >
-      {/* {direction == "left" ? <FaRegHandPointLeft /> : <FaRegHandPointRight />}
-      <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 translate-y-1/2 rounded-full border-4 border-myblue-950 bg-myyellow-500 px-2 py-0.5">
-        <p className="font-singoRound text-lg tracking-wide text-myblue-950">
-          {direction == "left" ? "Previous" : "Next"}
-        </p>
-      </span> */}
       <div
         className={`flex ${
           direction == "left" ? `flex-row` : `flex-row-reverse`
@@ -44,14 +26,14 @@ function NavigateProjectsButton({
             direction == "left" ? `rounded-l-full` : `rounded-r-full`
           } border-4 ${
             direction == "left" ? `border-r-0` : `border-l-0`
-          } border-myblue-950 bg-myblue-500 p-1 text-myyellow-500`}
+          } border-myblue-800 bg-myblue-100 p-1 text-myblue-800`}
         >
           {direction == "left" ? <LiaHandPointLeft /> : <LiaHandPointRight />}
         </div>
         <span
           className={`relative box-border h-20 w-10 overflow-hidden ${
             direction == "left" ? `border-l-4` : `border-r-4`
-          } border-myblue-950`}
+          } border-myblue-800`}
         >
           <svg
             className={`absolute top-1/2 h-20 w-20 ${

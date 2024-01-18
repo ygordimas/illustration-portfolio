@@ -43,8 +43,6 @@ function Footer() {
           </div>
         </div>
       </div>
-
-      {/* <MobileNavMenu /> */}
     </>
   );
 }
@@ -52,4 +50,4 @@ function Footer() {
 export default Footer;
 
 const footerButtonStyles =
-  "pointer-events-auto font-singo flex cursor-pointer items-center gap-2 rounded-full border-[2px] border-myblue-800 bg-myblue-100 px-8 text-2xl shadow-[2px_2px_0_0_rgb(250,183,192)] lg:text-6xl";
+  "pointer-events-auto font-mainfont font-light flex cursor-pointer items-center gap-2 rounded-full border-[4px] border-myblue-800 bg-myblue-100 px-8 text-2xl shadow-[2px_2px_0_0_rgb(250,183,192)] lg:text-6xl";

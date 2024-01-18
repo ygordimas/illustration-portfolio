@@ -45,7 +45,7 @@ function HeaderLink({ label, href }) {
   };
 
   const linkStyle =
-    "relative border-2 rounded-full border-myblue-800 max-lg:[--borderOpacity:rgba(3, 67, 95, 1)] [--borderOpacity:rgba(2,39,55,0)] px-4 py-1 font-singoRound text-2xl xl:text-3xl tracking-normal text-myblue-800 z-10 shadow-[2px_2px_0_0_rgb(250,183,192)]";
+    "relative border-2 rounded-full border-myblue-800 max-lg:[--borderOpacity:rgba(3, 67, 95, 1)] [--borderOpacity:rgba(2,39,55,0)] px-4 py-1 font-mainfont font-normal text-xl tracking-normal text-myblue-800 z-10 shadow-[2px_2px_0_0_rgb(250,183,192)]";
 
   return (
     <Link href={href} className="relative h-fit w-fit">

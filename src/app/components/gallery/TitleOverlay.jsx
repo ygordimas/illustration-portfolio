@@ -55,7 +55,7 @@ function TitleOverlay({ path, isHovered, isInView, windowWidth }) {
       variants={overlayVariant}
       ref={titleOverlay}
     >
-      <TextEffect text={getUppercaseTitle(path)} size={`text-2xl`} />
+      <TextEffect text={getUppercaseTitle(path)} size={`text-xl`} />
     </motion.div>
   );
 }

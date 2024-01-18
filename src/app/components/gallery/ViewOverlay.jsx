@@ -97,7 +97,9 @@ function ViewOverlay({ isHovered, isInView, windowWidth }) {
         className="flex items-center justify-center rounded-l-full border-b-4 border-l-4 border-t-4 border-myblue-800 bg-mygreen-500 px-1 py-1 pl-4 uppercase tracking-wide text-myblue-950"
         transition={{ type: "tween" }}
       >
-        <p className="rounded-full bg-myblue-100 px-3">Open</p>
+        <p className="rounded-full bg-myblue-100 px-3 font-mainfont font-light">
+          Open
+        </p>
       </motion.span>
     </motion.div>
   );
