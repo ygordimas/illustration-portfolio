@@ -59,7 +59,7 @@ function Wrapper({ children }) {
 
       {children}
 
-      {openModal && <ContactModal />}
+      <ContactModal />
 
       <Footer />
     </div>

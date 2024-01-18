@@ -41,7 +41,7 @@ export default function Header({}) {
           key="header"
           variants={headerVariants}
           animate={hideHeader ? "hide" : "show"}
-          className="relative flex w-full items-center justify-center gap-8 rounded-full border-4 border-myblue-800 bg-mygreen-500 p-8 lg:justify-between"
+          className="relative flex w-full items-center justify-center gap-8 rounded-full border-4 border-myblue-800 bg-mygreen-500 p-8 xl:justify-between"
           style={{
             boxShadow:
               "rgba(6, 152, 214, 0.4) 0px 0px 0px 2px, rgba(66, 152, 214, 0.65) 0px 4px 6px -1px, rgba(6, 152, 214, 0.08) 0px 1px 0px inset",
@@ -57,7 +57,7 @@ export default function Header({}) {
               {/* <LogoLobular /> */}
             </Link>
             <div
-              className="absolute left-1/2 -translate-x-1/2 -translate-y-[calc(50%+4px)] rounded-full bg-mygreen-500 font-singoRound text-2xl tracking-wider text-myblue-800 max-lg:top-0 max-lg:text-xl lg:bottom-0 lg:translate-y-1/2"
+              className="absolute left-1/2 -translate-x-1/2 -translate-y-[calc(50%+4px)] rounded-full bg-mygreen-500 font-singoRound text-2xl tracking-wider text-myblue-800 max-xl:top-0 max-xl:text-xl xl:bottom-0 xl:translate-y-1/2"
               style={
                 {
                   // boxShadow: "inset 0 0 0 2px rgb(245, 107, 124)",
@@ -69,15 +69,15 @@ export default function Header({}) {
           </div>
 
           {/* *****MOBILE HEADER BUTTONS***** */}
-          <div className="flex grow items-center justify-end  gap-2 max-lg:absolute max-lg:bottom-0 max-lg:translate-y-1/2 lg:h-full">
+          <div className="flex grow items-center justify-end  gap-2 max-xl:absolute max-xl:bottom-0 max-xl:translate-y-1/2 ">
             <HeaderLink label="Illustrations" href={"/"} />
             <HeaderLink label="Game Art" href={"/game-art"} />
             <HeaderLink label="Abstract Art" href={"/abstract-art"} />
           </div>
 
-          <div className="hidden items-center justify-between rounded-full lg:flex">
+          {/* <div className="hidden items-center justify-between rounded-full lg:flex">
             <NavMenu />
-          </div>
+          </div> */}
         </motion.div>
         {/* {windowsWidth < 1024 && <MobileNavMenu />} */}
       </header>

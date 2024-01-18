@@ -8,6 +8,8 @@ import SendMessageButton from "./SendMessageButton";
 import CloseModalButton from "./CloseModalButton";
 import { useFormik } from "formik";
 import { basicSchema } from "./schemas";
+import { motion } from "framer-motion";
+import { useContactModalContext } from "@/app/context/ContactModalContext";
 
 const onSubmit = async (values, actions) => {
   console.log(values);
@@ -49,7 +51,9 @@ export default function ContactForm() {
     onSubmit,
   });
 
-  console.log(errors);
+  const { openModal } = useContactModalContext();
+
+  // console.log(errors);
 
   // const [name, setName] = useState("");
   // const [email, setEmail] = useState("");
@@ -75,6 +79,22 @@ export default function ContactForm() {
 
   const gap = "gap-10";
 
+  const formVariant = {
+    enter: {
+      x: "0%",
+      transition: {
+        duration: 0.5,
+        delay: 0.5,
+      },
+    },
+    exit: {
+      x: "-200%",
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   const inputStyles =
     " border-2 px-8 bg-mygreen-100 border-myblue-950 py-4 placeholder-myblue-950 placeholder-transparent focus:outline-none focus:ring-2 focus:ring-myblue-500 font-medium";
   const inputError = "border-mypink-500";
@@ -94,7 +114,13 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="z-2 h-fit w-[80%] rounded-br-3xl border-4 border-myblue-950 bg-mygreen-500 p-4">
+    <motion.section
+      variants={formVariant}
+      animate={openModal ? formVariant.enter : ""}
+      initial={formVariant.exit}
+      exit={formVariant.exit}
+      className="z-2 pointer-events-auto h-fit w-[80%] rounded-br-3xl border-4 border-myblue-950 bg-mygreen-500 p-4"
+    >
       <form
         className={`flex flex-col justify-center ${gap} pt-2 text-xl text-myblue-950`}
         action=""
@@ -155,6 +181,6 @@ export default function ContactForm() {
           <SendMessageButton isSubmitting={isSubmitting} />
         </div>
       </form>
-    </section>
+    </motion.section>
   );
 }
