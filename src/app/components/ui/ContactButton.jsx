@@ -1,17 +1,27 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import RoundButton from "./RoundButton";
-import Image from "next/image";
+import { motion } from "framer-motion";
 import { useContactModalContext } from "../../context/ContactModalContext";
 import { LiaGrinWink, LiaHandPeace } from "react-icons/lia";
 
 export default function ContactButton({ styles }) {
   const { setOpenModal } = useContactModalContext();
+
+  const buttonVariant = {
+    animate: {
+      scale: "1.2",
+    },
+    exit: {
+      scale: "1",
+    },
+  };
+
   return (
-    <div onClick={() => setOpenModal(true)} className={`${styles} relative`}>
+    <motion.div
+      onClick={() => setOpenModal(true)}
+      className={`${styles} relative`}
+    >
       <div className=" border-myblue-800 ">Contact</div>
       <div className="absolute left-[-10%] top-[-40%] h-fit w-fit rounded-full bg-myyellow-500 pr-4 text-4xl">
         <LiaGrinWink className="" />
@@ -19,6 +29,6 @@ export default function ContactButton({ styles }) {
           <LiaHandPeace />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

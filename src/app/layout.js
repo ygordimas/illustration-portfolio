@@ -23,19 +23,19 @@ const display = localFont({
 //   src: [
 //     // LIGHT
 //     {
-//       path: "../../public/FONTS/khand/Khand-Light.woff2",
+//       path: "../../public/FONTS/quicksand/Quicksand-Light.woff2",
 //       weight: "300",
 //       style: "normal",
 //     },
 //     // NORMAL
 //     {
-//       path: "../../public/FONTS/khand/Khand-Regular.woff2",
+//       path: "../../public/FONTS/quicksand/Quicksand-Regular.woff2",
 //       weight: "400",
 //       style: "normal",
 //     },
 //     // BOLD
 //     {
-//       path: "../../public/FONTS/khand/Khand-Bold.woff2",
+//       path: "../../public/FONTS/quicksand/Quicksand-Bold.woff2",
 //       weight: "700",
 //       style: "normal",
 //     },
@@ -47,73 +47,25 @@ const mainfont = localFont({
   src: [
     // LIGHT
     {
-      path: "../../public/FONTS/nippo/Nippo-Light.woff2",
+      path: "../../public/FONTS/jost/Jost-300-Light.otf",
       weight: "300",
       style: "normal",
     },
     // NORMAL
     {
-      path: "../../public/FONTS/nippo/Nippo-Regular.woff2",
+      path: "../../public/FONTS/jost/Jost-400-Book.otf",
       weight: "400",
       style: "normal",
     },
     // BOLD
     {
-      path: "../../public/FONTS/nippo/Nippo-Bold.woff2",
+      path: "../../public/FONTS/jost/Jost-700-Bold.otf",
       weight: "700",
       style: "normal",
     },
   ],
   variable: "--font-mainfont",
 });
-
-// const mainfont = localFont({
-//   src: [
-//     // LIGHT
-//     {
-//       path: "../../public/FONTS/teko/Teko-Light.woff2",
-//       weight: "300",
-//       style: "normal",
-//     },
-//     // NORMAL
-//     {
-//       path: "../../public/FONTS/teko/Teko-Regular.woff2",
-//       weight: "400",
-//       style: "normal",
-//     },
-//     // BOLD
-//     {
-//       path: "../../public/FONTS/teko/Teko-Bold.woff2",
-//       weight: "700",
-//       style: "normal",
-//     },
-//   ],
-//   variable: "--font-mainfont",
-// });
-
-// const mainfont = localFont({
-//   src: [
-//     // LIGHT
-//     {
-//       path: "../../public/FONTS/millimetre/Millimetre-Light_web.woff",
-//       weight: "300",
-//       style: "normal",
-//     },
-//     // NORMAL
-//     {
-//       path: "../../public/FONTS/millimetre/Millimetre-Regular_web.woff",
-//       weight: "400",
-//       style: "normal",
-//     },
-//     // BOLD
-//     {
-//       path: "../../public/FONTS/millimetre/Millimetre-Bold_web.woff",
-//       weight: "700",
-//       style: "normal",
-//     },
-//   ],
-//   variable: "--font-mainfont",
-// });
 
 const singo = localFont({
   src: [
@@ -129,38 +81,6 @@ const singo = localFont({
     },
   ],
   variable: "--font-singo",
-});
-
-const singoOutline = localFont({
-  src: [
-    {
-      path: "../../public/FONTS/singo/SingoOutline-Regular.otf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../../public/FONTS/singo/SingoOutlineItalic-Regular.otf",
-      weight: "400",
-      style: "italic",
-    },
-  ],
-  variable: "--font-singoOutline",
-});
-
-const singoShadow = localFont({
-  src: [
-    {
-      path: "../../public/FONTS/singo/SingoShadow-Regular.otf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../../public/FONTS/singo/SingoShadowItalic-Regular.otf",
-      weight: "400",
-      style: "italic",
-    },
-  ],
-  variable: "--font-singoShadow",
 });
 
 const singoRound = localFont({
@@ -188,7 +108,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${mainfont.variable} ${display.variable} ${singo.variable} ${singoRound.variable} ${singoOutline.variable} ${singoShadow.variable} bg-mygreen-500 font-mainfont font-normal text-myblue-800`}
+        className={`${mainfont.variable} ${display.variable} ${singo.variable} ${singoRound.variable} bg-mygreen-500 font-mainfont font-normal text-myblue-800`}
       >
         <GlobalContextProvider>
           <Head>

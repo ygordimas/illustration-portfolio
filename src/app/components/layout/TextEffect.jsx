@@ -1,6 +1,6 @@
 import React from "react";
 
-function TextEffect({ text, size, padding = "", font = "font-mainfont" }) {
+function TextEffect({ text, size, padding = "", font = "font-singoRound" }) {
   return (
     <p
       className={`relative block h-fit w-fit ${size} mr-0 text-myblue-800 ${padding} ${font}`}

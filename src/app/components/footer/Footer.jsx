@@ -19,16 +19,16 @@ function Footer() {
         // }}
       >
         <div
-          className="pointer-events-none absolute bottom-0 left-0 flex w-[100vw] justify-between px-16 pb-8 text-2xl"
+          className="pointer-events-none absolute bottom-0 left-0 flex w-[100vw] justify-between px-16 py-8 pb-8 text-2xl"
           style={{
             background:
-              "linear-gradient(0deg, rgba(203,225,91,1) 0%, rgba(203,225,91,0.5) 50%, rgba(203,225,91,0) 100%)",
+              "linear-gradient(0deg, rgba(203,225,91,1) 0%, rgba(203,225,91,0.5) 70%, rgba(203,225,91,0) 100%)",
           }}
         >
           <div
             className="absolute left-0 top-0  h-full w-full"
             style={{
-              mask: "linear-gradient(0deg, rgba(193,220,64,1) 0%, rgba(255,255,255,0) 50%, rgba(245,249,224,0) 100%)",
+              mask: "linear-gradient(0deg, rgba(193,220,64,1) 0%, rgba(255,255,255,0) 70%, rgba(245,249,224,0) 100%)",
             }}
           >
             <StripesSVG color="bg-mygreen-300" />
@@ -50,4 +50,4 @@ function Footer() {
 export default Footer;
 
 const footerButtonStyles =
-  "pointer-events-auto font-mainfont font-light flex cursor-pointer items-center gap-2 rounded-full border-[4px] border-myblue-800 bg-myblue-100 px-8 text-2xl shadow-[2px_2px_0_0_rgb(250,183,192)] lg:text-6xl";
+  "pointer-events-auto font-singoRound flex cursor-pointer items-center gap-2 rounded-full border-[4px] border-mypink-300 bg-myblue-100 px-8 text-2xl shadow-[2px_2px_0_0_rgb(248,145,158)] lg:text-2xl";

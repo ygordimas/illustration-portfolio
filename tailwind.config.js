@@ -73,7 +73,9 @@ module.exports = {
           200: "#ECF4C2",
           300: "#E1EEA0",
           400: "#D6E77D",
-          500: "#CBE15B",
+          // 500: "#CBE15B",
+          500: "#D6E77D",
+
           600: "#BCD82C",
           700: "#95AC20",
           800: "#6C7D17",
@@ -121,9 +123,6 @@ module.exports = {
     fontFamily: {
       mainfont: ["var(--font-mainfont)"],
       display: ["var(--font-display)"],
-      youngserif: ["var(--font-youngserif)"],
-      singoOutline: ["var(--font-singoOutline)"],
-      singoShadow: ["var(--font-singoShadow)"],
       singoRound: ["var(--font-singoRound)"],
       singo: ["var(--font-singo)"],
     },

@@ -35,6 +35,13 @@ function GoToTopButton({ styles }) {
           animate={scrollingProgress > 0.1 ? "show" : "hide"}
           className={styles}
           onClick={() => handleScroll()}
+          whileHover={{
+            scale: 1.1,
+            transition: {
+              duration: 0.1,
+              ease: [0.5, 0, 0.75, 0],
+            },
+          }}
         >
           Scroll To Top
         </motion.button>

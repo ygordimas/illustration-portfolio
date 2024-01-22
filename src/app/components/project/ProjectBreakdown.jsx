@@ -104,7 +104,7 @@ export default function ProjectBreakdown({ project }) {
             handleNavigation={() => handleNavigation("previous")}
             direction="left"
           />
-          <h2 className="flex h-full grow justify-center border-4 border-myblue-800 bg-myyellow-500 p-6 font-mainfont font-bold tracking-wide text-myblue-800">
+          <h2 className="flex h-fit justify-center  bg-myyellow-500 p-6 font-mainfont text-2xl font-bold tracking-tight text-myblue-800">
             {project.type}
           </h2>
 
@@ -115,8 +115,8 @@ export default function ProjectBreakdown({ project }) {
           />
         </nav>
 
-        <div className="flex w-full max-w-5xl flex-col items-center gap-8 px-2 text-2xl">
-          <p className="font-mainfont font-normal tracking-tight text-myblue-800">
+        <div className="flex w-full max-w-5xl flex-col items-center gap-8 px-2">
+          <p className="font-mainfont text-base font-normal tracking-tight text-myblue-800">
             {project.description}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-0.5">
@@ -125,8 +125,6 @@ export default function ProjectBreakdown({ project }) {
             ))}
           </div>
         </div>
-
-        <hr className="w-full border-4 border-myblue-800" />
 
         <div className="flex flex-col justify-center gap-4 ">
           <Image
@@ -137,17 +135,18 @@ export default function ProjectBreakdown({ project }) {
             className="cursor-pointer"
             onClick={() => setOpenViewModal(true)}
           />
-
-          {project.wips && (
-            <>
-              <hr className="h-1 w-full bg-accent-500" />
-
-              <div className="grid max-w-5xl grid-cols-2 gap-4">
-                {extraImages()}
-              </div>
-            </>
-          )}
         </div>
+        {project.wips && (
+          <>
+            <div className="flex h-fit w-full items-center justify-center bg-mypink-300 py-2 font-mainfont text-4xl font-bold text-mygreen-500">
+              <p>behind the scenes</p>
+            </div>
+
+            <div className="grid max-w-5xl grid-cols-2 gap-4">
+              {extraImages()}
+            </div>
+          </>
+        )}
       </main>
       {openViewModal && (
         <ViewModal project={project} onClick={() => setOpenViewModal(false)} />

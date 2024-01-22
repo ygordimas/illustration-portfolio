@@ -5,7 +5,7 @@ function CloseModalButton() {
   const { setOpenModal } = useContactModalContext();
   return (
     <div
-      className="w-fit rounded-full border-[4px] border-myblue-800 bg-myblue-100 p-4 font-singo text-4xl tracking-wide"
+      className="w-fit rounded-full border-[4px] border-myblue-800 bg-myblue-100 p-4 text-4xl tracking-wide"
       onClick={() => {
         setOpenModal(false);
       }}

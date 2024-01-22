@@ -17,7 +17,7 @@ function HeaderLink({ label, href }) {
       },
     },
     inactive: {
-      backgroundColor: "#CBE15B",
+      backgroundColor: "#D6E77D",
       borderColor: "var(--borderOpacity, rgba(2, 39, 55, 0))",
       transition: {
         duration: 0.2,
@@ -45,7 +45,7 @@ function HeaderLink({ label, href }) {
   };
 
   const linkStyle =
-    "relative border-2 rounded-full border-myblue-800 max-lg:[--borderOpacity:rgba(3, 67, 95, 1)] [--borderOpacity:rgba(2,39,55,0)] px-4 py-1 font-mainfont font-normal text-xl tracking-normal text-myblue-800 z-10 shadow-[2px_2px_0_0_rgb(250,183,192)]";
+    "relative border-2 rounded-full border-myblue-800 max-xl:[--borderOpacity:rgba(3,67,95,1)] [--borderOpacity:rgba(2,39,55,0)] px-4 py-1 font-singoRound text-xl lg:text-2xl xl:text-3xl tracking-wide text-myblue-800 z-10 shadow-[2px_2px_0_0_rgb(250,183,192)]";
 
   return (
     <Link href={href} className="relative h-fit w-fit">
