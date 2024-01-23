@@ -10,6 +10,7 @@ import { useFormik } from "formik";
 import { basicSchema } from "./schemas";
 import { motion } from "framer-motion";
 import { useContactModalContext } from "@/app/context/ContactModalContext";
+import { LiaFeatherAltSolid } from "react-icons/lia";
 
 const onSubmit = async (values, actions) => {
   console.log(values);
@@ -168,6 +169,9 @@ export default function ContactForm() {
         <div className="relative flex w-full ">
           <FloatingLabel htmlFor="message" title="Message" />
 
+          <div className="absolute right-0 top-0 -translate-y-1/2 rounded-full border-2 border-myblue-800 bg-yellow-400 p-2 text-2xl text-myblue-800">
+            <LiaFeatherAltSolid />
+          </div>
           <textarea
             minLength={10}
             name="message"

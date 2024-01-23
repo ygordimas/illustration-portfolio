@@ -49,13 +49,19 @@ function TitleOverlay({ path, isHovered, isInView, windowWidth }) {
   return (
     <motion.div
       key="overlay"
-      className="h-fit w-fit rounded-tr-full border-r-4 border-t-4 border-myblue-800 bg-mygreen-500 py-1 pl-2 pr-6 font-singoRound tracking-wider"
+      className="h-fit w-fit rounded-tr-full border-r-4 border-t-4 border-myblue-800 bg-mygreen-500 py-1 pl-2 pr-6 font-singoRound text-xl tracking-wider"
       initial="hide"
       animate={isHovered ? "show" : "hide"}
       variants={overlayVariant}
       ref={titleOverlay}
     >
-      <TextEffect text={getUppercaseTitle(path)} size={`text-xl`} />
+      <p
+        style={{
+          textShadow: "2px 2px 0 rgb(247, 198, 58)",
+        }}
+      >
+        {getUppercaseTitle(path)}
+      </p>
     </motion.div>
   );
 }

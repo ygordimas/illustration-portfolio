@@ -1,21 +1,20 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 function TextEffect({
   text,
-  size,
+  size = "",
   padding = "",
   font = "font-singoRound",
-  fill,
+  ...rest
 }) {
   return (
-    <p
+    <motion.p
       className={`relative block h-fit w-fit ${size} mr-0 text-myblue-800 ${padding} ${font}`}
-      style={{
-        textShadow: `2px 2px 0px ${fill}`,
-      }}
+      {...rest}
     >
       {text}
-    </p>
+    </motion.p>
   );
 }
 

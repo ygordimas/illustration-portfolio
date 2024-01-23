@@ -82,15 +82,16 @@ function ViewOverlay({ isHovered, isInView, windowWidth }) {
       initial="hide"
       ref={overlay}
     >
-      <div className="relative z-10 flex h-fit w-fit  content-center">
+      <div className="relative z-10 flex h-fit w-fit items-center">
         <TileSVG
-          fillColor={`h-16 w-16 overflow-visible fill-myyellow-500 stroke-myblue-800 stroke-[20px]`}
+          fillColor={`h-16 w-16 overflow-visible fill-myyellow-400 stroke-myblue-800 stroke-[20px]`}
         />
-        <div className="z-5 absolute left-[50%] top-[50%] flex h-fit w-fit -translate-x-1/2 -translate-y-1/2 content-center">
-          <TfiEye className="z-10 block text-3xl text-myblue-800" />
+        <div className="z-5 absolute left-[50%] top-[50%] flex h-fit w-fit -translate-x-1/2 -translate-y-1/2 items-center justify-center">
+          <TfiEye className="z-10 block rounded-full text-3xl text-myblue-800" />
           <div className="absolute left-1/2 top-1/2 h-[150%] w-[150%] -translate-x-1/2 -translate-y-[(calc(50%-1px))] rounded-full">
             <EightPoints />
           </div>
+          <div className="absolute left-1/2 top-1/2 z-0 h-[60%] w-[60%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-mygreen-100"></div>
         </div>
         <motion.div
           variants={rotateVariant}

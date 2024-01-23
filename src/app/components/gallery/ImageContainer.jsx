@@ -79,8 +79,8 @@ export default function ImageContainer({ image, onClick }) {
         className="absolute left-0 top-0 flex h-full w-full flex-col justify-between overflow-hidden rounded-2xl"
         onClick={onClick}
         ref={container}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+        onHoverStart={() => handleMouseEnter()}
+        onHoverEnd={() => handleMouseLeave()}
         whileHover={{
           boxShadow: "inset 0px 0px 0px 8px rgb(3, 67, 95, 1)",
         }}

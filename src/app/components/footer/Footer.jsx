@@ -4,11 +4,13 @@ import StripesSVG from "../layout/StripesSVG";
 import ContactButton from "../ui/ContactButton";
 import GoToTopButton from "../ui/GoToTopButton";
 import useWindowSize from "../../hooks/useWindowSize";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import MobileNavMenu from "../mobileFooter/MobileNavMenu";
 import ButtonBase from "../ui/ButtonBase";
 import { useContactModalContext } from "../../context/ContactModalContext";
 import { useScrollingContext } from "../../context/ScrollingContext";
+import { LiaGrinWink, LiaHandPeace } from "react-icons/lia";
+import ScrollToTop from "../ui/ScrollToTop";
 
 function Footer() {
   const windowSize = useWindowSize();
@@ -17,13 +19,7 @@ function Footer() {
 
   return (
     <>
-      <div
-        className="pointer-events-none fixed left-0 top-0 z-20 h-[100vh] w-[100vw]"
-        // style={{
-        //   background:
-        //     "linear-gradient(0deg, rgba(203,225,91,1) 0%, rgba(203,225,91,0) 75%, rgba(203,225,91,0) 100%)",
-        // }}
-      >
+      <div className="pointer-events-none fixed left-0 top-0 z-20 h-[100vh] w-[100vw]">
         <div
           className="pointer-events-auto absolute bottom-0 left-0 flex w-[100vw] justify-between px-16 py-8 pb-8 text-2xl"
           style={{
@@ -37,22 +33,15 @@ function Footer() {
               mask: "linear-gradient(0deg, rgba(193,220,64,1) 0%, rgba(255,255,255,0) 70%, rgba(245,249,224,0) 100%)",
             }}
           >
-            <StripesSVG color="bg-mygreen-300" />
+            <StripesSVG color="bg-mygreen-100" />
           </div>
           <div className="z-10 flex h-full w-full justify-between">
             <AnimatePresence mode="popLayout">
-              <ButtonBase
-                key="contact"
-                label="Contact"
-                onClick={() => setOpenModal(true)}
-              />
+              <ContactButton />
+
               <SocialMedia key="social" />
 
-              <ButtonBase
-                key="scrollUp"
-                label="Scroll To Top"
-                onClick={() => setScrollToTop(true)}
-              />
+              {scrollingProgress > 0.1 && <ScrollToTop />}
             </AnimatePresence>
           </div>
         </div>
@@ -62,6 +51,3 @@ function Footer() {
 }
 
 export default Footer;
-
-const footerButtonStyles =
-  "pointer-events-auto font-singoRound flex cursor-pointer items-center gap-2 rounded-full border-[4px] border-mypink-300 bg-myblue-100 px-8 text-2xl shadow-[2px_2px_0_0_rgb(248,145,158)] lg:text-2xl";

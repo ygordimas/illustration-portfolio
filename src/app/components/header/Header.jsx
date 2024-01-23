@@ -44,18 +44,18 @@ export default function Header({}) {
           className="relative flex h-fit w-full flex-col xl:flex-row"
         >
           <div
-            className="relative flex w-full items-center justify-center rounded-full border-4 border-myblue-800 bg-mygreen-500 p-2 lg:justify-between"
+            className="relative flex w-full items-center justify-center rounded-full border-4 border-mypink-300 bg-mygreen-500 p-2 lg:justify-between"
             style={{
               boxShadow:
                 "rgba(6, 152, 214, 0.4) 0px 0px 0px 2px, rgba(66, 152, 214, 0.65) 0px 4px 6px -1px, rgba(6, 152, 214, 0.08) 0px 1px 0px inset",
             }}
           >
-            <div className="relative box-border flex w-full cursor-default flex-col items-center rounded-full  border-mypink-300 bg-mygreen-500 p-2">
+            <div className="relative box-border flex w-full cursor-default flex-col items-center rounded-full bg-mygreen-500 p-2">
               <Link className="relative w-full" href={"/"}>
                 <LogoZaltys />
               </Link>
 
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full rounded-full bg-myblue-800 px-2 font-singo text-base tracking-wider text-mygreen-400">
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full rounded-full bg-mypink-300 px-2 font-singo text-base tracking-wider text-myblue-800">
                 <p>3D artist & illustrator</p>
               </div>
               {/* <div

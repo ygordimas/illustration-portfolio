@@ -9,6 +9,6 @@ export const basicSchema = yup.object().shape({
   message: yup
     .string()
     .min(20, "Must have at least 20 characters.")
-    .max(200, "Message is too long.")
+    .max(640, "Message is too long.")
     .required("Required"),
 });
