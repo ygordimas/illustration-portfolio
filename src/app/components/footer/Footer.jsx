@@ -6,9 +6,15 @@ import GoToTopButton from "../ui/GoToTopButton";
 import useWindowSize from "../../hooks/useWindowSize";
 import { AnimatePresence } from "framer-motion";
 import MobileNavMenu from "../mobileFooter/MobileNavMenu";
+import ButtonBase from "../ui/ButtonBase";
+import { useContactModalContext } from "../../context/ContactModalContext";
+import { useScrollingContext } from "../../context/ScrollingContext";
 
 function Footer() {
   const windowSize = useWindowSize();
+  const { setOpenModal } = useContactModalContext();
+  const { scrollingProgress, setScrollToTop } = useScrollingContext();
+
   return (
     <>
       <div
@@ -19,7 +25,7 @@ function Footer() {
         // }}
       >
         <div
-          className="pointer-events-none absolute bottom-0 left-0 flex w-[100vw] justify-between px-16 py-8 pb-8 text-2xl"
+          className="pointer-events-auto absolute bottom-0 left-0 flex w-[100vw] justify-between px-16 py-8 pb-8 text-2xl"
           style={{
             background:
               "linear-gradient(0deg, rgba(203,225,91,1) 0%, rgba(203,225,91,0.5) 70%, rgba(203,225,91,0) 100%)",
@@ -35,10 +41,18 @@ function Footer() {
           </div>
           <div className="z-10 flex h-full w-full justify-between">
             <AnimatePresence mode="popLayout">
-              <ContactButton key="contact" styles={footerButtonStyles} />
+              <ButtonBase
+                key="contact"
+                label="Contact"
+                onClick={() => setOpenModal(true)}
+              />
               <SocialMedia key="social" />
 
-              <GoToTopButton key="scrollUp" styles={footerButtonStyles} />
+              <ButtonBase
+                key="scrollUp"
+                label="Scroll To Top"
+                onClick={() => setScrollToTop(true)}
+              />
             </AnimatePresence>
           </div>
         </div>
