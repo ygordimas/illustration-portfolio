@@ -2,7 +2,7 @@ import React from "react";
 
 function LogoZaltys() {
   return (
-    <div className="relative flex h-[124px] w-[100vw] items-center justify-center lg:w-[80vw] xl:w-[50vw]">
+    <div className="relative flex h-[124px] w-[100%] items-center justify-center lg:w-[80%] xl:w-[50%]">
       {/* STROKE */}
       <div className="absolute left-1/2 top-1/2 z-10 h-auto w-[96%] -translate-x-1/2 -translate-y-1/2">
         <svg
@@ -23,7 +23,8 @@ function LogoZaltys() {
           viewBox="0 0 448.01 46.66"
           className="fill-myblue-100"
           style={{
-            filter: "drop-shadow(3px 4px 0px rgb(245, 187, 19))",
+            filter:
+              "drop-shadow(3px 4px 0px rgb(245, 187, 19)) drop-shadow(4px 2px 0px rgb(236, 244, 194))",
           }}
         >
           <g data-name="Layer 1">
