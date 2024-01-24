@@ -41,10 +41,10 @@ export default function Header({}) {
           key="header"
           variants={headerVariants}
           animate={hideHeader ? "hide" : "show"}
-          className="relative flex h-fit w-full flex-col xl:flex-row"
+          className="relative flex h-fit w-full flex-col  max-xl:gap-4 xl:flex-row"
         >
           <div
-            className="relative flex w-full items-center justify-center rounded-full border-4 border-mypink-300 bg-mygreen-500 p-2 lg:justify-between"
+            className="relative flex w-full items-center justify-center rounded-full border-4 border-mypink-300 bg-mygreen-500 p-2  lg:justify-between"
             style={{
               boxShadow:
                 "rgba(6, 152, 214, 0.4) 0px 0px 0px 2px, rgba(66, 152, 214, 0.65) 0px 4px 6px -1px, rgba(6, 152, 214, 0.08) 0px 1px 0px inset",
@@ -74,7 +74,7 @@ export default function Header({}) {
 
             {/* *****MOBILE HEADER BUTTONS***** */}
           </div>
-          <div className="flex w-full grow items-center justify-end  gap-2">
+          <div className="flex w-full grow items-center gap-2 max-xl:justify-center xl:justify-end">
             <HeaderLink label="Illustrations" href={"/"} />
             <HeaderLink label="Game Art" href={"/game-art"} />
             <HeaderLink label="Abstract Art" href={"/abstract-art"} />

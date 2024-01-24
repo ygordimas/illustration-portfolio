@@ -21,7 +21,7 @@ function Footer() {
     <>
       <div className="pointer-events-none fixed left-0 top-0 z-20 h-[100vh] w-[100vw]">
         <div
-          className="pointer-events-auto absolute bottom-0 left-0 flex w-[100vw] justify-between px-16 py-8 pb-8 text-2xl"
+          className="pointer-events-auto absolute bottom-0 left-0 flex w-[100vw] justify-between px-16 py-8 pb-8 text-xl xl:text-2xl"
           style={{
             background:
               "linear-gradient(0deg, rgba(203,225,91,1) 0%, rgba(203,225,91,0.5) 70%, rgba(203,225,91,0) 100%)",

@@ -15,10 +15,11 @@ import { useGlobalContext } from "../../context/store";
 import { illustrations } from "../../data/illustrations";
 import { useEffect, useRef, useState } from "react";
 import getUppercaseTitle from "../../utils/getUppercaseTitle";
-import { motion, useInView, useAnimate } from "framer-motion";
+import { motion, useInView, useAnimate, AnimatePresence } from "framer-motion";
 import { useScrollingContext } from "../../context/ScrollingContext";
 import GoToTopButton from "../../components/ui/GoToTopButton";
 import NavigateProjectsButton from "../../components/ui/NavigateProjectsButton";
+import { RiSearchEyeLine } from "react-icons/ri";
 
 export default function ProjectBreakdown({ project }) {
   const [openViewModal, setOpenViewModal] = useState(false);
@@ -126,7 +127,7 @@ export default function ProjectBreakdown({ project }) {
           </div>
         </div>
 
-        <div className="flex flex-col justify-center gap-4 ">
+        <div className="relative flex flex-col justify-center ">
           <Image
             src={project.src}
             alt={project.alt}
@@ -135,6 +136,12 @@ export default function ProjectBreakdown({ project }) {
             className="cursor-pointer"
             onClick={() => setOpenViewModal(true)}
           />
+          <div className="absolute bottom-0 right-1 flex translate-y-1/2 gap-2  rounded-full  font-singoRound text-base tracking-wide text-myblue-800">
+            <div className="rounded-full bg-mygreen-500 p-1 text-base text-myblue-800">
+              <RiSearchEyeLine />
+            </div>
+            <p className="rounded-full bg-mygreen-500 px-2">Click to Expand</p>
+          </div>
         </div>
         {project.wips && (
           <>
@@ -148,20 +155,59 @@ export default function ProjectBreakdown({ project }) {
           </>
         )}
       </main>
-      {openViewModal && (
-        <ViewModal project={project} onClick={() => setOpenViewModal(false)} />
-      )}
+      <AnimatePresence mode="wait">
+        {openViewModal && (
+          <ViewModal
+            project={project}
+            onClick={() => setOpenViewModal(false)}
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 }
 
 const ViewModal = ({ project, onClick }) => {
+  const modalVariant = {
+    animate: {
+      opacity: 1,
+      transition: {
+        duration: 0.2,
+      },
+    },
+    initial: {
+      opacity: 0,
+      transition: {
+        duration: 0.2,
+      },
+    },
+  };
+  const imageVariant = {
+    animate: {
+      y: "0",
+      transition: {
+        duration: 0.2,
+        delay: 0.2,
+      },
+    },
+    initial: {
+      y: "100vh",
+      transition: {
+        duration: 0.2,
+      },
+    },
+  };
+
   return (
-    <div
+    <motion.div
       onClick={onClick}
-      className="fixed left-0 top-0 z-50 flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-myblue-50"
+      className="fixed left-0 top-0 z-50 flex h-[100vh] w-[100vw] flex-col items-center justify-center gap-2 bg-mygreen-200"
+      variants={modalVariant}
+      animate="animate"
+      initial="initial"
+      exit="initial"
     >
-      <div className="h-[80vh] w-[80vw]">
+      <motion.div className="max-h-[90vh] w-[98vw]" variants={imageVariant}>
         <Image
           src={project.src}
           alt={project.alt}
@@ -169,10 +215,10 @@ const ViewModal = ({ project, onClick }) => {
           height={project.height}
           className="pointer-events-none h-full w-full object-contain"
         />
-      </div>
-      <p className="pointe cursor-default font-mainfont text-2xl">
+      </motion.div>
+      <p className="cursor-default rounded-full bg-mygreen-500 px-2 font-singoRound text-lg tracking-wide text-myblue-800">
         Click anywhere to return
       </p>
-    </div>
+    </motion.div>
   );
 };

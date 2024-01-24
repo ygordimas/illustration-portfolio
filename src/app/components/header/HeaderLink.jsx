@@ -76,7 +76,7 @@ function HeaderLink({ label, href }) {
       } relative h-fit w-fit`}
     >
       <motion.div
-        className={`flex cursor-pointer items-center gap-2 rounded-full border-[4px] border-mypink-300 bg-myblue-100 px-8 py-2 font-singoRound text-2xl shadow-[2px_2px_0_0_rgb(248,145,158)]`}
+        className={`flex cursor-pointer items-center gap-2 rounded-full border-[4px] border-mypink-300 bg-myblue-100 px-8 py-2 font-singoRound text-xl shadow-[2px_2px_0_0_rgb(248,145,158)] xl:text-2xl`}
         onHoverStart={() => handleHoverIn()}
         onHoverEnd={() => handleHoverOut()}
         variants={buttonVariants}
