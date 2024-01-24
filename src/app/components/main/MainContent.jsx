@@ -12,7 +12,7 @@ export default function MainContent({ children }) {
   const { scrollToTop, setScrollToTop } = useScrollingContext();
   const scrollArea = useRef();
 
-  const mainStyles = `relative flex pt-8 grow flex-col items-center justify-center opacity-1 mb-[10rem] mt-10 lg:mt-2`;
+  const mainStyles = `relative mt-12 flex grow flex-col items-center justify-center opacity-1 mb-[10rem] xl:mt-14`;
 
   return (
     <AnimatePresence>

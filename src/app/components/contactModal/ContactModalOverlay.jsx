@@ -78,7 +78,7 @@ function ContactModalOverlay() {
             animate={openModal ? "enter" : "exit"}
             initial="exit"
             exit="exit"
-            className="pointer-events-auto relative h-[125%] w-full rounded-t-full bg-myblue-500"
+            className="pointer-events-auto relative h-[125%] w-full rounded-t-full bg-myblue-100"
             key={i}
             custom={i}
           />

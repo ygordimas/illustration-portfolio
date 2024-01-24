@@ -27,14 +27,12 @@ export default function ImageGallery({ illustrations, handleClickOpenImage }) {
   ));
 
   return (
-    <div className="">
-      <Masonry
-        breakpointCols={breakpointColumnsObj}
-        className="flex gap-2"
-        columnClassName=""
-      >
-        {items}
-      </Masonry>
-    </div>
+    <Masonry
+      breakpointCols={breakpointColumnsObj}
+      className="flex gap-2"
+      columnClassName=""
+    >
+      {items}
+    </Masonry>
   );
 }

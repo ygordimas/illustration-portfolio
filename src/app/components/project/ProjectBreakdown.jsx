@@ -20,6 +20,7 @@ import { useScrollingContext } from "../../context/ScrollingContext";
 import GoToTopButton from "../../components/ui/GoToTopButton";
 import NavigateProjectsButton from "../../components/ui/NavigateProjectsButton";
 import { RiSearchEyeLine } from "react-icons/ri";
+import { TiZoomIn } from "react-icons/ti";
 
 export default function ProjectBreakdown({ project }) {
   const [openViewModal, setOpenViewModal] = useState(false);
@@ -97,8 +98,9 @@ export default function ProjectBreakdown({ project }) {
     <>
       <main
         ref={wrapperRef}
-        className="relative my-2 flex w-full flex-col items-center justify-center gap-8 text-accent-800"
+        className="relative flex w-full flex-col items-center justify-center gap-8 text-accent-800"
       >
+        <hr className="border-4 border-mypink-300" />
         <nav className="flex w-full max-w-5xl items-center justify-between gap-2 text-4xl">
           <NavigateProjectsButton
             path={illustrations[managePreviousIndex(currentIndex)]?.path}
@@ -127,6 +129,8 @@ export default function ProjectBreakdown({ project }) {
           </div>
         </div>
 
+        <hr className="border-4 border-mypink-300" />
+
         <div className="relative flex flex-col justify-center ">
           <Image
             src={project.src}
@@ -145,8 +149,8 @@ export default function ProjectBreakdown({ project }) {
         </div>
         {project.wips && (
           <>
-            <div className="flex h-fit w-full items-center justify-center bg-mypink-300 py-2 font-mainfont text-4xl font-bold text-mygreen-500">
-              <p>behind the scenes</p>
+            <div className="flex h-fit w-full items-center justify-center bg-mypink-300 py-2 font-mainfont text-4xl font-bold tracking-wide text-mygreen-500">
+              <p>behind the scenes & extras</p>
             </div>
 
             <div className="grid max-w-5xl grid-cols-2 gap-4">
@@ -154,6 +158,8 @@ export default function ProjectBreakdown({ project }) {
             </div>
           </>
         )}
+
+        <hr className="border-4 border-mypink-300" />
       </main>
       <AnimatePresence mode="wait">
         {openViewModal && (

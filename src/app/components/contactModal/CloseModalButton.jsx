@@ -1,18 +1,18 @@
 import { useContactModalContext } from "@/app/context/ContactModalContext";
 import React from "react";
+import ButtonBase from "../ui/ButtonBase";
 
 function CloseModalButton() {
   const { setOpenModal } = useContactModalContext();
   return (
-    <div
-      className="w-fit rounded-full border-[4px] border-myblue-800 bg-myblue-100 p-4 text-4xl tracking-wide"
-      onClick={() => {
-        setOpenModal(false);
-      }}
-    >
-      <div></div>
-      <span>Close</span>
-    </div>
+    <>
+      <ButtonBase
+        label="Close"
+        onClick={() => {
+          setOpenModal(false);
+        }}
+      />
+    </>
   );
 }
 
