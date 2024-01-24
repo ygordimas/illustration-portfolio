@@ -3,6 +3,7 @@
 import { motion, useAnimate } from "framer-motion";
 import React, { useEffect, useRef } from "react";
 import { AiOutlineEye } from "react-icons/ai";
+import { LiaEye } from "react-icons/lia";
 import { TfiEye } from "react-icons/tfi";
 import TileSVG from "../layout/TileSVG";
 import Crown from "../SVGs/Crown";
@@ -87,11 +88,11 @@ function ViewOverlay({ isHovered, isInView, windowWidth }) {
           fillColor={`h-16 w-16 overflow-visible fill-myyellow-400 stroke-myblue-800 stroke-[20px]`}
         />
         <div className="z-5 absolute left-[50%] top-[50%] flex h-fit w-fit -translate-x-1/2 -translate-y-1/2 items-center justify-center">
-          <TfiEye className="z-10 block rounded-full text-3xl text-myblue-800" />
+          <LiaEye className="z-10 block rounded-full text-3xl text-myblue-800" />
           <div className="absolute left-1/2 top-1/2 h-[150%] w-[150%] -translate-x-1/2 -translate-y-[(calc(50%-1px))] rounded-full">
             <EightPoints />
           </div>
-          <div className="absolute left-1/2 top-1/2 z-0 h-[60%] w-[60%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-mygreen-100"></div>
+          <div className="absolute left-1/2 top-1/2 z-0 h-[54%] w-[54%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-mygreen-500"></div>
         </div>
         <motion.div
           variants={rotateVariant}
