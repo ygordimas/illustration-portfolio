@@ -16,7 +16,11 @@ export default function ContactButton({ styles }) {
 
   const handleEnterAnimation = () => {
     winkAnimate(winkScope.current, winkVariant.animate, winkDuration);
-    handAnimate(handScope.current, handVariant.animate, handDuration.enter);
+    handAnimate(
+      handScope.current,
+      handVariant.animate,
+      handVariant.animate.transition,
+    );
   };
 
   const handleExitAnimation = () => {
@@ -51,6 +55,16 @@ export default function ContactButton({ styles }) {
     },
     animate: {
       scale: 1,
+      rotate: ["-15deg", "15deg", "-15deg"],
+      transition: {
+        duration: 0.2,
+        delay: 0.1,
+        rotate: {
+          duration: 0.8,
+          repeat: Infinity,
+          ease: [0.22, 1, 0.36, 1],
+        },
+      },
     },
   };
 
@@ -72,7 +86,7 @@ export default function ContactButton({ styles }) {
       onHoverEnd={() => handleExitAnimation()}
     >
       <ButtonBase label="Contact" onClick={() => setOpenModal(true)}>
-        <div className="absolute left-[-4px] top-0 h-2 w-2 rounded-full">
+        <div className="absolute left-[5px] top-0 h-2 w-2 rounded-full">
           <motion.div
             ref={winkScope}
             className="absolute left-0 -translate-x-[80%] -translate-y-[50%] rounded-full bg-yellow-400 text-4xl text-myblue-800"

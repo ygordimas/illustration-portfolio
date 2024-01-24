@@ -5,7 +5,7 @@ import ButtonBase from "./ButtonBase";
 import { useScrollingContext } from "../../context/ScrollingContext";
 import { LiaAngleUpSolid } from "react-icons/lia";
 import { TbArrowBadgeUpFilled } from "react-icons/tb";
-import { TbArrowBigUpLines } from "react-icons/tb";
+import { TbArrowBigUpLineFilled } from "react-icons/tb";
 
 import { motion } from "framer-motion";
 
@@ -15,52 +15,48 @@ function ScrollToTop() {
 
   const handleStartAnimation = () => {
     setIsHovered(true);
-    console.log("entered");
   };
 
   const handleStopAnimation = () => {
     setIsHovered(false);
-    console.log("left");
   };
 
   const bgVariant = {
     initial: {
       top: "0.375rem",
-      right: "0.2rem",
-      scaleY: 0,
+      right: "-0.6rem",
       opacity: 0,
+      transition: {
+        duration: 0.1,
+      },
     },
     animate: {
       top: "-0.375rem",
-      right: "0.2rem",
-      scaleY: 1,
+      right: "-0.6rem",
       opacity: 1,
+      transition: {
+        duration: 0.2,
+      },
     },
   };
 
   const arrowVariant = {
-    initial: (i) => ({
-      top: `${0.5 * i}rem`,
-      x: "-3px",
-
-      scale: 0.4,
-    }),
-    animate: (i) => ({
-      top: `${0.5 * i}rem`,
-      x: "-3px",
-      scale: [1, 0.4],
+    initial: {
+      scale: 0.5,
+    },
+    animate: {
+      scale: [1, 0.5],
       transition: {
-        duration: 0.6,
-        delay: 0.2 * i,
+        duration: 0.4,
         repeat: Infinity,
       },
-    }),
-    hide: (i) => ({
-      top: `${0.5 * i}rem`,
-      x: "-3px",
-
+    },
+    hide: {
       scale: 0,
-    }),
+      transition: {
+        duration: 0.02,
+      },
+    },
   };
 
   return (
@@ -77,13 +73,17 @@ function ScrollToTop() {
         />
 
         <motion.div
-          className="absolute h-10 w-[24px] origin-top rounded-full bg-myyellow-400"
+          className="absolute origin-top rounded-full border-2 border-myblue-800 bg-myyellow-400 p-1"
           variants={bgVariant}
           animate={isHovered ? "animate" : "initial"}
           initial="initial"
         >
-          <motion.div className="text-lg text-myblue-800">
-            <TbArrowBigUpLines />
+          <motion.div
+            className="text-2xl text-myblue-800"
+            variants={arrowVariant}
+            animate={isHovered ? "animate" : "hide"}
+          >
+            <TbArrowBigUpLineFilled />
           </motion.div>
           {/* {[...Array(3)].map((_, i) => {
             const dynamicClass = `absolute right-0 text-lg`;
