@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       <ImageGallery
-        illustrations={illustrations}
+        list={illustrations}
         handleClickOpenImage={handleClickOpenImage}
       />
     </>

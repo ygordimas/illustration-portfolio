@@ -10,6 +10,7 @@ export const GlobalContextProvider = ({ children }) => {
   const [currentImage, setCurrentImage] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [hideHeader, setHideHeader] = useState(false);
+  const [listType, setListType] = useState("illustrations");
 
   return (
     <GlobalContext.Provider
@@ -23,6 +24,9 @@ export const GlobalContextProvider = ({ children }) => {
         setIsOpen,
         hideHeader,
         setHideHeader,
+
+        listType,
+        setListType,
       }}
     >
       {children}

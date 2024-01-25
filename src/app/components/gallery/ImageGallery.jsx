@@ -4,8 +4,9 @@ import Image from "next/image";
 import ImageContainer from "./ImageContainer";
 import Masonry from "react-masonry-css";
 import { useScrollingContext } from "../../context/ScrollingContext";
+import { useGlobalContext } from "../../context/store";
 
-export default function ImageGallery({ illustrations, handleClickOpenImage }) {
+export default function ImageGallery({ list }) {
   const { setScrollToTop } = useScrollingContext();
 
   const breakpointColumnsObj = {
@@ -17,12 +18,15 @@ export default function ImageGallery({ illustrations, handleClickOpenImage }) {
     640: 1,
   };
 
+  const { setCurrentImage, setCurrentIndex } = useGlobalContext();
+
   const handleClick = (index) => {
-    handleClickOpenImage(index);
+    setCurrentIndex(index);
+    setCurrentImage(list[index]);
     setScrollToTop(true);
   };
 
-  const items = illustrations.map((illustration, index) => (
+  const items = list.map((illustration, index) => (
     <ImageContainer image={illustration} onClick={() => handleClick(index)} />
   ));
 

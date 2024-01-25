@@ -8,11 +8,7 @@ import {
   useAnimate,
   AnimatePresence,
 } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-import getUppercaseTitle from "../../utils/getUppercaseTitle";
-import { AiOutlineEye } from "react-icons/ai";
-import StarSVG from "../../components/layout/StarSVG";
-import TextEffect from "../../components/layout/TextEffect";
+import { useEffect, useState } from "react";
 import useWindowSize from "../../hooks/useWindowSize";
 import ViewOverlay from "./ViewOverlay";
 import TitleOverlay from "./TitleOverlay";
@@ -61,7 +57,7 @@ export default function ImageContainer({ image, onClick }) {
 
   return (
     <Link
-      href={`/projects/${image.path}`}
+      href={`/projects/${image.id}`}
       className="group relative overflow-hidden rounded-2xl "
       onClick={() => onClick()}
       key={image.id}

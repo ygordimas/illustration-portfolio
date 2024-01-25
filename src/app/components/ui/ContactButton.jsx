@@ -99,7 +99,7 @@ export default function ContactButton({ styles }) {
             ref={handScope}
             variants={handVariant}
             initial="initial"
-            className="absolute left-0.5 top-1 rounded-full bg-yellow-400 text-2xl text-myblue-800"
+            className="absolute left-0.5 top-0.5 rounded-full bg-yellow-400 text-2xl text-myblue-800"
           >
             <LiaHandPeace />
           </motion.div>

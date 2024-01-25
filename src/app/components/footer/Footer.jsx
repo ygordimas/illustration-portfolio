@@ -33,7 +33,7 @@ function Footer() {
               mask: "linear-gradient(0deg, rgba(193,220,64,1) 0%, rgba(255,255,255,0) 70%, rgba(245,249,224,0) 100%)",
             }}
           >
-            <StripesSVG color="bg-mygreen-100" />
+            <StripesSVG color="bg-myblue-100" />
           </div>
           <div className="z-10 flex h-full w-full justify-between">
             <AnimatePresence mode="popLayout">

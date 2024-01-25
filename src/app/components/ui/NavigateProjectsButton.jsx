@@ -24,6 +24,23 @@ function NavigateProjectsButton({
     },
   };
 
+  const svgVariant = {
+    animate: {
+      rotate: "180deg",
+      x: `${direction == "left" ? "-50%" : "16px"}`,
+      y: "-50%",
+      transition: {
+        duration: 1,
+        repeat: Infinity,
+        ease: "linear",
+      },
+    },
+    initial: {
+      x: `${direction == "left" ? "-50%" : "16px"}`,
+      y: "-50%",
+    },
+  };
+
   return (
     <Link
       href={`/projects/${path}`}
@@ -35,6 +52,13 @@ function NavigateProjectsButton({
           direction == "left" ? `flex-row` : `flex-row-reverse`
         } items-center p-2 font-singoRound`}
         whileHover="animate"
+        whileTap={{
+          scale: 0.8,
+          transition: {
+            ease: [0.64, 0, 0.78, 0],
+          },
+        }}
+        initial="initial"
         variants={buttonVariant}
       >
         <div
@@ -47,31 +71,30 @@ function NavigateProjectsButton({
           {direction == "left" ? (
             <LiaHandPointLeft
               style={{
-                filter: "drop-shadow(2px 2px 0px rgb(248, 145, 158)",
+                filter: "drop-shadow(0px 2px 0 rgb(215, 233, 133))",
               }}
             />
           ) : (
             <LiaHandPointRight
               style={{
-                filter: "drop-shadow(-2px 2px 0px rgb(248, 145, 158)",
+                filter: "drop-shadow(0px 2px 0 rgb(215, 233, 133))",
               }}
             />
           )}
         </div>
-        <span
-          className={`relative box-border h-20 w-10 overflow-hidden ${
+        <motion.span
+          className={`relative box-border h-16 w-10 overflow-hidden ${
             direction == "left" ? `border-l-4` : `border-r-4`
           } border-mypink-300`}
         >
-          <svg
-            className={`absolute top-1/2 h-20 w-20 ${
-              direction == "left" ? `-translate-x-1/2` : `-translate-x-[4px]`
-            } -translate-y-1/2 fill-myyellow-500`}
+          <motion.svg
+            className={`absolute top-1/2 h-10 w-10 -translate-y-1/2 fill-myyellow-500`}
             viewBox="0 0 510.68 510.68"
+            variants={svgVariant}
           >
             <path d="M206.48 137.39 255.34 0l48.85 137.39 131.7-62.6-62.6 131.69 137.39 48.86-137.39 48.85 62.6 131.7-131.7-62.6-48.85 137.39-48.86-137.39-131.69 62.6 62.6-131.7L0 255.34l137.39-48.86-62.6-131.69 131.69 62.6z" />
-          </svg>
-        </span>
+          </motion.svg>
+        </motion.span>
       </motion.div>
     </Link>
   );

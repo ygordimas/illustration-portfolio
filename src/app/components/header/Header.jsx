@@ -25,7 +25,7 @@ import LogoQuickRemarks from "../layout/LogoQuickRemarks";
 import LogoLobular from "../layout/LogoLobular";
 
 export default function Header({}) {
-  const { isOpen, setIsOpen } = useGlobalContext();
+  const { isOpen, setIsOpen, listType, setListType } = useGlobalContext();
   const { hideHeader } = useGlobalContext();
   const windowsWidth = useWindowSize();
 
@@ -49,6 +49,9 @@ export default function Header({}) {
               boxShadow:
                 "rgba(6, 152, 214, 0.4) 0px 0px 0px 2px, rgba(66, 152, 214, 0.65) 0px 4px 6px -1px, rgba(6, 152, 214, 0.08) 0px 1px 0px inset",
             }}
+            onClick={() => {
+              setListType("illustrations");
+            }}
           >
             <div className="relative box-border flex w-full cursor-default flex-col items-center rounded-full bg-mygreen-500 p-2">
               <Link className="relative w-full" href={"/"}>
@@ -58,26 +61,30 @@ export default function Header({}) {
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full rounded-full bg-mypink-300 px-2 font-singo text-base tracking-wider text-myblue-800">
                 <p>3D artist & illustrator</p>
               </div>
-              {/* <div
-              className="absolute left-1/2 -translate-x-1/2 -translate-y-[calc(50%+4px)] rounded-full border-2 border-mypink-300 bg-mygreen-500 text-xl tracking-wider text-myblue-800 max-xl:top-0 max-xl:text-xl xl:bottom-0 xl:translate-y-1/2"
-              style={
-                {
-                  // boxShadow: "inset 0 0 0 2px rgb(245, 107, 124)",
-                }
-              }
-            >
-              <p className="px-4 py-1 font-singoRound">
-                3D ARTIST & ILLUSTRATOR
-              </p>
-            </div> */}
             </div>
-
-            {/* *****MOBILE HEADER BUTTONS***** */}
           </div>
           <div className="flex w-full grow items-center gap-2 max-xl:justify-center xl:justify-end">
-            <HeaderLink label="Illustrations" href={"/"} />
-            <HeaderLink label="Game Art" href={"/game-art"} />
-            <HeaderLink label="Abstract Art" href={"/abstract-art"} />
+            <HeaderLink
+              label="Illustrations"
+              href={"/"}
+              onClick={() => {
+                setListType("illustrations");
+              }}
+            />
+            <HeaderLink
+              label="Game Art"
+              href={"/game-art"}
+              onClick={() => {
+                setListType("gameart");
+              }}
+            />
+            <HeaderLink
+              label="Abstract Art"
+              href={"/abstract-art"}
+              onClick={() => {
+                setListType("abstracts");
+              }}
+            />
           </div>
         </motion.div>
       </header>

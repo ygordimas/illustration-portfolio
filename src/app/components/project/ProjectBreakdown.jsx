@@ -1,40 +1,35 @@
 "use client";
 
-import {
-  AiFillTwitterCircle,
-  AiFillLinkedin,
-  AiFillInstagram,
-  AiOutlineArrowRight,
-  AiOutlineArrowLeft,
-  AiFillCloseCircle,
-} from "react-icons/ai";
 import Image from "next/image";
-import Link from "next/link";
 import Tags from "../../components/ui/Tags";
 import { useGlobalContext } from "../../context/store";
 import { illustrations } from "../../data/illustrations";
 import { useEffect, useRef, useState } from "react";
-import getUppercaseTitle from "../../utils/getUppercaseTitle";
 import { motion, useInView, useAnimate, AnimatePresence } from "framer-motion";
 import { useScrollingContext } from "../../context/ScrollingContext";
-import GoToTopButton from "../../components/ui/GoToTopButton";
 import NavigateProjectsButton from "../../components/ui/NavigateProjectsButton";
 import { RiSearchEyeLine } from "react-icons/ri";
 import { TiZoomIn } from "react-icons/ti";
+import { abstracts } from "../../data/abstracts";
 
 export default function ProjectBreakdown({ project }) {
   const [openViewModal, setOpenViewModal] = useState(false);
-  const footerNavigationRef = useRef(null);
-  const buttonRef = useRef(null);
   const wrapperRef = useRef(null);
+  console.log(project);
 
-  const { currentIndex, setCurrentIndex, setCurrentImage } = useGlobalContext();
+  const { currentIndex, setCurrentIndex, setCurrentImage, listType } =
+    useGlobalContext();
 
   const { scrollingProgress } = useScrollingContext();
 
-  const projectIndex = illustrations.findIndex(
-    (projects) => projects.path === project.path,
-  );
+  const findProjectIndex = () => {
+    if (listType == "illustrations") {
+      return illustrations.findIndex((projects) => projects.id === project.id);
+    } else if (listType == "abstracts") {
+      return abstracts.findIndex((projects) => projects.id === project.id);
+    }
+  };
+  const projectIndex = findProjectIndex();
 
   useEffect(() => {
     setCurrentIndex(projectIndex);
@@ -103,16 +98,21 @@ export default function ProjectBreakdown({ project }) {
         <hr className="border-4 border-mypink-300" />
         <nav className="flex w-full max-w-5xl items-center justify-between gap-2 text-4xl">
           <NavigateProjectsButton
-            path={illustrations[managePreviousIndex(currentIndex)]?.path}
+            path={illustrations[managePreviousIndex(currentIndex)]?.id}
             handleNavigation={() => handleNavigation("previous")}
             direction="left"
           />
-          <h2 className="flex h-fit justify-center  bg-myyellow-500 p-6 font-mainfont text-2xl font-bold tracking-tight text-myblue-800">
+          <h2
+            style={{
+              textShadow: "0px 2px 0 rgb(215, 233, 133)",
+            }}
+            className="flex h-fit justify-center  bg-myyellow-500 p-6 font-mainfont text-2xl font-bold tracking-tight text-myblue-800"
+          >
             {project.type}
           </h2>
 
           <NavigateProjectsButton
-            path={illustrations[manageNextIndex(currentIndex)]?.path}
+            path={illustrations[manageNextIndex(currentIndex)]?.id}
             handleNavigation={() => handleNavigation("next")}
             direction="right"
           />
@@ -122,7 +122,7 @@ export default function ProjectBreakdown({ project }) {
           <p className="font-mainfont text-base font-normal tracking-tight text-myblue-800">
             {project.description}
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-0.5">
+          <div className="flex flex-wrap items-center justify-center gap-2">
             {project.tools.map((tag, index) => (
               <Tags tag={tag} id={index} />
             ))}
