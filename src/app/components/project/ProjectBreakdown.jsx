@@ -22,16 +22,18 @@ export default function ProjectBreakdown({ project }) {
 
   const { scrollingProgress } = useScrollingContext();
 
-  const findProjectIndex = () => {
-    if (listType == "illustrations") {
-      return illustrations.findIndex((projects) => projects.id === project.id);
-    } else if (listType == "abstracts") {
-      return abstracts.findIndex((projects) => projects.id === project.id);
-    }
-  };
-  const projectIndex = findProjectIndex();
-
   useEffect(() => {
+    const findProjectIndex = () => {
+      if (listType == "illustrations") {
+        return illustrations.findIndex(
+          (projects) => projects.id === project.id,
+        );
+      } else if (listType == "abstracts") {
+        return abstracts.findIndex((projects) => projects.id === project.id);
+      }
+    };
+    const projectIndex = findProjectIndex();
+
     setCurrentIndex(projectIndex);
   }, []);
 

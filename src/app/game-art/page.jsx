@@ -1,7 +1,22 @@
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
+import { gameart } from "../data/gameart";
+import { useGlobalContext } from "../context/store";
+import ImageGallery from "../components/gallery/ImageGallery";
 
 function GameArt() {
-  return <div>3D Art Image Gallery Will Go Here</div>;
+  const { listType, setListType } = useGlobalContext();
+
+  useEffect(() => {
+    setListType("gameart");
+  }, []);
+
+  return (
+    <>
+      <ImageGallery list={gameart} />
+    </>
+  );
 }
 
 export default GameArt;
