@@ -5,7 +5,7 @@ import ImageGallery from "../components/gallery/ImageGallery";
 import { abstracts } from "../data/abstracts";
 import { useGlobalContext } from "../context/store";
 
-function AbstractArt() {
+function AbstractsList() {
   const { listType, setListType } = useGlobalContext();
 
   useEffect(() => {
@@ -19,4 +19,4 @@ function AbstractArt() {
   );
 }
 
-export default AbstractArt;
+export default AbstractsList;
