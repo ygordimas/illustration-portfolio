@@ -3,14 +3,14 @@
 import Image from "next/image";
 import Tags from "../../components/ui/Tags";
 import { useGlobalContext } from "../../context/store";
-import { illustrations } from "../../data/illustrations";
+import { illustrations } from "../../../db/illustrations";
 import { useEffect, useRef, useState } from "react";
-import { motion, useInView, useAnimate, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useScrollingContext } from "../../context/ScrollingContext";
 import NavigateProjectsButton from "../../components/ui/NavigateProjectsButton";
 import { RiSearchEyeLine } from "react-icons/ri";
 import { TiZoomIn } from "react-icons/ti";
-import { abstracts } from "../../data/abstracts";
+import { abstracts } from "../../../db/abstracts";
 
 export default function ProjectBreakdown({ project }) {
   const [openViewModal, setOpenViewModal] = useState(false);

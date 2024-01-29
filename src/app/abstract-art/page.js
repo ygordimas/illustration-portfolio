@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 import ImageGallery from "../components/gallery/ImageGallery";
-import { abstracts } from "../data/abstracts";
+import { abstracts } from "../../db/abstracts";
 import { useGlobalContext } from "../context/store";
 
 function AbstractsList() {

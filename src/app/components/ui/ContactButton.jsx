@@ -5,7 +5,7 @@ import { motion, useAnimate } from "framer-motion";
 import { useContactModalContext } from "../../context/ContactModalContext";
 import { LiaGrinWink, LiaHandPeace } from "react-icons/lia";
 import ButtonBase from "./ButtonBase";
-import useWindowSize from "../../hooks/useWindowSize";
+import useWindowSize from "../../../hooks/useWindowSize";
 
 export default function ContactButton({ styles }) {
   const windowsWidth = useWindowSize();

@@ -1,8 +1,8 @@
 "use client";
 
-import { illustrations } from "../../data/illustrations";
-import { abstracts } from "../../data/abstracts";
-import { gameart } from "../../data/gameart";
+import { illustrations } from "../../../db/illustrations";
+import { abstracts } from "../../../db/abstracts";
+import { gameart } from "../../../db/gameart";
 import ProjectBreakdown from "../../components/project/ProjectBreakdown";
 import { useGlobalContext } from "../../context/store";
 

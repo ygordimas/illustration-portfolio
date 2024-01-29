@@ -1,7 +1,9 @@
 "use client";
 
-import { illustrations } from "./data/illustrations";
-import ImageGallery from "./components/gallery/ImageGallery";
+import React from "react";
+
+import { illustrations } from "../db/illustrations";
+import ImageGallery from "../containers/ImageGallery/index";
 import { useGlobalContext } from "./context/store";
 import { useEffect } from "react";
 
@@ -13,7 +15,7 @@ export default function Home() {
 
   return (
     <>
-      <ImageGallery list={illustrations} />
+      <ImageGallery listOfImages={illustrations} />
     </>
   );
 }

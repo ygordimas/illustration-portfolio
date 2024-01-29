@@ -1,7 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
-import useWindowSize from "../../hooks/useWindowSize";
+import React, { createContext, useContext, useState } from "react";
 
 const GlobalContext = createContext({});
 
@@ -19,12 +18,10 @@ export const GlobalContextProvider = ({ children }) => {
         setCurrentIndex,
         currentImage,
         setCurrentImage,
-
         isOpen,
         setIsOpen,
         hideHeader,
         setHideHeader,
-
         listType,
         setListType,
       }}

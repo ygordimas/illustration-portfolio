@@ -1,19 +1,14 @@
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import {
-  motion,
-  useInView,
-  useAnimationControls,
-  useAnimate,
-  AnimatePresence,
-} from "framer-motion";
+import { motion, useInView, useAnimate } from "framer-motion";
 import { useEffect, useState } from "react";
-import useWindowSize from "../../../hooks/useWindowSize";
+import useWindowSize from "../../hooks/useWindowSize";
 import ViewOverlay from "./ViewOverlay";
 import TitleOverlay from "./TitleOverlay";
 
-export default function ImageContainer({ image, onClick }) {
+function ImageContainer({ image, onClick }) {
   const [container, animate] = useAnimate();
   const [isHovered, setIsHovered] = useState(false);
   const windowWidth = useWindowSize();
@@ -98,3 +93,5 @@ export default function ImageContainer({ image, onClick }) {
     </Link>
   );
 }
+
+export default ImageContainer;

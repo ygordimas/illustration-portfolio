@@ -3,7 +3,7 @@
     "checkJs": false,
     "jsx": "preserve",
     "paths": {
-      "@/*": ["./src/*"]
+      "../*": ["./src/*"]
     }
   }
 }

@@ -15,7 +15,7 @@ import { useEffect, useState } from "react";
 import StripesSVG from "../layout/StripesSVG";
 import { usePathname } from "next/navigation";
 import MobileNavMenu from "../mobileFooter/MobileNavMenu";
-import useWindowSize from "../../hooks/useWindowSize";
+import useWindowSize from "../../../hooks/useWindowSize";
 import TextEffect from "../layout/TextEffect";
 import LogoImpossible from "../layout/LogoImpossible";
 import LogoMentra from "../layout/LogoMentra";

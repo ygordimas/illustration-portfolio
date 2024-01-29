@@ -3,7 +3,7 @@ import SocialMedia from "../ui/SocialMedia";
 import StripesSVG from "../layout/StripesSVG";
 import ContactButton from "../ui/ContactButton";
 import GoToTopButton from "../ui/GoToTopButton";
-import useWindowSize from "../../hooks/useWindowSize";
+import useWindowSize from "../../../hooks/useWindowSize";
 import { AnimatePresence, motion } from "framer-motion";
 import MobileNavMenu from "../mobileFooter/MobileNavMenu";
 import ButtonBase from "../ui/ButtonBase";

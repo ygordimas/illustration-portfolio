@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { gameart } from "../data/gameart";
+import { gameart } from "../../db/gameart";
 import { useGlobalContext } from "../context/store";
 import ImageGallery from "../components/gallery/ImageGallery";
 
