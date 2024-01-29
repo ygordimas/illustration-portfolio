@@ -1,11 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 
 import { illustrations } from "../db/illustrations";
-import ImageGallery from "../containers/ImageGallery/index";
-import { useGlobalContext } from "./context/store";
-import { useEffect } from "react";
+import ImageGallery from "../containers/ImageGallery";
+import { useGlobalContext } from "../context/GlobalContext";
 
 export default function Home() {
   const { setListType } = useGlobalContext();

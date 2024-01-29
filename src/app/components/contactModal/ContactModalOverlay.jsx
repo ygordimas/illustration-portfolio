@@ -1,3 +1,4 @@
+"use client";
 import { useContactModalContext } from "../../context/ContactModalContext";
 import { useEffect } from "react";
 import {

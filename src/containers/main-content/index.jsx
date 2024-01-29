@@ -1,11 +1,11 @@
 "use client";
 
-import { useGlobalContext } from "../../context/store";
-import { useRef } from "react";
+import { useGlobalContext } from "../../context/GlobalContext";
+import React, { useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useScrollingContext } from "../../context/ScrollingContext";
 
-export default function MainContent({ children }) {
+function MainContent({ children }) {
   const { isOpen } = useGlobalContext();
   const scrollArea = useRef();
 
@@ -13,16 +13,16 @@ export default function MainContent({ children }) {
 
   return (
     <AnimatePresence>
-      {!isOpen && (
-        <motion.main
-          className={mainStyles}
-          ref={scrollArea}
-          animate={isOpen ? { opacity: 0 } : {}}
-          transition={{ duration: 0.5 }}
-        >
-          {children}
-        </motion.main>
-      )}
+      <motion.main
+        className={mainStyles}
+        ref={scrollArea}
+        animate={isOpen ? { opacity: 0 } : {}}
+        transition={{ duration: 0.5 }}
+      >
+        {children}
+      </motion.main>
     </AnimatePresence>
   );
 }
+
+export default MainContent;

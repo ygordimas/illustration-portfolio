@@ -5,13 +5,13 @@ import Head from "next/head";
 import Link from "next/link";
 
 import Header from "../containers/Header";
-import MainContent from "./components/main/MainContent";
+import MainContent from "../containers/main-content";
 
 import Wrapper from "../containers/wrapper";
 import localFont from "next/font/local";
 import { ScrollingContextProvider } from "../context/ScrollingContext";
-import { GlobalContextProvider } from "./context/store";
-import { ContactModalProvider } from "./context/ContactModalContext";
+import { GlobalContextProvider } from "../context/GlobalContext";
+import { ContactModalProvider } from "../context/ContactModalContext";
 
 const display = localFont({
   src: "../../public/FONTS/quickremarks/quickremarks.ttf",

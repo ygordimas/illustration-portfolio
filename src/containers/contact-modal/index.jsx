@@ -1,3 +1,5 @@
+"use client";
+
 import { AnimatePresence, motion } from "framer-motion";
 import ContactModalOverlay from "../../components/ContactModalOverlay";
 import { useContactModalContext } from "../../context/ContactModalContext";

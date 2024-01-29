@@ -26,11 +26,9 @@ function ImageGallery({ listOfImages }) {
     setScrollToTop(true);
   };
 
-  const items = () => {
-    listOfImages.map((illustration, index) => (
-      <ImageContainer image={illustration} onClick={() => handleClick(index)} />
-    ));
-  };
+  const items = listOfImages.map((illustration, index) => (
+    <ImageContainer image={illustration} onClick={() => handleClick(index)} />
+  ));
 
   return (
     <Masonry

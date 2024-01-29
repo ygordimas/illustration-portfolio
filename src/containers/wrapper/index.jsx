@@ -10,7 +10,7 @@ import { useContactModalContext } from "../../context/ContactModalContext";
 import Stripes from "../../components/SVGComponents/Stripes";
 import ContactModal from "../contact-modal";
 
-function Wrapper({ children }) {
+const Wrapper = ({ children }) => {
   const wrapperRef = useRef(null);
   const { scrollY } = useScroll({
     container: wrapperRef,
@@ -48,15 +48,15 @@ function Wrapper({ children }) {
   return (
     <div
       ref={wrapperRef}
-      className="align-center relative flex h-full w-full flex-col overflow-y-scroll  px-2"
+      className="align-center relative flex h-full w-full flex-col overflow-y-scroll bg-red-400 px-2"
     >
       <div
-        className="absolute left-0 top-0 h-[40%] w-full overflow-hidden lg:h-[50%] xl:h-[30%]"
+        className="absolute left-0 top-0 h-[80%] w-full overflow-hidden"
         style={{
           mask: "linear-gradient(0deg, rgba(255,255,255,0) 42%, rgba(245,249,224,1) 53%, rgba(193,220,64,1) 100%)",
         }}
       >
-        <Stripes color="bg-myblue-50" />
+        <Stripes color="bg-myblue-500" />
       </div>
 
       {children}
@@ -65,6 +65,6 @@ function Wrapper({ children }) {
       <Footer />
     </div>
   );
-}
+};
 
 export default Wrapper;

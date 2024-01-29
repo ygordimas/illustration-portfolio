@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { TfiCommentsSmiley } from "react-icons/tfi";
 import ContactFormModal from "./ContactFormModal";

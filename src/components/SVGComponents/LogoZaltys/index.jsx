@@ -4,7 +4,7 @@ import React from "react";
 
 function LogoZaltys() {
   return (
-    <div className="relative flex h-[fit] w-[100%] items-center justify-center">
+    <div className="relative flex h-fit w-[100%] items-center justify-center">
       {/* STROKE */}
       <div className="relative z-10 h-auto w-full">
         <svg
