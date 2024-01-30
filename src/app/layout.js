@@ -13,34 +13,12 @@ import { ScrollingContextProvider } from "../context/ScrollingContext";
 import { GlobalContextProvider } from "../context/GlobalContext";
 import { ContactModalProvider } from "../context/ContactModalContext";
 
+import Stripes from "../components/SVGComponents/Stripes";
+
 const display = localFont({
   src: "../../public/FONTS/quickremarks/quickremarks.ttf",
   variable: "--font-display",
 });
-
-// const mainfont = localFont({
-//   src: [
-//     // LIGHT
-//     {
-//       path: "../../public/FONTS/quicksand/Quicksand-Light.woff2",
-//       weight: "300",
-//       style: "normal",
-//     },
-//     // NORMAL
-//     {
-//       path: "../../public/FONTS/quicksand/Quicksand-Regular.woff2",
-//       weight: "400",
-//       style: "normal",
-//     },
-//     // BOLD
-//     {
-//       path: "../../public/FONTS/quicksand/Quicksand-Bold.woff2",
-//       weight: "700",
-//       style: "normal",
-//     },
-//   ],
-//   variable: "--font-mainfont",
-// });
 
 const mainfont = localFont({
   src: [
@@ -107,7 +85,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${mainfont.variable} ${display.variable} ${singo.variable} ${singoRound.variable} bg-mygreen-500 font-mainfont font-normal text-myblue-800`}
+        className={`${mainfont.variable} ${display.variable} ${singo.variable} ${singoRound.variable} relative bg-mygreen-500 font-mainfont font-normal text-myblue-800`}
       >
         <GlobalContextProvider>
           <Head>

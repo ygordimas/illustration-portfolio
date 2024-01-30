@@ -57,20 +57,12 @@ const Wrapper = ({ children }) => {
   return (
     <div
       ref={wrapperRef}
-      className="relative flex h-full w-full flex-col overflow-y-scroll bg-red-400 px-2"
+      className="relative flex h-full w-full flex-col overflow-y-scroll px-2"
     >
       {children}
 
       <ContactModal />
       <Footer />
-      <div
-        className="absolute left-0 top-0 h-[20vh] w-full"
-        style={{
-          mask: "linear-gradient(0deg, rgba(255,255,255,0) 42%, rgba(245,249,224,1) 53%, rgba(193,220,64,1) 100%)",
-        }}
-      >
-        <Stripes color="bg-myblue-500" />
-      </div>
     </div>
   );
 };
