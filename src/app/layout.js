@@ -4,7 +4,7 @@ import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 
-import Header from "../containers/Header";
+import Header from "../containers/header";
 import MainContent from "../containers/main-content";
 
 import Wrapper from "../containers/wrapper";

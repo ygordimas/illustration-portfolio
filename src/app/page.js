@@ -1,20 +1,14 @@
 "use client";
 
-import React, { useEffect } from "react";
-
-import { illustrations } from "../db/illustrations";
-import ImageGallery from "../containers/ImageGallery";
-import { useGlobalContext } from "../context/GlobalContext";
+import React from "react";
+import GalleryCard from "../components/GalleryCard";
 
 export default function Home() {
-  const { setListType } = useGlobalContext();
-  useEffect(() => {
-    setListType("illustrations");
-  }, []);
-
   return (
     <>
-      <ImageGallery listOfImages={illustrations} />
+      <GalleryCard label="llustrations" />
+      <GalleryCard label="Game Art" />
+      <GalleryCard label="Abstract Art" />
     </>
   );
 }

@@ -48,27 +48,15 @@ export default function Header() {
           </div>
         </div>
         <div className="flex w-full grow items-center gap-2 max-xl:justify-center xl:justify-end">
-          <PrimaryNavButton
-            label="Illustrations"
-            href={"/"}
-            onClick={() => {
-              setListType("illustrations");
-            }}
-          />
-          <PrimaryNavButton
-            label="Game Art"
-            href={"/game-art"}
-            onClick={() => {
-              setListType("gameart");
-            }}
-          />
-          <PrimaryNavButton
-            label="Abstract Art"
-            href={"/abstract-art"}
-            onClick={() => {
-              setListType("abstracts");
-            }}
-          />
+          <Link href={"/gallery/illustrations"}>
+            <PrimaryNavButton label="Illustrations" />
+          </Link>
+          <Link href={"/gallery/abstracts"}>
+            <PrimaryNavButton label="abstracts" />
+          </Link>
+          <Link href={"/gallery/gameart"}>
+            <PrimaryNavButton label="gameart" />
+          </Link>
         </div>
       </motion.div>
     </header>

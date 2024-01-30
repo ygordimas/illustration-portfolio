@@ -48,10 +48,10 @@ const Wrapper = ({ children }) => {
   return (
     <div
       ref={wrapperRef}
-      className="align-center relative flex h-full w-full flex-col overflow-y-scroll bg-red-400 px-2"
+      className="relative flex h-full w-full flex-col overflow-y-scroll bg-red-400 px-2"
     >
       <div
-        className="absolute left-0 top-0 h-[80%] w-full overflow-hidden"
+        className="absolute left-0 top-0 h-[20vh] w-full"
         style={{
           mask: "linear-gradient(0deg, rgba(255,255,255,0) 42%, rgba(245,249,224,1) 53%, rgba(193,220,64,1) 100%)",
         }}

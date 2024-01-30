@@ -8,7 +8,7 @@ import useWindowSize from "../../hooks/useWindowSize";
 import ViewOverlay from "./ViewOverlay";
 import TitleOverlay from "./TitleOverlay";
 
-function ImageContainer({ image, onClick }) {
+function ImageContainer({ image, galleryPath, index }) {
   const [container, animate] = useAnimate();
   const [isHovered, setIsHovered] = useState(false);
   const windowWidth = useWindowSize();
@@ -52,9 +52,8 @@ function ImageContainer({ image, onClick }) {
 
   return (
     <Link
-      href={`/projects/${image.id}`}
+      href={`/gallery/${galleryPath}/${index}`}
       className="group relative overflow-hidden rounded-2xl "
-      onClick={() => onClick()}
       key={image.id}
     >
       <Image
@@ -68,7 +67,6 @@ function ImageContainer({ image, onClick }) {
       {/* ********OVERLAY START********* */}
       <motion.div
         className="absolute left-0 top-0 flex h-full w-full flex-col justify-between overflow-hidden rounded-2xl"
-        onClick={onClick}
         ref={container}
         onHoverStart={() => handleMouseEnter()}
         onHoverEnd={() => handleMouseLeave()}
