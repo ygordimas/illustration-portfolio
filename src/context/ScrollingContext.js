@@ -7,6 +7,7 @@ const ScrollingContext = createContext({});
 export const ScrollingContextProvider = ({ children }) => {
   const [scrollingProgress, setScrollingProgress] = useState(0);
   const [scrollToTop, setScrollToTop] = useState(false);
+  const [isScrolling, setIsScrolling] = useState(false);
 
   return (
     <ScrollingContext.Provider
@@ -15,6 +16,8 @@ export const ScrollingContextProvider = ({ children }) => {
         setScrollingProgress,
         scrollToTop,
         setScrollToTop,
+        isScrolling,
+        setIsScrolling,
       }}
     >
       {children}

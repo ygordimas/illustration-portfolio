@@ -187,8 +187,9 @@ const ContactButton = forwardRef((props, ref) => {
       className="flex"
       onHoverStart={() => handleEnterAnimation()}
       onHoverEnd={() => handleExitAnimation()}
+      onClick={() => setOpenModal(true)}
     >
-      <PrimaryNavButton label="Contact" onClick={() => setOpenModal(true)}>
+      <PrimaryNavButton label="Contact">
         <div className="absolute left-[5px] top-0 h-2 w-2 rounded-full">
           <motion.div
             ref={winkScope}

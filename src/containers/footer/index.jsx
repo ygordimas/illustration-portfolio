@@ -12,7 +12,8 @@ import ScrollToTopButton from "../../components/Buttons/ScrollToTopButton";
 function Footer() {
   const windowSize = useWindowSize();
   const { setOpenModal } = useContactModalContext();
-  const { scrollingProgress, setScrollToTop } = useScrollingContext();
+  const { scrollingProgress, setScrollToTop, isScrolling } =
+    useScrollingContext();
 
   return (
     <div className="pointer-events-none fixed left-0 top-0 z-20 h-[100vh] w-[100vw]">
@@ -37,7 +38,7 @@ function Footer() {
 
             <SocialMedia key="social" />
 
-            {scrollingProgress > 0.1 && <ScrollToTopButton key="scroll" />}
+            {isScrolling && <ScrollToTopButton key="scroll" />}
           </AnimatePresence>
         </div>
       </div>

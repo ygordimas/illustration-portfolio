@@ -1,12 +1,15 @@
 "use client";
 
 import { useGlobalContext } from "../../context/GlobalContext";
-import React, { useRef } from "react";
+import React, { useEffect, useLayoutEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useScrollingContext } from "../../context/ScrollingContext";
+import useWindowSize from "../../hooks/useWindowSize";
 
 function MainContent({ children }) {
   const { isOpen } = useGlobalContext();
+  const windowSize = useWindowSize();
+  const { setIsScrolling } = useScrollingContext();
   const scrollArea = useRef();
 
   return (

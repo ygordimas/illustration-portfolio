@@ -55,7 +55,7 @@ export default function ContactForm() {
     onSubmit,
   });
 
-  const { openModal } = useContactModalContext();
+  const { openModal, setOpenModal } = useContactModalContext();
 
   const sendMail = async (e) => {
     e.preventDefault();
@@ -222,8 +222,12 @@ export default function ContactForm() {
         <div className="flex w-full justify-between">
           {/* <CloseModalButton />
           <SendMessageButton isSubmitting={isSubmitting} /> */}
-          <ContactFormButton label="Close" />
-          <ContactFormButton label="Close" type="submit" />
+          <ContactFormButton
+            label="Close"
+            type="button"
+            onClick={() => setOpenModal(false)}
+          />
+          <ContactFormButton label="Send Message" type="submit" />
         </div>
       </form>
     </motion.section>

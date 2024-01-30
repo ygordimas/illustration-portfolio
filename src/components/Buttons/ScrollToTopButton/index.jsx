@@ -61,14 +61,12 @@ const ScrollToTopButton = forwardRef((props, ref) => {
     <motion.div
       ref={ref}
       {...props}
-      className="pointer-events-none relative flex"
+      className="pointer-events-auto relative flex"
       onHoverStart={() => handleStartAnimation()}
       onHoverEnd={() => handleStopAnimation()}
+      onClick={() => setScrollToTop(true)}
     >
-      <PrimaryNavButton
-        label="Scroll To Top"
-        onClick={() => setScrollToTop(true)}
-      />
+      <PrimaryNavButton label="Scroll To Top" />
 
       <motion.div
         className="absolute origin-top rounded-full border-2 border-myblue-800 bg-myyellow-400 p-1"

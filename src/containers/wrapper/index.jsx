@@ -18,8 +18,14 @@ const Wrapper = ({ children }) => {
   const { scrollYProgress } = useScroll({ container: wrapperRef });
 
   const { setHideHeader, isOpen } = useGlobalContext();
-  const { setScrollingProgress, setScrollToTop, scrollToTop } =
-    useScrollingContext();
+  const {
+    isScrolling,
+    setIsScrolling,
+    scrollingProgress,
+    setScrollingProgress,
+    setScrollToTop,
+    scrollToTop,
+  } = useScrollingContext();
   const { openModal, setOpenModal } = useContactModalContext();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -27,16 +33,19 @@ const Wrapper = ({ children }) => {
 
     if (latest > previous && latest > 200) {
       setHideHeader(true);
+      setIsScrolling(true);
     } else if (latest < previous) {
+      setIsScrolling(false);
+
       setTimeout(() => {
         setHideHeader(false);
       }, 600);
     }
   });
 
-  useMotionValueEvent(scrollYProgress, "change", () => {
-    setScrollingProgress(scrollYProgress.current);
-  });
+  // useMotionValueEvent(scrollYProgress, "change", () => {
+  //   setScrollingProgress(scrollYProgress.current);
+  // });
 
   useEffect(() => {
     if (scrollToTop) {
@@ -50,6 +59,10 @@ const Wrapper = ({ children }) => {
       ref={wrapperRef}
       className="relative flex h-full w-full flex-col overflow-y-scroll bg-red-400 px-2"
     >
+      {children}
+
+      <ContactModal />
+      <Footer />
       <div
         className="absolute left-0 top-0 h-[20vh] w-full"
         style={{
@@ -58,11 +71,6 @@ const Wrapper = ({ children }) => {
       >
         <Stripes color="bg-myblue-500" />
       </div>
-
-      {children}
-
-      <ContactModal />
-      <Footer />
     </div>
   );
 };
