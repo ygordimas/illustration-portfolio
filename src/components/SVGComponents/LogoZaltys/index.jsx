@@ -4,9 +4,9 @@ import React from "react";
 
 function LogoZaltys() {
   return (
-    <div className="relative flex h-fit w-[100%] items-center justify-center">
+    <div className="relative flex h-full w-auto items-center justify-center">
       {/* STROKE */}
-      <div className="relative z-10 h-auto w-full">
+      <div className="relative z-10 h-full w-auto">
         <svg
           data-name="Layer 2"
           viewBox="0 0 448.01 46.66"
@@ -19,7 +19,7 @@ function LogoZaltys() {
         </svg>
       </div>
       {/* FILL */}
-      <div className="-z-2 absolute left-1/2 top-1/2 h-auto w-[100%] -translate-x-1/2 -translate-y-1/2">
+      <div className="-z-2 absolute left-1/2 top-1/2 h-full w-auto -translate-x-1/2 -translate-y-1/2">
         <svg
           data-name="Layer 2"
           viewBox="0 0 448.01 46.66"

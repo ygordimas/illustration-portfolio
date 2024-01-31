@@ -15,7 +15,6 @@ import { abstracts } from "../../../db/abstracts";
 export default function ProjectBreakdown({ project }) {
   const [openViewModal, setOpenViewModal] = useState(false);
   const wrapperRef = useRef(null);
-  console.log(project);
 
   const { currentIndex, setCurrentIndex, setCurrentImage, listType } =
     useGlobalContext();
