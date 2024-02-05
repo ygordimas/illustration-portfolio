@@ -14,7 +14,8 @@ import LogoZaltys from "../../components/SVGComponents/LogoZaltys";
 import PrimaryNavButton from "../../components/Buttons/PrimaryNavButton";
 
 export default function Header() {
-  const { setListType, hideHeader } = useGlobalContext();
+  const pathname = usePathname();
+  const { hideHeader } = useGlobalContext();
   const windowsWidth = useWindowSize();
 
   const headerVariants = {
@@ -23,33 +24,37 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-2 z-20 flex  w-full">
+    <header className="sticky top-2 z-20 flex h-fit w-full ">
       <motion.div
         key="header"
         variants={headerVariants}
+        initial="show"
         animate={hideHeader ? "hide" : "show"}
-        className="relative flex h-fit w-full flex-col  max-xl:gap-4 xl:flex-row"
+        className="relative flex h-auto w-full grow flex-col max-xl:gap-4 xl:flex-row"
       >
-        <div className="relative flex h-[5vh] w-full cursor-default justify-start">
-          <div className="h-full w-auto ">
+        <div className="relative flex h-auto w-full grow cursor-default justify-start">
+          <div className="box-content flex h-full w-auto items-center justify-center rounded-full bg-mypink-500 p-2">
             <LogoZaltys />
+            {/* <p className="font-mainfont text-6xl font-semibold">Ygor Dimas</p> */}
           </div>
 
           {/* <div className="absolute bottom-0 left-1/2 h-fit -translate-x-1/2 translate-y-[80%] rounded-full bg-mypink-300 px-2 font-singo text-base tracking-wider text-myblue-800">
               <p>3D artist & illustrator</p>
             </div> */}
         </div>
-        <div className="flex w-auto grow items-center gap-2 max-xl:justify-center xl:justify-end">
-          <Link href={"/gallery/illustrations"}>
-            <PrimaryNavButton label="Illustrations" />
-          </Link>
-          <Link href={"/gallery/abstracts"}>
-            <PrimaryNavButton label="abstracts" />
-          </Link>
-          <Link href={"/gallery/gameart"}>
-            <PrimaryNavButton label="gameart" />
-          </Link>
-        </div>
+        {pathname != "/" && (
+          <div className="flex w-auto grow items-center gap-2 max-xl:justify-center xl:justify-end">
+            <Link href={"/gallery/illustrations"}>
+              <PrimaryNavButton label="Illustrations" />
+            </Link>
+            <Link href={"/gallery/abstracts"}>
+              <PrimaryNavButton label="abstracts" />
+            </Link>
+            <Link href={"/gallery/gameart"}>
+              <PrimaryNavButton label="gameart" />
+            </Link>
+          </div>
+        )}
       </motion.div>
     </header>
   );

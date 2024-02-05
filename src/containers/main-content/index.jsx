@@ -15,7 +15,7 @@ function MainContent({ children }) {
   return (
     <AnimatePresence>
       <motion.main
-        className="opacity-1 relative mb-[10rem] mt-12 flex grow items-center justify-center gap-1 xl:mt-14"
+        className="opacity-1 relative mb-[10rem] mt-12 flex grow items-center gap-1 xl:mt-14"
         ref={scrollArea}
         animate={isOpen ? { opacity: 0 } : {}}
         transition={{ duration: 0.5 }}

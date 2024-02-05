@@ -2,13 +2,15 @@
 
 import React from "react";
 import GalleryCard from "../components/GalleryCard";
+import About from "../components/About";
 
 export default function Home() {
   return (
     <>
-      <GalleryCard label="llustrations" />
-      <GalleryCard label="Game Art" />
-      <GalleryCard label="Abstract Art" />
+      <About />
+      {/* <GalleryCard label="llustrations" href={"/gallery/illustrations"} />
+      <GalleryCard label="Game Art" href={"/gallery/gameart"} />
+      <GalleryCard label="Abstract Art" href={"/gallery/abstracts"} /> */}
     </>
   );
 }
