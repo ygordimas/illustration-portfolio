@@ -30,24 +30,16 @@ export default function Header() {
         animate={hideHeader ? "hide" : "show"}
         className="relative flex h-fit w-full flex-col  max-xl:gap-4 xl:flex-row"
       >
-        <div className="relative flex  w-full items-center justify-center rounded-full lg:justify-between">
-          <div
-            className="relative box-border flex h-[5vh] w-full cursor-default flex-col items-center rounded-full border-4 border-mypink-300 bg-mygreen-500 bg-red-500 p-4"
-            style={{
-              boxShadow:
-                "rgba(6, 152, 214, 0.4) 0px 0px 0px 2px, rgba(66, 152, 214, 0.65) 0px 4px 6px -1px, rgba(6, 152, 214, 0.08) 0px 1px 0px inset",
-            }}
-          >
-            <Link className="relative h-full w-auto" href={"/"}>
-              <LogoZaltys />
-            </Link>
+        <div className="relative flex h-[5vh] w-full cursor-default justify-start">
+          <div className="h-full w-auto ">
+            <LogoZaltys />
+          </div>
 
-            {/* <div className="absolute bottom-0 left-1/2 h-fit -translate-x-1/2 translate-y-[80%] rounded-full bg-mypink-300 px-2 font-singo text-base tracking-wider text-myblue-800">
+          {/* <div className="absolute bottom-0 left-1/2 h-fit -translate-x-1/2 translate-y-[80%] rounded-full bg-mypink-300 px-2 font-singo text-base tracking-wider text-myblue-800">
               <p>3D artist & illustrator</p>
             </div> */}
-          </div>
         </div>
-        <div className="flex w-full grow items-center gap-2 max-xl:justify-center xl:justify-end">
+        <div className="flex w-auto grow items-center gap-2 max-xl:justify-center xl:justify-end">
           <Link href={"/gallery/illustrations"}>
             <PrimaryNavButton label="Illustrations" />
           </Link>
