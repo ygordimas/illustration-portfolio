@@ -6,7 +6,7 @@ function LogoZaltys() {
   return (
     <>
       {/* STROKE */}
-      <div className="relative h-10 w-auto ">
+      <div className="relative h-10 w-auto">
         <svg
           data-name="Layer 2"
           viewBox="0 0 448.01 46.66"
@@ -25,7 +25,7 @@ function LogoZaltys() {
             className="fill-myblue-100"
             style={{
               filter:
-                "drop-shadow(3px 4px 0px rgb(245, 187, 19)) drop-shadow(4px 2px 0px rgb(236, 244, 194))",
+                "drop-shadow(2px 2px 0px rgb(245, 187, 19)) drop-shadow(2px -3px 0px rgb(236, 244, 194))",
             }}
           >
             <g data-name="Layer 1">

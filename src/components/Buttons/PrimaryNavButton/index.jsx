@@ -75,7 +75,7 @@ function PrimaryNavButton({ label, href, children }) {
     //   } relative h-fit w-fit`}
     // >
     <motion.div
-      className={`relative flex cursor-pointer items-center gap-2 rounded-full border-[4px] border-mypink-300 bg-myblue-50 px-2 py-2 font-singoRound text-xl tracking-wider shadow-[2px_2px_0_0_rgb(248,145,158)] xl:text-base`}
+      className={`relative flex  cursor-pointer items-center gap-2 rounded-full border-[4px] border-mypink-300 bg-mypink-50 px-2 py-2 font-singoRound text-xl tracking-wider shadow-[2px_2px_0_0_rgb(248,145,158)] xl:text-base`}
       onHoverStart={() => handleHoverIn()}
       onHoverEnd={() => handleHoverOut()}
       variants={buttonVariants}
@@ -85,6 +85,7 @@ function PrimaryNavButton({ label, href, children }) {
       }}
     >
       <motion.p
+        className="whitespace-nowrap"
         variants={textShadowVariant}
         animate={hovered ? "animate" : "initial"}
       >

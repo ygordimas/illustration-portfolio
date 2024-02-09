@@ -18,9 +18,10 @@ module.exports = {
         "pos-0": "0% 0%",
         "pos-100": "100% 100%",
       },
-      // backgroundImage: {
-      //   lines: "url('/public/SVG/GCxktUdXYAAoJ63.jpg')",
-      // },
+      backgroundImage: {
+        linearGradient:
+          "linear-gradient(to bottom right, transparent 50%, red 0), linear-gradient(to top right, red 50%, transparent 0)",
+      },
       colors: {
         primary: {
           DEFAULT: "#C1DC40",
