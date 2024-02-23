@@ -179,4 +179,6 @@ const SocialMedia = forwardRef((props, ref) => {
   );
 });
 
+SocialMedia.displayName = "MySocialMedia";
+
 export default SocialMedia;

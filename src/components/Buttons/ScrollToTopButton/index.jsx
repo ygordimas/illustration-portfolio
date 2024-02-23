@@ -86,4 +86,6 @@ const ScrollToTopButton = forwardRef((props, ref) => {
   );
 });
 
+ScrollToTopButton.displayName = "MyScrollToTopButton";
+
 export default ScrollToTopButton;

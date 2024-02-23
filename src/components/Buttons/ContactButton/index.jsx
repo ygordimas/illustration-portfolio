@@ -248,4 +248,6 @@ const ContactButton = forwardRef((props, ref) => {
   );
 });
 
+ContactButton.displayName = "MyContactButton";
+
 export default ContactButton;
