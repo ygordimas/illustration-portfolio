@@ -13,7 +13,7 @@ import LogoZaltys from "../../components/SVGComponents/LogoZaltys";
 
 import PrimaryNavButton from "../../components/Buttons/PrimaryNavButton";
 
-export default function Header() {
+function Header() {
   const pathname = usePathname();
   const { hideHeader } = useGlobalContext();
   const windowsWidth = useWindowSize();
@@ -62,3 +62,5 @@ export default function Header() {
     </header>
   );
 }
+
+export default Header;
