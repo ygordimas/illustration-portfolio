@@ -8,6 +8,7 @@ import OverviewHeader from "../../components/OverviewHeader";
 import OverviewDescription from "../../components/OverviewDescription";
 import OverviewMainImage from "../../components/OverviewMainImage";
 import OverviewExtras from "../../components/OverviewExtras";
+import { ViewModalContextProvider } from "../../context/ViewModalContext";
 
 function Overview({ params }) {
   const wrapperRef = useRef(null);
@@ -56,24 +57,26 @@ function Overview({ params }) {
   const nextItem = fetchNextItem(params[1]);
 
   return (
-    <main
-      ref={wrapperRef}
-      className="relative flex w-full flex-col items-center justify-center gap-8"
-    >
-      <hr className="border-4 border-mypink-300" />
-      <OverviewHeader
-        currentItem={currentItem}
-        previousItem={previousItem}
-        nextItem={nextItem}
-      />
-      <OverviewDescription currentItem={currentItem} />
+    <ViewModalContextProvider>
+      <main
+        ref={wrapperRef}
+        className="relative flex w-full flex-col items-center justify-center gap-8"
+      >
+        <hr className="border-4 border-mypink-300" />
+        <OverviewHeader
+          currentItem={currentItem}
+          previousItem={previousItem}
+          nextItem={nextItem}
+        />
+        <OverviewDescription currentItem={currentItem} />
 
-      <hr className="border-4 border-mypink-300" />
+        <hr className="border-4 border-mypink-300" />
 
-      <OverviewMainImage currentItem={currentItem} />
-      <hr className="border-4 border-mypink-300" />
-      <OverviewExtras currentItem={currentItem} />
-    </main>
+        <OverviewMainImage currentItem={currentItem} />
+        <hr className="border-4 border-mypink-300" />
+        <OverviewExtras currentItem={currentItem} />
+      </main>
+    </ViewModalContextProvider>
   );
 }
 
