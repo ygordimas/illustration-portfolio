@@ -9,7 +9,7 @@ function OverviewDescription({ currentItem }) {
       </p>
       <div className="flex flex-wrap items-center justify-center gap-2">
         {currentItem.tools.map((tag, index) => (
-          <OverviewTag tag={tag} id={index} />
+          <OverviewTag key={index} tag={tag} id={index} />
         ))}
       </div>
     </div>

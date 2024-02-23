@@ -41,7 +41,12 @@ function ImageGallery({ params }) {
       columnClassName=""
     >
       {items.map((image, index) => (
-        <ImageContainer image={image} index={index} galleryPath={params[0]} />
+        <ImageContainer
+          key={index}
+          image={image}
+          index={index}
+          galleryPath={params[0]}
+        />
       ))}
     </Masonry>
   );
