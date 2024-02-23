@@ -102,7 +102,7 @@ export default function RootLayout({ children }) {
               <Wrapper>
                 <Header />
 
-                <MainContent children={children} />
+                <MainContent>{children}</MainContent>
               </Wrapper>
             </ContactModalProvider>
           </ScrollingContextProvider>
